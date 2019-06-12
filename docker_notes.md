@@ -1,4 +1,4 @@
-##Docker documentation notes
+## Docker documentation notes
 
 Main notes are taken from the Docker docs, additions from various sources
 
@@ -48,7 +48,7 @@ docker rm -v <CID>
 # see files modified in the R/W layer
 docker diff <CID>
 ```
-####Manage containers 
+#### Manage containers 
 
 - once a container has been created (with pull/create/run) it gets a container ID, and a random name if none provided, visible in `docker ps`.
 - several `docker run` invocations on the same image create as many different containers
@@ -78,7 +78,7 @@ docker top <CID>
         
 ### Dockerfile
 
-####Example
+#### Example
 
 ```text
 FROM docker/whalesay:latest
@@ -86,7 +86,7 @@ FROM docker/whalesay:latest
  CMD /usr/games/fortune -a | cowsay
 ```
 
-####Guidelines
+#### Guidelines
 
 <https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/>
 
@@ -96,7 +96,7 @@ FROM docker/whalesay:latest
 - make containers ephemeral (no state)
 - sort multi line args (package lists, etc) for better diffs -> no duplication of images
 
-####Instructions
+#### Instructions
 
 - `FROM debian` (generally use debian as a base, tight and clean)
 - `LABEL` for meta information, versions, provides, etc. multi-line possible
