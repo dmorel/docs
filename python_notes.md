@@ -100,7 +100,7 @@ From <http://sametmax.com/debugger-en-python-les-bases-de-pdb/>
             if sys.version_info > (3,):
                 long = int
             "1L"
-            
+        
     - octal literals: not 0... anymore but 0o...
     - unicode: 2 to 3 converts all u'' strings to straight strings, but u'' is back in python 3.3 anyway (only an issue in 3.1 and 3.2)
     - for most of these cases and more, check <http://pypi.python.org/pypi/six> to make it easier
@@ -324,7 +324,7 @@ def func(my_func, *args):
 print(func(myfunc1, 'whatever'))
 ```
 
-# From Modern Python Cookbook
+# From Modern Python Cookbook (Packt Publishing)
 
 ## Chapter 1. Numbers, Strings, and Tuples
 
@@ -352,13 +352,13 @@ print(func(myfunc1, 'whatever'))
     >>> scale_factor = Fraction(5/8)
     >>> sugar_cups * scale_factor
     Fraction(25, 16)
-
+    
     In [7]: from fractions import Fraction
     In [8]: Fraction(152/23)
     Out[8]: Fraction(7440729819133863, 1125899906842624)
     In [9]: Fraction(152,23)
     Out[9]: Fraction(152, 23)
-
+    
     >>> Fraction(24,16)
     Fraction(3, 2)
 
@@ -445,11 +445,11 @@ format strings
     ...   id=id, location=location, max_temp=max_temp, 
             min_temp=min_temp, precipitation=precipitation )
     'IAD  : Dulles Intl Airport :   32 /  13 /  0.40'
-
+    
     >>> '{id:3s}  : {location:19s} :  {max_temp:3d} / {min_temp:3d} / 
     {precipitation:5.2f}'.format_map( data )
     'IAD  : Dulles Intl Airport :   32 /  13 /  0.40'
-
+    
     >>> '{id:3s}  : {location:19s} :  {max_temp:3d} / {min_temp:3d} / 
     {precipitation:5.2f}'.format_map( vars() )
     'IAD  : Dulles Intl Airport :   32 /  13 /  0.40'
@@ -466,7 +466,7 @@ unicode characters
     \uxxxx     for 4 hex digits
     \Uxxxxxxxx for 8 hex digits
     \N{UNICODE_NAME}
-
+    
     # display raw strings
     >>> r"\w+"
     '\\w+'
@@ -956,3 +956,91 @@ for item in to_be_ignored:
 `pop()` on a set will remove one element at random. Throws KeyError on empty set
 
 ### Creating dictionaries – inserting and updating
+
+It's essential that dictionary key objects be immutable. We cannot use a list, set, or dict as the key in a dictionary mapping. We can, however, transform a list into an immutable tuple, or make a set into a frozenset so that we can use one of these more complex objects as a key.
+
+Specialized implementations of dictionaries in the collections module:
+
+- defaultdict (no need to use `dict1.setdefault(key, <defaultvalue>)` if the key does not exist yet)
+- OrderedDict
+- Counter
+
+```python
+from collections import defaultdict
+# passsing the int function object will initialize at 0
+histogram = defaultdict(int)
+for item in source:
+    histogram[item] += 1 
+```
+
+`Counter(<source iterable, list or other>)`will create a dictionary with items as key, and number or occurences as value, and will display data by descending number of occurences
+
+`OrderedDict` will display data with consistent ordering (by order of insertion)
+
+to display by key order: `for key in sorted(histogram): print(key, histogram[key])`
+
+- We have the in-memory **dictionary**, **dict**, and the variations on this theme in the **collections** module. The collection only exists while our program is running.
+- We also have persistent storage in the **shelve** and **dbm** modules. The data collection is a persistent file in the file system.
+
+### Removing from dictionaries – the pop() method and the del statement
+
+```python
+amount = working_bets.pop('come odds') # returns the removed value, throws KeyError
+del working_bets['come odds'] # returns nothing
+```
+
+`pop()` can be given a default value. If the key is not present, it will not raise an exception, but will return the default value instead.
+
+### Controlling the order of dict keys
+
+- Create an `OrderedDict`: This keeps keys in the order they are created
+- Use `sorted()` on the keys: This puts the keys into a sorted order
+
+### Making shallow and deep copies of objects
+
+lists, dictionaries and sets are mutable, the rest isn't
+
+python uses reference counting garbage collection
+
+shallow copy of mapings and sets are done with the `copy()` method. Beware, if the values of the object are references (lists, mappings or sets), then the copy and the copied object will share the same references. It can be a problem when mutating the values inside the original or copied object, which will reflect the other's changed state.
+
+Checking that 2 references are the same can be done using the `==` or `is` operators or the `id` function
+
+```python
+>>> some_list = [[2, 3, 5], [7, 11, 13]] 
+>>> another_list = some_list.copy() 
+>>> some_list is another_list 
+False 
+>>> some_list[0] is another_list[0] 
+True 
+```
+
+to make deep copies instead of shallow ones, use `deepcopy` from the `copy` module.
+
+### Avoiding mutable default values for function parameters
+
+`def gather_stats(n, samples=1000, summary=Counter()): `
+
+this is a really bad idea, because on the next iteration with no summary passed, it will reuse the summary variable which is already initialized in the scope. better do this:
+
+```python
+def gather_stats(n, samples=1000, summary=None):
+	  if summary is None: summary = Counter()
+    ...
+```
+
+*Don't use mutable defaults for functions. A mutable object (*set*,* list*,* dict*) should not be a default value for a function parameter.*
+
+```python
+def gather_stats(n, samples=1000, summary_func=lambda x:Counter(x)): 
+    summary = summary_func( 
+      sum(randint(1,6) for d in range(n)) for _ in range(samples)) 
+    return summary
+  
+gather_stats(2, 12, summary_func=list)  # returns a list
+gather_stats(2, 12)              				# returns a Counter
+```
+
+## Chapter 5: User Inputs and Outputs
+
+
