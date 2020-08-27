@@ -1,4 +1,4 @@
-# The making of a manager, Julie Zuho
+# The making of a manager, Julie Zhuo
 
 ## Chapter one: what is management
 
@@ -287,7 +287,139 @@ Do not confuse management and leadership:
 *Learning how to be a great leader means learning about your superpowers and flaws, learning how to navigate the obstacles in your head, and learning how to learn. With these tools comes the confidence that you’re meant to be here just as you are—no masks or pretenses needed—and that you’re ready for whatever challenges lie ahead.*
 
 ## Chapter Six: Amazing Meetings
+
+Good meetings are all the same:
+
+- The meeting was a great use of my time.
+- I learned something new that will help me be more effective at my job.
+- I left with a clearer sense of what I should do next.
+- Everyone was engaged.
+- I felt welcomed.
+
+At the end of the day, talking with someone face-to-face is still one of the best ways to communicate and get work done.
+
+Most of the time, there's no need for a meeting, like for progress information. Emails are enough.
+
+### What is a great outcome for your meeting?
+
+- Decision making meetings: getting to a clear decision and everyone leaving with a sense of trust in the process
+  - Gets a decision made (obviously)
+  - Includes the people most directly affected by the decision as well as a clearly designated decision-maker
+  - Presents all credible options objectively and with relevant background information, and includes the team’s recommendation if there is one
+  - Gives equal airtime to dissenting opinions and makes people feel that they were heard
+- Decision making meeting outcomes to avoid:
+  - People feel that their side wasn’t presented well, so they don’t trust the resulting decision.
+  - Decisions take a long time to make, which delays progress.
+  - Decisions keep flip-flopping back and forth, which makes it hard to trust and act on them.
+  - Time is wasted on rehashing the same argument twenty different ways.
+- Information sharing meeting:
+  - Enables the group to feel like they learned something valuable
+  - Conveys key messages clearly and memorably
+  - Keeps the audience’s attention (through dynamic speakers, rich storytelling, skilled pacing, interactivity)
+  - Evokes an intended emotion—whether inspiration, trust, pride, courage, empathy, etc.
+- Feedback meeting (or review): for stakeholders to understand and give input on work in progress
+  - Gets everyone on the same page about what success for the project looks like
+  - Honestly represents the current status of the work, including an assessment of how things are going, any changes since the last check-in, and what the future plans are
+  - Clearly frames open questions, key decisions, or known concerns to get the most helpful feedback
+  - Ends with agreed-upon next steps (including when the next milestone or check-in will be)
+- Generating Ideas meeting (brainstorm)
+  - Produces many diverse, nonobvious solutions through ensuring each participant has quiet alone time to think of ideas and write them down (either before or during the meeting)
+  - Considers the totality of ideas from everyone, not just the loudest voices
+  - Helps ideas evolve and build off each other through meaningful discussion
+  - Ends with clear next steps for how to turn ideas into action
+- Strengthening Relationships meetings
+  - Creates better understanding and trust between participants
+  - Encourages people to be open and authentic
+  - Makes people feel cared for
+
+*Every meeting should be clear on which of the above it’s trying to accomplish. Don’t try to make a single meeting do too much, and remind the group of its primary purpose when the conversation starts to deviate. Practice clarity and ruthless efficiency with your meetings, and people will thank you for respecting the sanctity of their time.*
+
+### Invite the right people
+
+Which people are necessary to get to the required outcome? Invite those, and only those. Not too few, not too many.
+
+### Give people a chance to come prepared
+
+Send all the material to all attendants beforehand. This will help them to be better contributors.
+
+At the very least send a complete agenda, including the decisions that need to be made.
+
+Then send a detailed recap which is totally clear on the decisions taken.
+
+### Make it safe for people to contribute
+
+If you are a meeting organizer trying to generate ideas, make a decision, or create stronger relationships, you will get better results if you can get your entire group to contribute. This is why it’s so important to foster a welcoming environment for questions, discussions, discourse, and dissent.
+
+- Be explicit about the norms you want to set (tough questions should be encouraged)
+- Manage equal airtime, prevent interruptions, make everyone speak
+- Get feedback about your meeting: be specific about what you want to know and make it safe for the person to tell you her honest opinion.
+
+### Some meetings don't need you and some don't need to exist at all
+
+- Guard your time like a dragon: if you cannot contribute to a meeting, don't attend it.
+- Useless meetings should simply be scraped or revamped.
+
 ## Chapter Seven: Hiring Well
+
+hiring is **not a problem** to be solved but **an opportunity to build the future** of your organization.
+
+hiring isn’t just about filling holes. If you approach it that way, you’re not going to bring in the best people
+
+**It’s about figuring out how to make your team and your own life much, much better**.
+
+### Design your team intentionally
+
+Yearly plan for hiring:
+
+- How many new people will I add to our team this year (based on company growth, expected attrition, budget, priorities, etc.)?
+- For each new hire, what level of experience am I looking for?
+- Which specific skills or strengths do we need in our team (for example, creative thinking, operational excellence, expertise in XYZ, etc.)?
+- Which skills and strengths does our team already have that new hires can stand to be weaker in?
+- What traits, past experiences, or personalities would strengthen the diversity of our team?
+
+### Hiring is your responsibility
+
+It's not the sourcing department's responsibility
+
+- Describe Your Ideal Candidate as Precisely as You Can, both on the technical level and the behavioral level.
+- Develop a Sourcing Strategy by sitting with the recruiters and looking at the past hires
+- Deliver an Amazing Interview Experience: candidates like it, it means that you care about them. requires a strong manager–recruiter relationship
+
+- Show Candidates How Much You Want Them, don't let them off the hook (don't delay an offer, keep asking them to join)
+
+### Hiring is a gamble, but make smart bets
+
+- Difficult because:
+  - it’s impossible to re-create the actual working environment of a team in a thirty-minute or hour-long meeting
+  - interviewers bring their personal biases into the evaluation
+  - people are capable of enormous change (no need to check how they did in college)
+
+- Examine past examples of similar work: examine portfolios, descriptions of previous work, etc
+- Seek Out Trusted Recommendations: references are of utmost importance. Use your network if possible, so they put you in touch with a mutual connection. Discount negative feedback that isn't recent.
+- Get multiple interviewers involved: knowledgeable people about the role, summarizing their thoughts and hire/no hire opinion before going into group think.
+- Look for Passionate Advocates Rather Than Consensus: weak hires are when everyone agrees but no one is enthusiastic. It's dangerous. You need people who will add true value, not average people.
+
+- Prepare Your Interview Questions Ahead of Time, and always use the same list for a position. Technical questions but also behavioural ones like these ones:
+  - What kinds of challenges are interesting to you and why? Can you describe a favorite project?
+  - What do you consider your greatest strengths? What would your peers agree are your areas of growth?
+  - Imagine yourself in three years. What do you hope will be different about you then compared to now?
+  - What was the hardest conflict you’ve had in the past year?
+  - What’s something that’s inspired you in your work recently?
+- Reject Anyone Who Exhibits Toxic Behavior (bad mouthing past employers, other people, rejecting responsibility in failure, asking what the company can do for them instead of what they can do, exhibiting self-importance, etc)
+- Build a Team with Diverse Perspectives: diversity in all aspects—from gender to race to work history to life experiences—leads to better ideas and better results.
+- Hire People Who Are Capable of More: hire higher than what the job is supposed to be, because their responsibilities will evolve.
+- Meeting Frogs Is Part of the Deal, but Believe in the Process. It's a funnel, there will be losses and failures in the process. It is what it is.
+
+### Hiring when you need five, ten, or hundreds of people
+
+Hiring may be your most important task. The #1 priority.
+
+- Successful Hiring Is All about Diligent Execution: Your success depends on how well you operate. Break the problem down into smaller and smaller pieces, and ask your entire staff to play a role in helping the team grow and thrive.
+- Do Your Research When Hiring Leaders: When you make a great leadership hire, the impact on your team is enormous for years to come. Don’t approach it willy-nilly
+- Take the Long View with Top Talent: Recruiting top talent is all about the relationships you build. Continuously build your network.
+- Build a Great Bench: Having a great bench means your lieutenants could take over for you if you’re unexpectedly called out of the office. It means you are not the single point of failure.
+- Create a Culture That Prioritizes Hiring Well: talk about your values so others can hire as well as you do.
+
 ## Chapter Eight: Making Things Happen
 ## Chapter Nine: Leading a Growing Team
 ## Chapter Ten: Nurturing Culture
