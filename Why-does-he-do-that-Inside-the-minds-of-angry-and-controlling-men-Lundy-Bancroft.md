@@ -80,9 +80,25 @@ At the beginning of presentations, the author asks the audience to list the reas
    - Feelings cause behaviour? Wrong. Although our feelings can influence how we wish to act, our choices of action are determined by attitudes and habits.
    - Many people reserve their *best* behaviour to those they love most.
    - Wide acceptance in society that passion and aggression are linked to an intense relationship.
-4. He holds in his feelings too much.
-5. He has an aggressive personality.
-6. He loses control.
+4. **He holds in his feelings too much**
+   - The pressure cooker theory
+   - It's wrong: most abusers express their feelings liberally and have an inflated idea of their importance. When he feels bad, he thinks that life in the family should stop until someone fixes it. "His partner’s life crises, the children’s sicknesses, meals, birthdays—nothing else matters as much as his feelings."
+   - It's not *his* feelings that the abuser is too distant from, but everyone else's an in particular  his partner's and his children's. He knows very little about that.
+   - Focusing on the abuser's feelings is counterproductive, that's what he wants.
+   - The tension buildup is caused by his lack of empathy *for the partner's* feelings, and a set of attitudes. He explodes when he gives himself permission to do so.
+5. **He has an aggressive personality**
+   - A great majority of abusive men are calm and reasonable with everyone except their partner. If he had an aggressive personality, it wouldn't be reserved to their partner.
+   - Class and racial stereotypes come into play (blue collar, non-white). The reality is different. Sometimes education is a weapon to tie even more intricate knots.
+   - Sidenote: beware, men who intimidate other people routinely will intimidate their partner at some point too.
+6. **He loses control**
+   - He breaks her stuff, not his. He lets her clean up the mess.
+   - He knows at which point to stop. When asked what made him stop, they can always find a reason (kids, fear of police, etc). Most common one: "*I would never do that to her*". So he does not really lose control, does he?
+   - An abuser almost never does anything that he himself considers morally unacceptable. He may hide what he does because he thinks others would disagree with him, but feels justified inside.
+   - He never ever says: “There’s no way I can defend what I did. It was just totally wrong.”
+   - An abuser's core problem is that he has a distorted sense of right and wrong.
+   - "*you can't call your mother a bitch*" (but your partner, yes) so it's not that much of a loss of control. He thinks mistreating his partner is justifiable.
+   - think of an abuser as an acrobat in a circus ring who does “go wild” to some extent but who never forgets where the limits are.
+
 7. He is too angry.
 8. He is mentally ill.
 9. He hates women.
