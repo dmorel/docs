@@ -200,3 +200,61 @@ The abuser reverses aggression and self-defense. When the victim defends herself
 
 #### Reality #4: he disrespects his partner and considers himself superior to her
 
+The abuser tends to see his partner as less intelligent, less competent, less logical, and even less sensitive than he is: **objectification** or **depersonalization**, sustained by use of foul language. The abuser protects himself from empathy and guilt this way.
+
+Abuse and respect are diametric opposites: You do not respect someone whom you abuse, and you do not abuse someone whom you respect.
+
+#### Reality #5: he confuses love and abuse
+
+It isn't really love; what he is feeling is:
+
+- The desire to have you devote your life to keeping him happy with no outside interference
+- The desire to have sexual access
+- The desire to impress others by having you be his partner
+- The desire to possess and control you
+
+Genuine love means respecting the humanity of the other person, wanting what is best for him or her, and supporting the other person’s self-esteem and independence. This kind of love is incompatible with abuse and coercion.
+
+#### Reality #6: he is manipulative
+
+- Frequent and abrupt change of mood.
+- Deny the obvious about his feelings or actions.
+- Convince you that what he wants you to do is best for you.
+- Getting you to feel sorry for him.
+- Getting you to blame yourself or blame other people for his actions.
+- Using confusion tactics in arguments.
+- Lying or misleading you about his actions, desires, or reasong for doing certain things.
+- Getting you and the people you care about turned against each other.
+
+#### Reality #7: he strives to have a good public image
+
+Makes the victim wonder what is wrong with *her* since he is different for everyone else.
+
+- Enraged at home but calm and smiling outside Selfish and self-centered with you but generous and supportive with others
+- Domineering at home but willing to negotiate and compromise outside
+- Highly negative about females while on his own turf but a vocal supporter of equality when anyone else is listening
+- Assaultive toward his partner or children but nonviolent and nonthreatening with everyone else
+- Entitled at home but critical of other men who disrespect or assault women
+
+Do they have split personalities? Not really. The nice guy front helps him feel good about himself, and hide the ugly side.
+
+#### Reality #8: he just feels justified
+
+- “She knows how to push my buttons.”
+
+- Abusive men are masters of excuse making. In this respect they are like substance abusers, who believe that everyone and everything except them is responsible for their actions. They feel entitled on top of that.
+
+#### Reality #9: Abusers deny and minimize their abuse
+
+- Denial and minimization are part of most destructive behavior patterns, whether they be alcohol abuse, gambling, or child abuse. Partner abuse is no exception.
+
+#### Reality #10: Abusers are possessive
+
+- They think they own their partner, especially after a long relationship, and can behave as they see fit.
+- Possessiveness often takes the form of sexual jealousy, monitoring her carefully.
+- He wants to isolate her to focus on his needs, and prevent her from reaching out to others
+
+
+
+*In reality, abuse springs from a man’s early cultural training, his key male role models, and his peer influences. In other words, abuse is a problem of values, not of psychology. When someone challenges an abuser’s attitudes and beliefs, he tends to reveal the contemptuous and insulting personality that normally stays hidden, reserved for private attacks on his partner. An abuser tries to keep everybody—his partner, his therapist, his friends and relatives—focused on how he feels, so that they won’t focus on how he thinks, perhaps because on some level he is aware that if you grasp the true nature of his problem, you will begin to escape his domination.*
+
