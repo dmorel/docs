@@ -6,7 +6,7 @@ Abusive man and abuser are used in this book to define any man who has problems 
 
 ### Introduction
 
-- 15 years conselor, evaluator, and investigator, more than 1000 cases.
+- 15 years counselor, evaluator, and investigator, more than 1000 cases.
 - problem of abusiveness has little to do with how he feels, but is about how he thinks.
 - purpose of the book is to help women.
 - book is based on 21 most frequent questions women asked.
