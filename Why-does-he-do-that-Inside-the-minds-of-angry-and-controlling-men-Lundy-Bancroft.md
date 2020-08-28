@@ -65,32 +65,43 @@ It is a serious problem to allow abusers to analyze and account for their own pr
 At the beginning of presentations, the author asks the audience to list the reasons abusers are what they are. People always come up with the common myths, and rarely with truths.
 
 1. **He was abused as a child**
+
    - Weak link and other predictors are much more reliable. Usual therapy doesn't work, because it helps him develop an even more sophisticated defense system, and his pattern of abusiveness doesn't change. But special programs may bring some change.
    - By focusing on what his mother did, he can blame yet another woman.
    - Society refuses to acknowledge that it's a man's problem by blaming the mother.
    - Abusers often are litterate in psychology, turning exchanges with their partner in a therapy session for her where he outlines her supposed issues.
    - "I'm abusive because the same thing was done to me" is a common excuse, rarely stands up to reality. A non-abusive man doesn't use his past to mistreat you.
    - If you are so in touch with your abusive childhood, you should replicate it less, not more, because you know how it feels. It's just an excuse.
+
 2. **His previous partner hurt him**
+
    - Pretends the woman was cheating on him, without any proof.
    - Says she wanted to control him, wouldn't let him have any freedom, turned their children against him. Usually describing his own behaviours but attributing them to the woman.
    - If it is an excuse for mistreating you, it's a distorsion: a man mistreated wouldn't use this to get away with hurting someone else. Past experiences can explain how one feels, but not how ones behaves in a "retaliatory" fashion. Stop believing anything he says.
    - If he presents himself as a victim, is aim is to play on your compassion so he can avoid dealing with his problem.
+
 3. **He abuses those he loves the most**
+
    - Feelings cause behaviour? Wrong. Although our feelings can influence how we wish to act, our choices of action are determined by attitudes and habits.
    - Many people reserve their *best* behaviour to those they love most.
    - Wide acceptance in society that passion and aggression are linked to an intense relationship.
+
 4. **He holds in his feelings too much**
+
    - The pressure cooker theory
    - It's wrong: most abusers express their feelings liberally and have an inflated idea of their importance. When he feels bad, he thinks that life in the family should stop until someone fixes it. "His partner’s life crises, the children’s sicknesses, meals, birthdays—nothing else matters as much as his feelings."
    - It's not *his* feelings that the abuser is too distant from, but everyone else's an in particular  his partner's and his children's. He knows very little about that.
    - Focusing on the abuser's feelings is counterproductive, that's what he wants.
    - The tension buildup is caused by his lack of empathy *for the partner's* feelings, and a set of attitudes. He explodes when he gives himself permission to do so.
+
 5. **He has an aggressive personality**
+
    - A great majority of abusive men are calm and reasonable with everyone except their partner. If he had an aggressive personality, it wouldn't be reserved to their partner.
    - Class and racial stereotypes come into play (blue collar, non-white). The reality is different. Sometimes education is a weapon to tie even more intricate knots.
    - Sidenote: beware, men who intimidate other people routinely will intimidate their partner at some point too.
+
 6. **He loses control**
+
    - He breaks her stuff, not his. He lets her clean up the mess.
    - He knows at which point to stop. When asked what made him stop, they can always find a reason (kids, fear of police, etc). Most common one: "*I would never do that to her*". So he does not really lose control, does he?
    - An abuser almost never does anything that he himself considers morally unacceptable. He may hide what he does because he thinks others would disagree with him, but feels justified inside.
@@ -99,14 +110,93 @@ At the beginning of presentations, the author asks the audience to list the reas
    - "*you can't call your mother a bitch*" (but your partner, yes) so it's not that much of a loss of control. He thinks mistreating his partner is justifiable.
    - think of an abuser as an acrobat in a circus ring who does “go wild” to some extent but who never forgets where the limits are.
 
-7. He is too angry.
-8. He is mentally ill.
-9. He hates women.
-10. He is afraid of intimacy and abandonment.
-11. He has low self-esteem.
-12. His boss mistreats him.
-13. He has poor skills in communication and conflict resolution. 
-14. There are as many abusive women as abusive men.
-15. His abusiveness is as bad for him as for his partner.
-16. He is a victim of racism. 
-17. He abuses alcohol or drugs.
+7. **He is too angry**
+
+   - Anger doesn't cause abuse, it's the other way around.
+   - Everybody gets angry at times, but they don't necessarily abuse their partner.
+   - The abuser’s explosive anger can divert your attention from all the disrespect, irresponsibility, talking over you, lying, and other abusive and controlling behaviors that he exhibits even at times when he isn’t especially upset.
+
+8. **He is mentally ill**
+
+   - He may look insane at times, unstable, or paranoid. But he in fact works "normally", not neurotically. *Their value system is wrong, not their psychology*
+   - Even for the physically violent ones, there's no particular mental condition that is common to any large number of them.
+   - Mental illness doesn't cause abusiveness any more than alcohol does. The man's optional psychatric problem interacts with his abusiveness to form a volatile combination.
+   - Abusiveness cannot be medicated. 
+
+9. **He hates women**
+
+   - Just not true, they get on well with most.
+   - Disrespect for women is rampant among abusive men, however. More subtle and pervasive.
+   - Men who have abusive mothers don't become abusive, but those who have abusive fathers tend to much more.
+
+10. **He is afraid of intimacy and abandonment**
+
+    - Abusers are often jealous and possessive, and this can escalate during breakup. But breakups and abandonment don't make most people violent.
+    - wrong theory: abuser uses his periodic cruelty to keep his partner from getting too close to him emotionally, a behavior which, in the language of psychologists, is called mediating the intimacy. Same as above, plus several other flaws in the theory (timing makes no sense in particular)
+
+11. **He has low self-esteem**
+
+    - The woman will tend to massage his ego, hoping that she can avoid the next explosion. It doesn't work. He gets used to the luxury and demands more.
+    - An abuser can feel remorse and shame for what he did, but this is a consequence of his action, not a cause.
+    - The woman whose self-esteem is destroyed doesn't turn into an abuser. Low self-esteem isn't a cause.
+
+12. **His boss mistreats him**
+
+    - Classic misconception of violence going down the ladder, not true in reality.
+
+    - Never once had a client whose behaviour at home improved because his job situation improved.
+
+13. **He has poor skills in communication and conflict resolution**
+
+    - Not *unable* to resolve conflicts non abusively, he is *unwilling* to do so.
+
+14. **There are as many abusive women as abusive men**
+
+    - Just not real.
+    - Abusive men usually like to play the victim, complaining about an abusive woman.
+
+15. **His abusiveness is as bad for him as for his partner**
+
+    - Abuse doesn't stop a career, friendships, etc. Abusers don't hit rock bottom. They *benefit* from their controlling behaviour. Life is certainly not equally hard for the men.
+
+16. **He is a victim of racism**
+
+    - The demographic doesn't support that claim (majority is white, etc)
+    - Cannot be used as an excuse again. Being subject to discrimination doesn't make you violent against someone else than the source of discrimination.
+
+17. **He abuses alcohol or drugs**
+
+    - Alcohol cannot create an abuser, and sobriety cannot cure one.
+
+### Chapter 3: the abusive mentality
+
+#### Reality #1: he is controlling
+
+- Arguments and decision making: “If my control and authority seem to be slipping, I have the right to take steps to reestablish the rule of my will, including abuse if necessary.”
+- Personal freedom: expects his partner to give him a medal for his generosity, not to criticize him for his oppressiveness. He sees himself as a reasonably permissive parent—toward his adult partner.
+- Parenting: properly. His arrogance about the superiority of his parenting judgment may be matched only by how little he truly understands, or pays attention to, the children’s needs.
+- THE ABUSIVE MAN CLAIMS that his control is in his partner’s best interest.
+- *“Your problem is not that you lose control of yourself, it’s that you take control of your partner. In order to change, you don’t need to gain control over yourself, you need to let go of control of her.”*
+
+#### Reality #2: he feels entitled
+
+The abuser thinks he has more rights than his partner and kids.
+
+- **Physical caretaking**: expects his partner to take care of house and the rest. Entitled to criticize if things are not to his liking. Not out of date, still alive and well.
+- expects his partner to provide **emotional caretaking**, and blows up when she doesn't anticipate unexpressed needs and desires.
+- the abuser often hides his high emotional demands under a varnish of rationality (money, etc).
+- feeding his entitlement will never be enough.
+- **Sexual caretaking** means that he considers it his partner’s duty to keep him sexually satisfied. He may not accept having his sexual advances rejected, yet turn her down whenever he feels like it. Even her pleasure exists for his benefit: If she doesn’t reach orgasm, for example, he may resent her for it because he wants the pleasure of seeing himself as a great lover.
+- **Deference**: the partner is supposed to accept his views (even the negative ones towards herself).
+- **Freedom from accountability**: he considers himself above criticism. 
+
+An abusive partner doesn't have a problem with his violence, but with his partner's violence. He takes away the right to be angry at him. Expression of anger is met with an accusation of irrationality.
+
+He isn't abusive because he's angry, but he's angry because he is abusive.
+
+#### Reality #3: he twists things into their opposites
+
+The abuser reverses aggression and self-defense. When the victim defends herself he calls it aggression because he's the only one entitled to yelling; she's supposed to be listening, not talking.
+
+#### Reality #4: he disrespects his partner and considers himself superior to her
+
