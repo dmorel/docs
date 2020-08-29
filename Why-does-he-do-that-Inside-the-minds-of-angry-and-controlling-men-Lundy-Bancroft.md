@@ -6,7 +6,7 @@ Abusive man and abuser are used in this book to define any man who has problems 
 
 ### Introduction
 
-- 15 years counselor, evaluator, and investigator, more than 1000 cases.
+- 15 years counselor, evaluator, and investigator, 2000 cases.
 - problem of abusiveness has little to do with how he feels, but is about how he thinks.
 - purpose of the book is to help women.
 - book is based on 21 most frequent questions women asked.
@@ -257,4 +257,105 @@ Do they have split personalities? Not really. The nice guy front helps him feel 
 
 
 *In reality, abuse springs from a man’s early cultural training, his key male role models, and his peer influences. In other words, abuse is a problem of values, not of psychology. When someone challenges an abuser’s attitudes and beliefs, he tends to reveal the contemptuous and insulting personality that normally stays hidden, reserved for private attacks on his partner. An abuser tries to keep everybody—his partner, his therapist, his friends and relatives—focused on how he feels, so that they won’t focus on how he thinks, perhaps because on some level he is aware that if you grasp the true nature of his problem, you will begin to escape his domination.*
+
+- Abuse grows from attitudes and values, not feelings. The roots are ownership, the trunk is entitlement, and the branches are control.
+- Abuse and respect are opposites. Abusers cannot change unless they overcome their core of disrespect toward their partners.
+- Abusers are far more conscious of what they are doing than they appear to be. However, even their less-conscious behaviors are driven by their core attitudes. 
+- Abusers are unwilling to be nonabusive, not unable. They do not want to give up power and control.
+- You are not crazy. Trust your perceptions of how your abusive partner treats you and thinks about you.
+
+### Chapter 4: the types of abusive men
+
+THE QUALITIES THAT MAKE UP an abusive man are like the ingredients in a recipe: The basics are always present, but the relative amounts vary greatly; the experience of each woman is different, but every abused woman finds herself fighting to make sense out of what is happening.
+
+#### The demand man
+
+Highly entitled, expects his partner to meet his needs. Partner comes to feel nothing is ever good enough.
+
+- It’s your job to do things for me, including taking care of my responsibilities if I drop the ball on them. 
+- If I’m unhappy about any aspect of my life, whether it has to do with our relationship or not, it’s your fault.
+- You should not place demands on me at all. You should be grateful for whatever I choose to give.
+- I am above criticism.
+- I am a very loving and giving partner. You’re lucky to have me.
+
+#### Mr Right
+
+- You should be in awe of my intelligence and should look up to me intellectually.
+- I know better than you do, even about what’s good for you.
+- Your opinions aren’t worth listening to carefully or taking seriously.
+- The fact that you sometimes disagree with me shows how sloppy your thinking is.
+- If you would just accept that I know what’s right, our relationship would go much better. Your own life would go better, too.
+- When you disagree with me about something, no matter how respectfully or meekly, that’s mistreatment of me.
+- If I put you down for long enough, some day you’ll see.
+
+#### The water torturer
+
+- You are crazy. You fly off the handle over nothing.
+- I can easily convince other people that you’re the one who is messed up.
+- As long as I’m calm, you can’t call anything I do abusive, no matter how cruel.
+- I know exactly how to get under your skin.
+
+#### The drill sergeant
+
+- I need to control your every move or you will do it wrong.
+- I know the exact way that everything should be done.
+- You shouldn’t have anyone else—or anything else—in your life besides me.
+- I am going to watch you like a hawk to keep you from developing strength or independence.
+- I love you more than anyone in the world, but you disgust me. (!!)
+
+#### Mr Sensitive
+
+- I’m against the macho men, so I couldn’t be abusive.
+- As long as I use a lot of “psychobabble,” no one is going to believe that I am mistreating you.
+- I can control you by analyzing how your mind and emotions work, and what your issues are from childhood. I can get inside your head whether you want me there or not.
+- Nothing in the world is more important than my feelings.
+- Women should be grateful to me for not being like those other men.
+
+#### The Player
+
+- Women were put on this earth to have sex with men—especially me.
+- Women who want sex are too loose, and women who refuse sex are too uptight. (!)
+- It’s not my fault that women find me irresistible. (This is a word-for-word quotation from a number of my clients.) It’s not fair to expect me to refuse temptation when it’s all around me; women seduce me sometimes, and I can’t help it. 
+- If you act like you need anything from me, I am going to ignore you. I’m in this relationship when it’s convenient for me and when I feel like it.
+- Women who want the nonsexual aspects of themselves appreciated are bitches.
+- If you could meet my sexual needs, I wouldn’t have to turn to other women.
+
+#### Rambo
+
+- Strength and aggressiveness are good; compassion and conflict resolution are bad.
+- Anything that could be even remotely associated with homosexuality, including walking away from possible violence or showing any fear or grief, has to be avoided at any cost.
+- Femaleness and femininity (which he associates with homosexuality) are inferior. Women are here to serve men and be protected by them.
+- Men should never hit women, because it is unmanly to do so. However, exceptions to this rule can be made for my own partner if her behavior is bad enough. Men need to keep their women in line.
+- You are a thing that belongs to me, akin to a trophy.
+
+#### The victim
+
+- Everybody has done me wrong, especially the women I’ve been involved with. Poor me. 
+- When you accuse me of being abusive, you are joining the parade of people who have been cruel and unfair to me. It proves you’re just like the rest.
+- It’s justifiable for me to do to you whatever I feel you are doing to me, and even to make it quite a bit worse to make sure you get the message.
+- Women who complain of mistreatment by men, such as relationship abuse or sexual harassment, are anti-male and out for blood.
+- I’ve had it so hard that I’m not responsible for my actions.
+
+#### The terrorist
+
+- You have no right to defy me or leave me. Your life is in my hands.
+- Women are evil and have to be kept terrorized to prevent that evil from coming forth.
+- I would rather die than accept your right to independence.
+- The children are one of the best tools I can use to make you fearful.
+- Seeing you terrified is exciting and satisfying.
+
+#### The mentally ill or addicted abuser
+
+- I am not responsible for my actions because of my psychological or substance problems.
+- If you challenge me about my abusiveness, you are being mean to me, considering these other problems I have. It also shows that you don’t understand my other problems.
+- I’m not abusive, I’m just _____ (alcoholic, drug addicted, manic-depressive, an adult child of alcoholics, or whatever his condition may be).
+- If you challenge me, it will trigger my addiction or mental illness, and you’ll be responsible for what I do.
+
+Tremendous variation exists among abusive styles. Your abusive partner may be of a type I haven’t encountered yet, but that doesn’t make him any less real. Many men are mixtures of different aspects. 
+
+An abuser may change so much from day to day that he couldn’t belong to any type. This style of abuser is so unpredictable that his partner can never make sense out of what she is living with. 
+
+An abuser of any type can have days when he turns loving, attentive, and thoughtful. At these times, you may feel that his problem has finally gone away and that the relationship will return to its rosy beginning. However, abuse always comes back eventually unless the abuser has dealt with his abusiveness.
+
+## part 2: The abusive man in relationships
 
