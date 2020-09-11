@@ -359,3 +359,159 @@ An abuser of any type can have days when he turns loving, attentive, and thought
 
 ## part 2: The abusive man in relationships
 
+### Chapter 5: How abuse begins
+
+- it all starts nicely and he's a wonderful and caring man, sometimes needing healing.
+- the abusive man also just dreams of a happy love story, he doesn't intend to be an abuser later. But he longs for a relationship where the woman is at his service, even if he doesn't realize it himself.
+- AN ABUSER IS A HUMAN BEING, NOT AN EVIL MONSTER, BUT HE HAS A PROFOUNDLY COMPLEX AND DESTRUCTIVE PROBLEM THAT SHOULD NOT BE UNDERESTIMATED.
+- AN ABUSER’S BEHAVIOR IS PRIMARILY CONSCIOUS—HE ACTS DELIBERATELY RATHER THAN BY ACCIDENT OR BY LOSING CONTROL OF HIMSELF—BUT THE UNDERLYING THINKING THAT DRIVES HIS BEHAVIOR IS LARGELY NOT CONSCIOUS.
+- Early warning signs:
+  - criticizes former partners
+  - disrespectful towards you (can see you as perfect or  very imperfect, but that's not you, he's seeing a fantasy)
+  - does favours you don't want or makes a show of generosity which is embarrassing. He wants you to feel indebted
+  - He is controlling
+  - He is possessive
+  - Nothing is ever his fault
+  - He's self centered
+  - He abuses drugs or alcohol
+  - He pressures you for sex
+  - He gets serious too quickly about the relationship
+  - He intimidates you when he's angry
+  - He has double standards
+  - He has negative attitudes towards women
+  - He treats you differently around other people
+  - He appears to be attracted to vulnerability
+
+- Many nonabusive men may exhibit a number of these behaviors to a limited degree. Make it clear what isn't acceptable. Leave temporarily if he persists. Leave forever at the 3rd time.
+
+- When an abuser starts, he thinks you are the one changing (not living up to his idealized image)
+
+- All couples have occasional moments when they're yelling etc but...
+
+- The term abuse is about power; it means that a person is taking advantage of a power imbalance to exploit or control someone else. Wherever power imbalances exist, such as between men and women, or adults and children, or between rich and poor, some people will take advantage of those circumstances for their own purposes. (As I discuss in Chapter 13, partner abuse has been found not to exist in societies where males and females have equal power.) Thus the defining point of abuse is when the man starts to exercise power over the woman in a way that causes harm to her and creates a privileged status for him.
+
+- The lines where subtler kinds of mistreatment end and abuse begins include the following actions:
+
+  - Retaliates against you for complaining about his behaviour (does more what you said you don't like, and blames it on you, or takes the role of the victim)
+
+  - He tells you that your objections to his mistreatment are your own problem.
+
+  - He blames you for the impact of his behavior
+
+  - It's never the right time or way to bring things up
+
+  - He undermines your progress in life
+
+  - He denies what he did
+
+  - He justifies his hurtful or frightening acts or says you made him do it
+
+  - He touches you in anger or puts you in fear in other ways
+
+  - Coerces you in having sex or sexually assaults you
+
+  - His controlling, disrespectful, or degrading behavior is a pattern
+
+  - You show signs of being abused:
+
+    - Are you afraid of him?
+    - Are you getting distant from friends or family because he makes those relationships difficult?
+    - Is your level of energy and motivation declining, or do you feel depressed?
+    - Is your self-opinion declining, so that you are always fighting to be good enough and to prove yourself?
+    - Do you find yourself constantly preoccupied with the relationship and how to fix it?
+    - Do you feel like you can’t do anything right?
+    - Do you feel like the problems in your relationship are all your fault?
+    - Do you repeatedly leave arguments feeling like you’ve been messed with but can’t figure out exactly why?
+
+    NOTE there is nothing about anger. Some abusive men are never angry, and some angry men are not abusive. It's not a defining factor.
+
+- Is he really sorry ? He often is, but he is full of contradictions, so being sorry, even genuinely, rarely helps. Use of "but" when describing the situation is very telling. When he feels sorry, it collides with his entitlement. And he doesn't feel bad about the victims, but himself or his image.
+
+- IF BEING SORRY AFTER AN INCIDENT DOESN’T HELP, WHAT WOULD? The following steps could help prevent his next incident of abuse, in a way that apologies cannot: 
+
+  - Giving you some extended room to be angry about what he did, rather than telling you that you’ve been angry too long or trying to stuff your angry feelings back down your throat 
+  - Listening well to your perspective without interrupting, making excuses, or blaming his actions on you
+  - Making amends for anything he did, for example, by picking up anything that he threw, admitting to friends that he lied about you, or telling the children that his behavior was unacceptable and wasn’t your fault
+  - Making unconditional agreements to immediately change behaviors
+  - Going to get help without you having to put a lot of pressure on him to do it
+
+  
+
+### Chapter 6: the abusive man in everyday life
+
+The behaviour between crises is equally important to observe
+
+#### The abusive man in arguments
+
+THE ABUSER’S PROBLEM IS NOT THAT HE RESPONDS INAPPROPRIATELY TO CONFLICT. HIS ABUSIVENESS IS OPERATING PRIOR TO THE CONFLICT: IT USUALLY CREATES THE CONFLICT, AND IT DETERMINES THE SHAPE THE CONFLICT TAKES.
+
+Abusive men are uncomfortable when they see signs of budding independence in their partners and often look for ways to undermine the woman’s progress in the days ahead.
+
+#### Four critical characteristics of an abusive argument
+
+1. the abuser sees argument as war
+2. She is always wrong in his eyes
+3. He has an array of control tactics in conflict (aiming at discredit)
+4. He makes sure to get his way one way or another
+
+#### The abusive man's cycles
+
+1. tension building phase, collects grievances (garden of resentment)
+2. the eruption: the tiniest spark will trigger him
+3. hearts and flowers stage: apologies then relative calm, to rebuild a connection he can abuse again
+
+This is not always the case, bursts may not follow cycles, which is even more stressful
+
+#### A closer look at the good periods
+
+He can feel good about himself and generate trust, and find angles of attack
+
+#### Ten reasons to stay the same
+
+1. the satisfaction of power and control
+2. getting his way when it matters to him the most (at the expense of your needs and desires and feelings) saving him the sacrifices that come with life in a couple
+3. Someone to take his problems out on
+4. free labor from her and leisure and freedom for him
+5. being the center of attention, with priority given to his needs
+6. financial control
+7. ensuring his career, education or other goals are prioritized
+8. public status of partner and/or father without the sacrifices
+9. the approval of his friends and relatives
+10. double standards
+
+If we want abusers to change, we will have to require them to give up the luxury of exploitation.
+
+After an argument, ask yourself this question: what privilege was he trying to get out of what he just did?
+
+#### Is he going to get violent?
+
+RESEARCH INDICATES THAT A WOMAN’S INTUITIVE SENSE OF WHETHER OR NOT HER PARTNER WILL BE VIOLENT TOWARD HER IS A SUBSTANTIALLY MORE ACCURATE PREDICTOR OF FUTURE VIOLENCE THAN ANY OTHER WARNING SIGN.
+
+It is critical to use common-sense—and legal—definitions of what constitute violence, not the abuser’s definition. An abuser minimizes his behavior by comparing himself to men who are worse than he is, whom he thinks of as “real” abusers.
+
+Will his verbal abuse turn to violence? 
+
+- kick things etc in a frightening way?
+- takes responsibility or rejects angrily?
+- threats?
+- severe verbal abuse?
+
+#### racial and cultural differences
+
+abuse of women—and societal approval of it—is a widespread problem in the great majority of modern cultures. The only places where it has been found not to exist are among some tribal peoples who are highly disapproving of all forms of aggression and who give women and men equal or nearly equal power.
+
+#### The same sex abuser
+
+- the abuser may be convinced that abuse doesn't happen in same sex relationships
+- uses partner's homosexuality as a weapon (disclosure, etc)
+- even more easily convinces others that it is not abuse, or that she is the one being abused
+- can get the community to ignore the abuse, because homosexuality is already a "problem" that should stay out of the spotlight
+
+### Chapter 7: abusive men and sex
+
+#### How many abusive men look at sex
+
+- It's for him: he compensates for the lack of genuine intimacy by elevating sex to the highest plane, burdening it with the responsibility of providing for him all the emotional satisfaction that he is not receiving elsewhere in his relationship.
+- She owes him sex: believes his wife is keeping something of his away from him when she doesn’t want intimate contact.
+- Sex is a way to establish power and dominance
+- He sees her as a sex object
