@@ -515,3 +515,44 @@ abuse of women—and societal approval of it—is a widespread problem in the gr
 - She owes him sex: believes his wife is keeping something of his away from him when she doesn’t want intimate contact.
 - Sex is a way to establish power and dominance
 - He sees her as a sex object
+
+#### Back to Mister Amazing
+
+Self-involved, wants to be awe-inspiring, and be the ultimate master. Sex can be very good with him, but it's one way.
+
+#### The abuser who isn't interested in sex (or not anymore)
+
+Not every abusive man is pressuring or demanding with respect to sex. In fact, a substantial number of the partners of my clients complain of the opposite problem: The man has lost sexual interest almost completely, and the woman is feeling rejected and hungry for sex and affection. Because she doesn't match his impossible standards, in particular.
+
+#### Sex as a cure-all
+
+- sex as a quick fix after abuse
+- wants to reassure himself that he still has leverage
+
+#### Sex as a way to keep women divided
+
+keeps getting women to focus on each other’s behavior rather than his. He relies partly on popular negative stereotypes of women, from which women themselves are not immune.
+
+#### The role of pornography
+
+Pornography fits the abusive mindset very well (no free will, always available for sex, enjoying submission and abuse, etc)
+
+#### What about sex that involves games or force of violence?
+
+Not all role playing in sex is abusive. the keyword is consent, and respect for request to stop it.
+
+#### Sex and double standards
+
+Constant double standards (number of partners, initiation of intercourse, etc)
+
+#### Sex and vulnerability
+
+The shock to a woman of having her deepest vulnerabilities thrown back in her face by someone she has loved and trusted can cause a burning pain unlike any other. This is intimate psychological cruelty in one of its worst forms.
+
+#### Sexual assault is violence
+
+An abuser who forces his partner to have any form of sexual relations against her will is physically battering her.
+
+### Chapter 8: Abusive men and addiction
+
+- Not all substance abusers are abusive partners
