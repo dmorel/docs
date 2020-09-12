@@ -254,8 +254,6 @@ Do they have split personalities? Not really. The nice guy front helps him feel 
 - Possessiveness often takes the form of sexual jealousy, monitoring her carefully.
 - He wants to isolate her to focus on his needs, and prevent her from reaching out to others
 
-
-
 *In reality, abuse springs from a man’s early cultural training, his key male role models, and his peer influences. In other words, abuse is a problem of values, not of psychology. When someone challenges an abuser’s attitudes and beliefs, he tends to reveal the contemptuous and insulting personality that normally stays hidden, reserved for private attacks on his partner. An abuser tries to keep everybody—his partner, his therapist, his friends and relatives—focused on how he feels, so that they won’t focus on how he thinks, perhaps because on some level he is aware that if you grasp the true nature of his problem, you will begin to escape his domination.*
 
 - Abuse grows from attitudes and values, not feelings. The roots are ownership, the trunk is entitlement, and the branches are control.
@@ -272,7 +270,7 @@ THE QUALITIES THAT MAKE UP an abusive man are like the ingredients in a recipe: 
 
 Highly entitled, expects his partner to meet his needs. Partner comes to feel nothing is ever good enough.
 
-- It’s your job to do things for me, including taking care of my responsibilities if I drop the ball on them. 
+- It’s your job to do things for me, including taking care of my responsibilities if I drop the ball on them.
 - If I’m unhappy about any aspect of my life, whether it has to do with our relationship or not, it’s your fault.
 - You should not place demands on me at all. You should be grateful for whatever I choose to give.
 - I am above criticism.
@@ -724,3 +722,155 @@ It depends on how responsibly they behaved towards the children pre-separation
 
 - professionals and other community members are highly critical of a mother who continues to live with an abusive man.
 
+- a woman can be punished for exposing children to a man in one situation but then punished for refusing to expose them to the same man in another situation (when in court, post separation)
+- *The treatment that protective mothers so often receive at the hands of family courts is among the most shameful secrets of modern jurisprudence. This is the only social institution that I am aware of that so frequently forbids mothers to protect their children from abuse.*
+- preparing for legal battles just in case
+  - keep records of past behaviours
+  - seek legal representation
+  - move cautiously
+  - involve your children with a therapist
+  - approach sexual abuse super calmly as agencies will label you as paranoid or hysterical
+  - the better you plan, the lesser the risk of a horrible surprise
+- additional actions:
+  - take care of yourself before everything else
+  - insist on complete respect from children
+  - insist on respect for women in general
+  - confront your partner's undermining of your parenting
+  - don't lie on your partner's behalf or cover for his behaviour
+  - be the best parent you can
+  - consider leaving your relationship if you can do so safely
+
+### Chapter 11: abusers and their allies
+
+### Chapter 12: the abuser and the legal system
+
+## Part IV: changing the abusive man
+
+### Chapter 13: the making of an abusive man
+
+### Chapter 14: the process of change
+
+Change is a difficult process, and few manage to go through it. Here are the steps:
+
+1. Admit fully to his history of psychological, sexual, and physical abusiveness toward any current or past partners whom he has abused. Denial and minimizing need to stop, including discrediting your memory of what happened. He can’t change if he is continuing to cover up, to others or to himself, important parts of what he has done. 
+
+2. Acknowledge that the abuse was wrong, unconditionally. He needs to identify the justifications he has tended to use, including the various ways that he may have blamed you, and to talk in detail about why his behaviors were unacceptable without slipping back into defending them. 
+
+3. Acknowledge that his behavior was a choice, not a loss of control. For example, he needs to recognize that there is a moment during each incident at which he gives himself permission to become abusive and that he chooses how far to let himself go. 
+
+4. Recognize the effects his abuse has had on you and on your children, and show empathy for those. He needs to talk in detail about the short- and long-term impact that his abuse has had, including fear, loss of trust, anger, and loss of freedom and other rights. And he needs to do this without reverting to feeling sorry for himself or talking about how hard the experience has been for him. 
+
+5. Identify in detail his pattern of controlling behaviors and entitled attitudes. He needs to speak in detail about the day-to-day tactics of abuse he has used. Equally important, he must be able to identify his underlying beliefs and values that have driven those behaviors, such as considering himself entitled to constant attention, looking down on you as inferior, or believing that men aren’t responsible for their actions if “provoked” by a partner.
+
+6. Develop respectful behaviors and attitudes to replace the abusive ones he is stopping. You can look for examples such as improving how well he listens to you during conflicts and at other times, carrying his weight of household responsibilities and child care, and supporting your independence. He has to demonstrate that he has come to accept the fact that you have rights and that they are equal to his.
+
+7. Reevaluate his distorted image of you, replacing it with a more positive and empathic view. He has to recognize that he has had mental habits of focusing on and exaggerating his grievances against you and his perceptions of your weaknesses and to begin instead to compliment you and pay attention to your strengths and abilities.
+
+8. Make amends for the damage he has done. He has to develop a sense that he has a debt to you and to your children as a result of his abusiveness. He can start to make up somewhat for his actions by being consistently kind and supportive, putting his own needs on the back burner for a couple of years, talking with people whom he has misled in regard to the abuse and admitting to them that he lied, paying for objects that he has damaged, and many other steps related to cleaning up the emotional and literal messes that his behaviors have caused. (At the same time, he needs to accept that he may never be able to fully compensate you.)
+
+9. Accept the consequences of his actions. He should stop whining about, or blaming you for, problems that are the result of his abuse, such as your loss of desire to be sexual with him, the children’s tendency to prefer you, or the fact that he is on probation.
+
+10. Commit to not repeating his abusive behaviors and honor that commitment. He should not place any conditions on his improvement, such as saying that he won’t call you names as long as you don’t raise your voice to him. If he does backslide, he cannot justify his abusive behaviors by saying, “But I’ve done great for five months; you can’t expect me to be perfect,” as if a good period earned him chips to spend on occasional abuse.
+
+11. Accept the need to give up his privileges and do so. This means saying good-bye to double standards, to flirting with other women, to taking off with his friends all weekend while you look after the children, and to being allowed to express anger while you are not. 
+
+12. Accept that overcoming abusiveness is likely to be a lifelong process. He at no time can claim that his work is done by saying to you, “I’ve changed but you haven’t,” or complain that he is sick of hearing about his abuse and control and that “it’s time to get past all that.” He needs to come to terms with the fact that he will probably need to be working on his issues for good and that you may feel the effects of what he has done for many years.
+
+13. Be willing to be accountable for his actions, both past and future. His attitude that he is above reproach has to be replaced by a willingness to accept feedback and criticism, to be honest about any backsliding, and to be answerable for what he does and how it affects you and your children.
+
+#### The abuser's outlook on change
+
+- the change game is just like the rest of the routine
+- "i can stop the abuse by learning non abusive ways to manipulate my partner"
+- "change is a bargaining chip"
+- "I don't mind changing what I do as long as I don't have to change my behaviours that are dearest to me"
+- *an abuser who doesn't relinquish his core entitlements will not change*
+  
+#### How to assess an abuser's claims of change
+
+- the partner is the best judge, because appearances can be deceptive to others
+  - no change unless he deals deeply with entitlement and superior attitudes
+  - it makes no difference how nice he is to you. what matters is how respectful and noncoercive he can become.
+
+- Has he learned to treat your opinions with respect, even when they differ strongly from his?
+- Is he accepting your right to express anger to him, especially when it involves his history of mistreating you?
+- Is he respecting your right to freedom and independence? Does that include refraining from all interference with your friendships and giving up the demand to always know where you are and whom you are with?
+- Has he stopped making excuses for his treatment of you, including not using your behavior as an excuse for his?
+- Is he being respectful about sex, applying no pressure and engaging in no guilt trips?
+- Has he stopped cheating or flirting with other women, or using other behaviors that keep you anxious that he will stray?
+- Does he listen to your side in arguments without interrupting, and then make a serious effort to respond thoughtfully to your points, even if he doesn’t like them?
+- Have you been free to raise your grievances, new or old, without retaliation from him?
+- Has he stopped talking about his abuse as if it were an accident and begun to acknowledge that he used it to control you?
+- Is he actually responding to your grievances and doing something about them (for example, changing the way he behaves toward your children)?
+- Has he greatly reduced or eliminated his use of controlling behaviors (such as sarcasm, rolling his eyes, loud disgusted sighs, talking over you, using the voice of ultimate authority, and other demonstrations of disrespect or superiority) during conversations and arguments?
+- When he does slip back into controlling behavior, does he take you seriously when you complain about it and keep working on improving?
+- Is he being consistent and responsible in his behavior, taking into account how his actions affect you without having to be constantly reminded?
+- Is he acting noticeably less demanding, selfish, and self-centered?
+- Is he being fair and responsible about money, including allowing you to keep your own assets in your own name?
+- Has he stopped any behaviors that you find threatening or intimidating?
+- Has he significantly expanded his contribution to household and child-rearing responsibilities and stopped taking your domestic work for granted or treating you like a servant?
+- Has he begun supporting your strengths rather than striving to undermine them?
+- Have you had any major angry arguments with him in which he has shown a new willingness to conduct himself nonabusively?
+
+CLEAR SIGNS OF AN ABUSER WHO ISN’T CHANGING 
+
+- Your partner can make several statements or behave in several ways that clearly indicate he isn’t making progress: He says he can change only if you change too. 
+- He says he can change only if you “help” him change, by giving him emotional support, reassurance, and forgiveness, and by spending a lot of time with him. This often means that he wants you to abandon any plans you had to take a break from seeing him.
+- He criticizes you for not realizing how much he has changed. He criticizes you for not trusting that his change will last. 
+- He criticizes you for considering him capable of behaving abusively even though he in fact has done so in the past (or has threatened to) as if you should know that he “would never do something like that,” even though he has.
+- He reminds you about the bad things he would have done in the past but isn’t doing anymore, which amounts to a subtle threat.
+- He tells you that you are taking too long to make up your mind, that he can’t “wait forever,” as a way to pressure you not to take the time you need to collect yourself and to assess how much he’s really willing to change.
+- He says, “I’m changing, I’m changing,” but you don’t feel it.
+
+#### Be straight with yourself
+
+Save yourself that sadness if you can, by insisting on nothing less than complete respect.
+
+#### Couples therapy
+
+they send the wrong message saying both have to change, they can even lead to more abuse as the abused opens up. the abuser won't hold his promises
+
+#### the abusive man in individual therapy
+
+counterproductive, uses psychology as a weapon against her, not showing any progress
+
+#### The abuser program
+
+Bringing about change in an abuser generally requires four elements: (1) consequences, (2) education, (3) confrontation, and (4) accountability.
+
+- Therapy focuses on the man’s feelings and gives him empathy and support, no matter how unreasonable the attitudes that are giving rise to those feelings. An abuser program, on the other hand, focuses on his thinking. 
+- The feelings that the abuser program discusses are primarily his partner’s and his children’s, not his. Therapy involves few rules, or none, governing what the man is allowed to do during the period he is in therapy. 
+- The abuser program requires the man to refrain from all physical violence and threats and to work seriously on reducing his verbal aggression and other forms of psychological abuse, or he can’t stay in the program. 
+- An abusive man’s therapist usually will not speak to the abused woman, whereas the counselor of a high-quality abuser program always does. 
+- Therapy typically will not address any of the central causes of abusiveness, including entitlement, coercive control, disrespect, superiority, selfishness, or victim blaming.
+- An abuser program is expected to cover all of these issues and in fact to make them its primary focus. 
+- An abuser program is expected to provide the man with education about abuse, to counsel him on how to apply those concepts to his own life, and to confront his abusive
+
+#### Creating a context for change
+
+*You cannot, I am sorry to say, get an abuser to work on himself by pleading, soothing, gently leading, getting friends to persuade him, or using any other nonconfrontational method.*
+
+- Establishing consequences for him for continued abusiveness.
+- Making clear to him what your expectations are for his treatment of you,
+- Focusing on your own healing and strength
+
+#### Leaving an abuser as a way to promote change
+
+- be clear on the level of contact, preferably none at all
+- be clear that you expect your wishes to be respected
+- stay away as long as you can
+- if you go back together, be clear about the rules
+- don't accept relapses
+
+#### Which abusers are most likely to change?
+
+Difficult to predict. Comes down to:
+
+- his close friends and relatives tell him he's abusive and needs to change
+- lower than others on the scale of self centeredness
+- his partner is supported by friends and legal system
+- joins a high quality abuser program
+
+### Chapter 15: creating an abuse-free world
+
+### End
