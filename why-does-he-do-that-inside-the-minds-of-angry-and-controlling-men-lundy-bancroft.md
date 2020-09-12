@@ -555,4 +555,172 @@ An abuser who forces his partner to have any form of sexual relations against he
 
 ### Chapter 8: Abusive men and addiction
 
-- Not all substance abusers are abusive partners
+- Not all substance abusers are abusive partners, or all abusive partners substance abusers
+- partner abuse isn't a a type of addiction. Its mechanics are unrelated to addiction.
+- substance and partner addiction are similiar in *some* aspects:
+  - escalation
+  - denial, minimization and blaming
+  - choosing approving peers
+  - lying and manipulating
+  - lack of predictability
+  - defining roles for family members
+  - high rates of returning to abuse after periods of apparent change
+- they are also different in other aspects:
+  - partner abusers don't hit bottom (not self destructive)
+  - short term vs long term rewards
+  - societal approval is higher for partner abuse
+
+#### partner abuse doesn't go away when an addict recovers
+
+#### Alcohol has no biological connection to abuse or violence
+
+- A man’s beliefs about the effects of the substance will largely be borne out. If he believes that alcohol can make him aggressive, it will.
+- Alcohol provides an abuser with an excuse to freely act on his desires.
+
+#### What about the man who is abusive only when he drinks?
+
+It's a fallacy. Substance may make it worse (physical violence, etc) but the abusive behaviour is already there. It can be overlooked / ignored because the intoxicated episodes are the worst.
+
+#### Abusers make conscious choices even while intoxicated
+
+#### Substances are weapons of abuse
+
+- dangerous behaviours to exert pressure
+- threatening to return to substance abuse when sober
+- blaming her for his problems that are in fact caused by his substance abuse
+- manipulating her to make her substance dependent
+
+#### Mutual reinforcement of addiction and partner abuse
+
+#### Entitlement and addiction
+
+An abusive man typically believes that his use or abuse of substances is none of his partner’s business.
+
+#### Substance abuse blocks self examination
+
+although recovery from addiction is not sufficient to bring about change in a man’s abusiveness, it is a necessary prerequisite.
+
+### Chapter 9: the abusive man and breaking up
+
+- Variety of tactics to put the leaver back under control, including assurance of change
+- "Abuse is no reason to end a relationship"
+- "when I promise to be kinder in the future, that should be enough"
+- "she should be willing to work on our relationship"
+- "she is still responsible for my feelings and well-being"
+- "the relationship is over when I say it's over"
+- "she belongs to me"
+- traumatic bonding (Stockhom syndrome)
+- Won't accept a request to "take a breather"
+- some abusers want the relationship to end: can still crave retaliation for all the ways he feels you hurt him, in particular through the children.
+- Assessing the violence potential of an abuser post-breakup is difficult, there is a wide range of signs. Relying on intuition is best
+- Safety planning is important on leaving, better be paranoid
+- Some physically abused women feel confident that the abuser will never turn to violence, but most actually become physically frightening at some stage. better take time to plan for that.
+- break all ties, don't contact him
+- take the children with you
+
+## Part III: The abusive man and the world
+
+### Chapter 10: abusive men as parents
+
+- Life at home with an abuser is as stressful and confusing for the children as it is for the mother
+- Kids will experience fear and guilt, be afraid at the prospect of separation, they will be pitted against each other (violence between kids)
+
+#### Why abusiveness extends to parenting issues
+
+- Each decision impacts the whole family, but the abuser will always give precendence to his needs, impacting everyone
+- Partner is a personal possession, and by extension the children are too
+- Impossible for the father to keep his attitude towards the partner a secret, so tries to hook them in the dynamics
+- Children are tempting weapons to use against the mother
+
+#### Revisiting the abusing mindset: parental implications
+
+- Control (without taking responsibility: clothing, schedules, etc)
+- Entitlement (not accepting having children is a major change, etc)
+- Externationalization of responsibility
+
+*When a family affected by partner abuse splits up, some children discover how much more pleasant life is without their father in the home and may choose to distance themselves from him. This can be a sign of emotional health and recovery. The abuser then often claims, predictably, that the mother is turning the children against him; in his mind, what else could it be?*
+
+- Manipulativeness (alliance of kids and father, and hiding the situation to the outside)
+- Superiority, disrespect (kids can adopt the father's view on the mother)
+- Possessiveness (children are not things and have rights)
+- Public image (kids see their father as charming outside, and assume his behaviour is normal so the mother must be at fault)
+
+#### The abusive man as a child abuser
+
+Increased risks of physical abuse, sexual abuse, psychological abuse
+
+#### The abuser as a role model
+
+Kids will pick up the father's thinking:
+
+- the target of the abuse is at fault, not the abuser
+- satisfaction in life comes through controlling and manipulating others
+- boys and men should be in control, and women be submissive
+- women are weak, incompetent and illogical
+- mums do the work of parenting, while dads take decisions and share the fun times
+- people that love you get to abuse you
+
+#### how abusers affect mother-child relationship
+
+- Undermines her authority
+- Interfering with her parenting (preventing to tend to the emotional needs of the kids, for instance)
+- using the children as weapons of abuse
+- shaping the child's perception of the abuse
+- putting the mother in a double blind: Children of abused women thus feel angry and upset with their mother for standing up to the abuser and for not standing up to him.
+
+#### How abusive men sow divisions in families
+
+Divide and conquer, and attention is diverted from the man's behaviour when everyone in the family is fighting each other
+
+#### Resilience in mother-child and sibling relationships
+
+Depends on a few key factors:
+
+- Access to good information about abuse
+- Access to children's services
+- Safety from the abuser
+- Access to supportive community resources
+- Mother working hard at parenting and getting help for it
+- Abuser being a poor manipulator
+
+#### How children look at their abusive father
+
+*In his children’s eyes, the abuser is simultaneously hated and revered. They resent his bullying and selfishness but are attracted to his charm and power. They soak up the delicious moments when he is kind and attentive, partly because they may be so few. They may have an active fantasy life about getting big enough to stand up to him, and often dream of hurting him. If he is depressed or alcoholic, they worry about him. They observe that when their father is happy peace reigns in the family and that when he is unhappy he makes everyone else miserable, too, so they invest themselves in keeping him content. These many powerful mixed feelings are confusing and uncomfortable for children. Children also are subject to traumatic bonding with the abuser, just as their mothers are, even if he does not abuse them directly. When child protective workers or custody evaluators assess a family in which there is partner abuse, they commonly conclude that the children are highly bonded to their father—as I find in their written reports—without examining whether or not that attachment is the result of trauma and manipulation rather than of extensive positive time spent together. The abuser shapes how the children and the mother see him as a parent.*
+
+#### The abuser as a parent, post-separation
+
+- Some simply vanish, and kids may feel guilty about it
+- Some don't vanish, and manipulate their children (crying, etc)
+- Some use their children as weapons (threats of mistreatment etc)
+- Some will use the children to undermine or control her (seeking information, giving them no limits, bad parenting, etc)
+- Why he uses the children as weapons:
+  - wants her to fail
+    *The last thing an abuser wants is for his partner to thrive after they split up, since that would prove that he was the problem. So he tries to make her parenting life as difficult as possible so that her life will stay stuck. She ends up feeling like she was never really permitted to leave him, feeling his presence around her all the time through his maneuvers involving the children. Many abusers cause more damage to mother-child relationships after separation than they did before.*
+  - lost most of his other avenues for getting at her
+  - he considers the children his personal possession
+    *An abusive father may go ballistic if his ex-partner begins a new relationship because, as clients often say to me: “I don’t want another man around my children.” In my experience, abused women often get involved with a more respectful man on the next go round, because their painful experience has taught them some signs of abuse to watch out for. Her children may then gravitate to the new man as if toward a magnet, thrilled to discover that they can get caring and appropriate male attention, a situation to which an abusive man may have a hostile reaction.*
+  - his perceptions of his ex-partner are highly distorted
+    *Many of my clients genuinely believe that they are doing what is best for their children by driving them away from their mother, because they have swallowed their own propaganda about how bad she is. An abuser strives to prove that his ex-partner is a poor mother by pointing to symptoms that are actually the effects that his cruelty has had on her: her depression, her emotional volatility, her difficulty managing the children’s disrespect of her. He feels that he needs to save them from her, a stark and disturbing distortion.*
+
+#### Do all abusers harm their children post-separation?
+
+It depends on how responsibly they behaved towards the children pre-separation
+
+#### The abuser in family court
+
+- takes advantage of his financial position
+- asks for psychological evaluations
+- plays the role of peacemaker
+- feigns remorse
+- confuses court with crossaccusations
+- accuses her of trying to turn the children against him
+- appeals to popular misconceptions
+
+*the myth that children of divorce fare better in joint custody, when the research shows overwhelmingly that they in fact do worse, except in those cases where their parents remain on good terms after the divorce and can co-parent cooperatively—which is almost impossible for a woman to do with an abusive ex-partner.*
+
+*THE SUCCESS OF these strategies relies heavily on the ignorance, and sometimes gender bias, of court personnel regarding women who disclose histories of partner abuse and on their stereotypes regarding men who are “just not the type” to be abusers. Prejudicial attitudes often take the place of careful investigation and consideration of the evidence. Unfortunately, family courts have generally not made the kinds of progress in recognizing and responding to domestic abuse that many other social institutions, such as the police and criminal courts, have.*
+
+#### Mixed social messages to abused mothers
+
+- professionals and other community members are highly critical of a mother who continues to live with an abusive man.
+
