@@ -1,3 +1,5 @@
+[toc]
+
 # Why does he do that? Inside the minds of angry and controlling men, Lundy Bancroft
 
 ### Note on terminology
