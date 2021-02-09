@@ -15,7 +15,7 @@ installation on Debian Jessie with latest versions (not default)
 
 Pull image foo (if needed) and make a container out of it, then launch it; if the local image is outdated, pull the new image from the docker hub:
 
-```text
+```bash
 docker run foo
 
 # or with a command appended (like /sbin/init?)
@@ -48,12 +48,12 @@ docker rm -v <CID>
 # see files modified in the R/W layer
 docker diff <CID>
 ```
-#### Manage containers 
+#### Manage containers
 
 - once a container has been created (with pull/create/run) it gets a container ID, and a random name if none provided, visible in `docker ps`.
 - several `docker run` invocations on the same image create as many different containers
- 
-```text
+
+```bash
 # get the logs
 docker logs [-f] <container ID or name>
 
@@ -75,12 +75,12 @@ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <CI
 # see processes
 docker top <CID>
 ```
-        
+
 ### Dockerfile
 
 #### Example
 
-```text
+```dockerfile
 FROM docker/whalesay:latest
  RUN apt-get -y update && apt-get install -y fortunes
  CMD /usr/games/fortune -a | cowsay
@@ -90,7 +90,7 @@ FROM docker/whalesay:latest
 
 <https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/>
 
-- build cache: `ADD` and `COPY` commands are checked for checksums of the files specified. Other commands like `RUN apt-get` are checked for the command line itself, not the resulting package versions etc. 
+- build cache: `ADD` and `COPY` commands are checked for checksums of the files specified. Other commands like `RUN apt-get` are checked for the command line itself, not the resulting package versions etc.
 - use a `.dockerignore` file
 - build in a clean root
 - make containers ephemeral (no state)
@@ -105,14 +105,14 @@ FROM docker/whalesay:latest
 - `ENTRYPOINT` can point to the command to run instead of `CMD`, and the latter be used as the default options. Or be used in combination with a helper script that will trigger a shell `exec` so the daemon, for instance, becomes PID 1 and can receive signals sent to the container. See [Best practices: Entrypoint](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#/entrypoint)
 - `ENV` for all parameters that may be needed in the container, for instance:
 
-```text
+```dockerfile
 ENV PG_MAJOR 9.3
 ENV PG_VERSION 9.3.4
 RUN curl -SL http://example.com/postgres-$PG_VERSION.tar.xz | tar -xJC /usr/src/postgress && …
 ENV PATH /usr/local/postgres-$PG_MAJOR/bin:$PATH
 ```
 
-- `ADD` and `COPY`: `COPY <file> <destination>`, `ADD` does more things, like tar extraction, etc. But `wget && tar -x && rm` is preferred (smaller images) 
+- `ADD` and `COPY`: `COPY <file> <destination>`, `ADD` does more things, like tar extraction, etc. But `wget && tar -x && rm` is preferred (smaller images)
 - `VOLUME` for any mutable and/or user-serviceable parts of the image (databases, etc.)
 - `USER` username to switch to (non-deterministic UIDs: `RUN groupadd -r postgres && useradd -r -g postgres postgres`)
 - `WORKDIR` for building; use absolute paths preferrably
@@ -124,7 +124,7 @@ ENV PATH /usr/local/postgres-$PG_MAJOR/bin:$PATH
 
 pull the source image, apply commands, remove temporary image…
 
-```text
+```bash
 docker build -t my-first-image .
 ```
 
@@ -146,7 +146,7 @@ sequenceiq/spark              latest              016b4fce9cd0        22 months 
 
 ### Tag and push an image, remove local versions, and pull the remote
 
-```text
+```bash
 # tag ID is a UUID? no mention of random generation or checksum
 docker tag 7d9495d03763 dmorel/my-first-image:latest
 docker push dmorel/my-first-image
@@ -164,7 +164,7 @@ docker run dmorel/my-first-image
 
 Debian:
 
-```text
+```bash
 $ sudo debootstrap raring raring > /dev/null
 $ sudo tar -C raring -c . | docker import - raring
 ```
@@ -223,11 +223,11 @@ Backing Filesystem: extfs
 - create a volume and mount it at /var/lib/webapp in the container
 
     `docker run --name web -v /var/lib/webapp training/webapp python app.py`
-    
+
 - create a named volume
 
     `docker run --name web -v foo:/var/lib/webapp training/webapp python app.py`
-        
+
 - find out where the data volume is
 
     `docker inspect web`
@@ -239,8 +239,8 @@ Backing Filesystem: extfs
 - mount a volume readonly
 
     `docker run --name web -v foo:/var/lib/webapp:ro training/webapp python app.py`
-    
+
 - Volume plugins can be used to mount remote volumes, check the list of plugins
 - Volume labels: `:z` for a shared volume in R/W mode, `:Z` is private unshared
-- Mount data volumes from other containers: check `--volume-from`    
+- Mount data volumes from other containers: check `--volume-from`
 
