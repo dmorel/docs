@@ -324,6 +324,31 @@ def func(my_func, *args):
 print(func(myfunc1, 'whatever'))
 ```
 
+### Create and load virtual environments with pyenv-virtualenv
+
+```bash
+# install pyenv
+brew install pyenv 
+brew install pyenv-virtualenv
+
+# add these 2 lines to .bashrc or .zshrc
+# second line is to source the virtualenvs automatically using pyenv
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# install a specific python version
+pyenv install 3.7.5
+
+# create a virtualenv
+pyenv virtualenv 3.7.5 my_custom_venv
+
+# go to the source directory for the project and point pyenv to the created venv
+cd <project dir>
+pyenv local my_custom_venv
+
+# now run all installs with pip that are needed, and use the virtualenv's python
+```
+
 # From Modern Python Cookbook (Packt Publishing)
 
 ## Chapter 1. Numbers, Strings, and Tuples
@@ -1044,3 +1069,4 @@ gather_stats(2, 12)              				# returns a Counter
 ## Chapter 5: User Inputs and Outputs
 
 foobar
+
