@@ -1,5 +1,7 @@
 # The making of a manager, Julie Zhuo
 
+[TOC]
+
 ## Chapter one: what is management
 
 **at the beginning**, she thought:
