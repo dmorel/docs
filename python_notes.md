@@ -1068,5 +1068,311 @@ gather_stats(2, 12)              				# returns a Counter
 
 ## Chapter 5: User Inputs and Outputs
 
-foobar
+### Using features of the print() function
+
+- make use of the `sep=` and `end=` arguments of print() to control displaying of lists and lines
+- make use of the `file=` argument to redirect output (`sys.stdout`, `sys.stderr`, etc)
+- use context managers
+
+  ```python
+  from pathlib import Path 
+      target_path = Path("somefile.dat") 
+      with target_path.open('w', encoding='utf-8') as target_file: 
+          print("Some output", file=target_file) 
+          print("Ordinary log") 
+  ```
+
+### Using input() and getpass() for user input
+
+- input(): This prompts and reads simply
+- getpass.getpass(): This prompts and reads passwords without an echo
+- the readline module, if installed, improves the line editing capability
+- imput string parsing with strptime: 
+    ```python
+    raw_date_str = input("date [yyyy-mm-dd]: ") 
+    input_date = datetime.strptime(raw_date_str, '%Y-%m-%d').date()
+    ```
+    (will trigger a ValueError exception if incorrect input)
+
+### Debugging with "format".format_map(vars())
+
+- The vars() function builds a dictionary structure from a variety of sources.
+- If no arguments are given, then by default, the vars() function will expand all the local variables. This creates a mapping that can be used with the format_map() method of a template string.
+- Using a mapping allows us to inject variables using the variable's name into the format template. It looks as follows:
+  
+    ```python
+    print(
+        "mean={mean_size:.2f}, std={std_size:.2f}" 
+        .format_map(vars()) 
+    )
+    ```
+
+- The `format_map() `method expects a single argument, which is a mapping. The format string uses `{name}` to refer to keys in the mapping. We can use `{name:format}` to provide a format specification. We can also use `{name!conversion}` to provide a conversion function using the `repr()`, `str()`, or `ascii()` functions.
+
+- An alternative is to use `format(**vars())`. This alternative can give us some additional flexibility. For example, we can use this more flexible format to include additional calculations that aren't simply local variables:
+
+  ```python
+  print( 
+        "mean={mean_size:.2f}, std={std_size:.2f}," 
+        " limit2={sig2:.2f}" 
+        .format(sig2=mean_size+2*std_size, **vars()) 
+       ) 
+  # mean=1414.77, std=901.10, limit2=3216.97
+  ```
+
+### Using argparse to get command-line input
+
+ ```python
+parser = argparse.ArgumentParser()
+parser.add_argument('-r', action='store', 
+                choices=('NM', 'MI', 'KM'), default='NM')  # optional argument, prefix - or --
+parser.add_argument('p1', action='store', type=point_type) # 1st positional argument (required)
+parser.add_argument('p2', action='store', type=point_type) # 2nd positional argument (required)
+options = parser.parse_args()
+ ```
+
+- argparse typically raises `argparse.ArgumentTypeError`
+
+- Using shell globbing on the command line (list of files in a directory), then: `parser.add_argument('file', nargs='*')`
+  All of the names on the command line that do not start with the `-` character will be collected into the `file` value in the object built by the parser.
+- The `-o` or `--option` arguments are often used to enable or disable features of a program. These are often implemented with `add_argument()` parameters of `action='store_true', default=False`.
+- **Simple options with non-trivial objects**: The user sees this is as simple `-o` or `--option` arguments. We may want to implement this using a more complex object that's not a simple Boolean constant. We can use `action='store_const', const=some_object, default=another_object`.
+
+- **Options with values**: We showed `-r unit` as an argument that accepted the string name for the units to use. We implemented this with an `action='store'` assignment to store the supplied string value. We can also use the `type=function` option to provide a function that validates or converts the input into a useful form.
+
+- **Options that increment a counter**: One common technique is to have a debugging log that has multiple levels of detail. We can use `action='count', default=0` to count the number of times a given argument is present. The user can provide `-v` for verbose output and `-vv` for very verbose output.
+
+- **Options that accumulate a list**: We might have an option for which the user might want to provide more than one value. We could, for example, use a list of distance values. We could have an argument definition with `action='append', default=[]`. This would allow the user to say `-r NM -r KM`
+
+- **Show the help text**: If we do nothing, then `-h` and `--help` will display a help message and exit.
+
+- **Show the version number**: It's common to have `--Version` as an argument to display the version number and exit. We implement this with `add_argument("--Version", action="version", version="v 3.14")`. We provide an action of `version` and an additional keyword argument that sets the version to display.
+
+### Using cmd for creating command-line applications
+
+- The core feature of the `cmd.Cmd` application is a **read-evaluate-print loop** (**REPL**). This kind of application works well when there are a large number of individual state changes and a large number of commands to make those state changes.
+
+  ```python
+  import cmd
+  class Roulette(cmd.Cmd):
+      def preloop(self): 
+              self.bets = {} 
+              self.stake = 100 
+              self.wheel = wheel()
+      def do_bet(self, arg_string): # called on 'bet <whatever>'
+        # do something
+  ```
+
+- If there's no `do_foo()` method, the command processor writes an error message. This is done automatically, we don't need to write any code at all.
+- We can define `help_*()` methods that become part of the miscellaneous help topics.
+- When any of the `do_*` methods return a value, the loop will end. We might want to add a `do_quit()` method that has `return True` as it's body. This will end the command-processing loop.
+- We might provide a method named `emptyline()` to respond to blank lines. One choice is to do nothing quietly. Another common choice is to have a default action that's taken when the user doesn't enter a command.
+- The `default()` method is evaluated when the user's input does not match any of the `do_*` methods. This might be used for more advanced parsing of the input.
+- The `postloop()` method can be used to do some processing just after the loop finishes. This would be a good place to write a summary. This also requires a `do_*` method that returns a value—any non-`False` value—to end the command loop.
+
+- The `prompt` attribute is the prompt string to write. For our example, we can do the following:
+
+  ```text
+  class Roulette(cmd.Cmd): 
+              prompt="Roulette> "
+  ```
+
+- The `intro` attribute is the introductory message.
+
+- We can tailor the help output by setting `doc_header`, `undoc_header`, `misc_header`, and `ruler` attributes. These will all alter how the help output looks.
+
+### Using the OS environment settings
+
+```python
+import os
+def get_options(argv=sys.argv): 
+    default_units = os.environ.get('UNITS', 'KM') 
+    if default_units not in ('KM', 'NM', 'MI'): 
+        sys.exit("Invalid value for UNITS, not KM, NM, or MI") 
+    default_home_port = os.environ.get('HOME_PORT') 
+    parser = argparse.ArgumentParser() 
+    parser.add_argument('-r', action='store', 
+        choices=('NM', 'MI', 'KM'), default=default_units) 
+    parser.add_argument('p1', action='store', type=point_type) 
+    parser.add_argument('p2', nargs='?', action='store', type=point_type, 
+        default=default_home_port) 
+    options = parser.parse_args(argv[1:]) 
+    if options.p2 is None: 
+        sys.exit("Neither HOME_PORT nor p2 argument provided.") 
+    return options
+```
+
+## Chapter 6: Basics of Classes and Objects
+
+### Using a class to encapsulate data and processing
+
+- **Single Responsibility Principle**: A class should have one clearly defined responsibility.
+
+- **Open/Closed Principle**: A class should be open to extension-generally via inheritance, but closed to modification. We should design our classes so that we don't need to tweak the code to add or change features.
+
+- **Liskov Substitution Principle**: We need to design inheritance so that a subclass can be used in place of the superclass.
+
+- **Interface Segregation Principle**: When writing a problem statement, we want to be sure that collaborating classes have as few dependencies as possible. In many cases, this principle will lead us to decompose large problems into many small class definitions.
+
+- **Dependency Inversion Principle**: It's less than ideal for a class to depend directly on other classes. It's better if a class depends on an abstraction, and a concrete implementation class is substituted for the abstract class.
+
+### Designing classes with lots of processing
+
+Most of the time, an object will contain all of the data that defines its internal state. However, this isn't always true. There are cases where a class doesn't really need to hold the data, but instead can hold the processing.
+
+Some prime examples of this design are statistical processing algorithms, which are often outside the data being analyzed. The data might be in a `list` or `Counter` object. The processing might be a separate class.
+
+```python
+class CounterStatistics:
+    def __init__(self, raw_counter:Counter): 
+        self.raw_counter = raw_counter
+        self.mean = self.compute_mean() 
+        self.stddev = self.compute_stddev() 
+    def compute_mean(self):
+        # process...
+    def compute_stdded(self):
+        # process
+```
+
+### Designing classes with little unique processing
+
+#### Stateless objects (no setters, only getters)
+
+```python
+>>> from collections import namedtuple 
+>>> Card = namedtuple('Card', ('rank', 'suit')) 
+>>> eight_hearts = Card(rank=8, suit='\N{White Heart Suit}') 
+>>> eight_hearts 
+Card(rank=8, suit='♡') 
+>>> eight_hearts.rank 
+8 
+>>> eight_hearts.suit 
+'♡' 
+>>> eight_hearts[0] 
+8
+```
+
+#### Stateful objects with a new class (dynamic attributes)
+
+```python
+class Player: 
+  pass
+p = Player()
+p.stake = 100
+```
+
+#### Stateful objects using an existing class (same as above)
+
+```python
+from argparse import Namespace
+from types import SimpleNamespace # either one of these two
+Player = SimpleNamespace
+p = Player()
+p.stake = 100
+```
+
+### Optimizing small objects with \__slots__
+
+```python
+class Hand:
+    __slots__ = ('hand', 'bet')
+    def __init__(self, bet, hand=None): 
+        self.hand= hand or [] 
+        self.bet= bet
+    def __repr__(self): 
+        return "{class_}({bet}, {hand})".format( 
+            class_= self.__class__.__name__, 
+            **vars(self) 
+        )
+```
+
+Specifying \_\_slots__ prevents addition of new attributes, highly optimized; it avoids the \_\_dict__ behaviour, which is dynamic.
+
+See https://docs.python.org/3/reference/datamodel.html#metaclass-example
+
+### Using more sophisticated collections
+
+- `collections` module
+  - `deque`: double-ended queue, optimized for append and pop on both ends
+  - `defaultdict`: provide a default value for a missing key, like `lookup = defaultdict(lambda:"N/A")`
+  - `Counter`: designed to count occurrences of a key, equivalen to `defaultdict(int)`
+  - `OrderedDict`: dictionary with ordered keys
+  - `ChainMap`: search through a list of dicts, in order like `config = ChainMap(dict1, dict2, dict3...)`
+
+- `heapq` module includes a priority queue implementation
+- `bisect` module includes methods for searching a sorted list
+
+### Extending a collection – a list that does statistics
+
+```python
+class StatsList(list):
+    def sum(self): 
+        return sum(v for v in self)
+    def mean(self): 
+        return self.sum() / self.count() 
+```
+
+There are abstract superclasses for all of the built-in collections. Rather than start from a concrete class, we can also start our design from an abstract base class:
+
+```python
+from collections.abc import Mapping 
+    class MyFancyMapping(Mapping):
+    	# ...
+      # implement abstract methods
+      def __getitem__():
+      def __setitem__():
+      def __delitem__():
+      def __iter__():
+      def __len__():
+```
+
+### Using properties for lazy attributes
+
+```python
+class LazyCounterStatistics:
+  def __init__(self, raw_counter:Counter):
+    self.raw_counter = raw_counter
+  @property 
+  def sum(self):
+    return sum(f*v for v, f in self.raw_counter.items())
+  @property
+  def count(self):
+    return sum(f for v, f in self.raw_counter.items()) 
+```
+
+We used the `@property` decorator. This makes a method function appear to be an attribute. This can only work for method functions that have no argument values.
+
+### Using settable properties to update eager attributes
+
+```python
+class Leg: 
+    def __init__(self): 
+        self._rate= rate 
+        self._time= time 
+        self._distance= distance
+        self._changes= deque(maxlen=2) # to know when the values should be recalculated
+    @property 
+    def rate(self): 
+        return self._rate
+    @rate.setter 
+    def rate(self, value): 
+        self._rate = value 
+        self._calculate('rate')
+    # etc for other attributes
+    def calc_distance(self): 
+        self._distance = self._time * self._rate 
+    def calc_time(self): 
+        self._time = self._distance / self._rate 
+    def calc_rate(self): 
+        self._rate = self._distance / self._time
+    def _calculate(self):
+      # look at the deque, recalculate all properties if 2 or more are changed
+      if change not in self._changes: 
+        self._changes.append(change) 
+      compute = {'rate', 'time', 'distance'} - set(self._changes) 
+      if len(compute) == 1: 
+        name = compute.pop() 
+        method = getattr(self, 'calc_'+name) 
+        method()
+```
 
