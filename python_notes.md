@@ -349,6 +349,13 @@ pyenv local my_custom_venv
 # now run all installs with pip that are needed, and use the virtualenv's python
 ```
 
+### Run managed processes as daemons
+
+Several daemon libs available, but heavier-duty tools available, à la `init`:
+
+- http://supervisord.org/index.html
+- https://mmonit.com/monit/
+
 # From Modern Python Cookbook (Packt Publishing)
 
 ## Chapter 1. Numbers, Strings, and Tuples
