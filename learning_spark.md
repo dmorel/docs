@@ -442,7 +442,7 @@ A `DataFrame` is an alias **in Scala** (or java?) for a collection of generic ob
 
 #### The Catalyst Optimizer
 
-<img src="/Users/david/git/docs/learning_spark/query_planner.png" alt="query_planner" style="zoom:67%;" />
+<img src="learning_spark/query_planner.png" alt="query_planner" style="zoom:67%;" />
 
 - To check the query plan of a dataFrame, use `df.explain(True)`
 - Typically the plan for a DF and the same in plain SQL should be equivalent
