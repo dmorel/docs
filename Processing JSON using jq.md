@@ -27,16 +27,16 @@ When running jq, the following arguments may become handy:
 
 The syntax for jq is pretty coherent:
 
-| Syntax  |  Description  |
-| --------| :------------:|
-| , | Filters separated by a comma will produce multiple independent outputs|
-| ? | Will ignores error if the type is unexpected |
-| [] | Array construction |
-| {} | Object construction |
-| + | Concatenate or Add |
-| - | Difference of sets or Substract |
-| length | Size of selected element |
-| &#124; | Pipes are used to chain commands in a similar fashion than bash|
+| Syntax | Description                                                            |
+|--------|:----------------------------------------------------------------------:|
+| ,      | Filters separated by a comma will produce multiple independent outputs |
+| ?      | Will ignores error if the type is unexpected                           |
+| []     | Array construction                                                     |
+| {}     | Object construction                                                    |
+| +      | Concatenate or Add                                                     |
+| -      | Difference of sets or Substract                                        |
+| length | Size of selected element                                               |
+| &#124; | Pipes are used to chain commands in a similar fashion than bash        |
 
 
 ## Dealing with json objects
