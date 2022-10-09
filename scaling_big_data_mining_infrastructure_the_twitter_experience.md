@@ -1,6 +1,9 @@
 ## Notes from "Scaling Big Data Mining Infrastructure: The Twitter Experience" 
+
 ### [Article PDF](http://www.kdd.org/sites/default/files/issues/14-2-2012-12/V14-02-02-Lin.pdf)
+
 ### Jimmy Lin and Dmitriy Ryaboy, Twitter, Inc.
+
 * 100TB data ingested per day in main cluster
 * 10s of thousands of workflows covering everything in the site; application domains are infinite
 * Significant amount of tooling (low and high level) and exploratory/cleaning work is needed
@@ -96,8 +99,8 @@ under their own weight, with pages of boilerplate code
 necessary to accomplish even a simple task. How to provide
 useful tools while staying out of the way of developers is a
 difficult challenge.
-
     * there might be a series of (yet) unformal steps an organisation has to go through to manage big data and growth; a smooth path for transitioning from one step to the next (JSON to Thrift migration, etc) could be laid out and documented
     * teaching DS about the operational constraints could drive research in more efficient ways
+
 * NOTE: the PDF contains numerous useful references not mentioned here
 
