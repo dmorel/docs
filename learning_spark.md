@@ -618,10 +618,20 @@ CREATE OR REPLACE TEMPORARY VIEW us_delay_flights_tbl
 spark.sql("SELECT * FROM us_delay_flights_tbl").show()
 ```
 
-```python
-(df.write.format("parquet")
+- write to files
+
+  ```python
+  (df.write.format("parquet")
   .mode("overwrite")
   .option("compression", "snappy")
   .save("/tmp/data/parquet/df_parquet"))
-```
+  ```
+
+- write as managed table to hive, in parquet format
+
+  ```python
+  (df.write
+  .mode("overwrite")
+  .saveAsTable("us_delay_flights_tbl"))
+  ```
 
