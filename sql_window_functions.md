@@ -271,3 +271,74 @@ SELECT
 FROM train_schedule;
 ```
 
+
+
+## SQLPad.com : SQL Window Functions for Job Interviews
+
+#### compare each movie DVDs replacement cost to the average cost of movies sharing the same MPAA ratings
+
+```sql
+SELECT
+    title,
+    rating,
+    replacement_cost,
+    AVG(replacement_cost) OVER(PARTITION BY rating) AS avg_cost
+FROM film;
+```
+
+ #### compare every movie’s length (in minutes) to the maximum length of movies from the same category
+
+```sql
+SELECT
+ title,
+ name,
+ length,
+ MAX(length) OVER(PARTITION BY name) AS max_length
+FROM (
+ SELECT F.title, C.name, F.length
+ FROM film F
+ INNER JOIN film_category FC
+ ON FC.film_id = F.film_id
+ INNER JOIN category C
+ ON C.category_id = FC.category_id
+) X;
+```
+
+#### Running totals
+
+```sql
+SELECT
+ film_id,
+ title,
+ length,
+ -- window stops at current movie
+ SUM(length) OVER(ORDER BY film_id) AS running_total, 
+ -- window is the whole dataset
+ SUM(length) OVER() AS overall,
+ -- use 2 windows, rolling sum / overall sum
+ SUM(length) OVER(ORDER BY film_id) * 100.0 /SUM(length) OVER() AS running_percentage
+FROM film
+ORDER BY film_id;
+```
+
+#### LAG and LEAD
+
+compute DoD revenue
+
+```sql
+WITH daily_revenue AS (
+ SELECT
+ DATE(payment_ts) date,
+ SUM(amount) revenue
+ FROM payment
+ GROUP BY DATE(payment_ts)
+)
+SELECT
+ date,
+ revenue,
+ LAG(revenue, 1) OVER (ORDER BY date) prev_day_sales,
+ revenue *1.0/LAG(revenue,1) OVER (ORDER BY date) AS dod
+ FROM daily_revenue
+ORDER BY date;
+```
+
