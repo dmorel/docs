@@ -989,7 +989,8 @@ SELECT celsius,
 
   ```sql
   SELECT * FROM departureDelaysWindow
-  
+  ```
+  ```text
   +------+-----------+-----------+
   |origin|destination|TotalDelays|
   +------+-----------+-----------+
