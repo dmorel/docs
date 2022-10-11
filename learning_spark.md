@@ -1024,6 +1024,8 @@ SELECT celsius,
     ) t 
    WHERE rank <= 3
   """).show()
+  ```
+  ```text
   
   +------+-----------+-----------+----+
   |origin|destination|TotalDelays|rank|
@@ -1038,3 +1040,4 @@ SELECT celsius,
   |   JFK|        SFO|      35619|   2|
   |   JFK|        ATL|      12141|   3|
   +------+-----------+-----------+----+
+  ```
