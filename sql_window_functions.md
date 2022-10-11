@@ -1,6 +1,6 @@
 # SQL Window functions notes
 
-
+Not super complicated, you only have to shoehorn the syntax in your brain.
 
 ## LearnSQL.com cheat sheet
 
