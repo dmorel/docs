@@ -376,7 +376,7 @@ if __name__ == "__main__":
 
 ### The DataSet API
 
-<img src="learning_spark/structured_apis.png" alt="structured_apis" style="zoom:67%;" />
+<img src="learning_spark.assets/structured_apis.png" alt="structured_apis"  />
 
 A `DataFrame` is an alias **in Scala** (or java?) for a collection of generic objects, `Dataset[Row]`, whereas a `DataSet[T]` is
 
@@ -426,7 +426,7 @@ A `DataFrame` is an alias **in Scala** (or java?) for a collection of generic ob
 
 ### DataSet vs DataFrame
 
-<img src="learning_spark/structured_apis_in_spark.png" alt="structured_apis_in_spark" style="zoom:67%;" />
+<img src="learning_spark.assets/structured_apis_in_spark.png" alt="structured_apis_in_spark" style="zoom:67%;" />
 
 - need compile time safety, don't mind creating multiple case classes for a specific `DataSet[T]`, then use DataSet
 - If processing requires transformations with SQL-like queries, use `DataFrame`
@@ -438,11 +438,11 @@ A `DataFrame` is an alias **in Scala** (or java?) for a collection of generic ob
 
 ### Spark SQL and the underlying engine
 
-<img src="learning_spark/spark_sql.png" alt="spark_sql" style="zoom: 67%;" />
+<img src="learning_spark.assets/spark_sql.png" alt="spark_sql" style="zoom:67%;" />
 
 #### The Catalyst Optimizer
 
-<img src="learning_spark/query_planner.png" alt="query_planner" style="zoom:67%;" />
+<img src="learning_spark.assets/query_planner.png" alt="query_planner" style="zoom:67%;" />
 
 - To check the query plan of a dataFrame, use `df.explain(True)`
 - Typically the plan for a DF and the same in plain SQL should be equivalent
