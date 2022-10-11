@@ -597,6 +597,8 @@ df.write.format("json").mode("overwrite").save(location)
 
 ### Parquet
 
+Parquet is the preferred file format data source file format for Spark. 
+
 Parquet files are stored in multiple parts in a directory together with metadata, example:
 
 ```python
@@ -635,3 +637,404 @@ spark.sql("SELECT * FROM us_delay_flights_tbl").show()
   .saveAsTable("us_delay_flights_tbl"))
   ```
 
+### JSON
+
+Spark can handle both single line and multiline modes `option("multiline", true)`
+
+```python
+file = "/databricks-datasets/learning-spark-v2/flights/summary-data/json/*"
+df = spark.read.format("json").load(file)
+```
+
+```sql
+CREATE OR REPLACE TEMPORARY VIEW us_delay_flights_tbl
+    USING json
+    OPTIONS (
+      path  "/databricks-datasets/learning-spark-v2/flights/summary-data/json/*"
+    )
+```
+
+```python
+spark.sql("SELECT * FROM us_delay_flights_tbl").show()
+```
+
+```python
+(df.write.format("json")
+  .mode("overwrite")
+  .option("compression", "snappy")
+  .save("/tmp/data/json/df_json"))
+```
+
+This creates a directory at the specified path populated with a set of compact JSON files
+
+options: `compression, dateFormat, multiline, allowUnquotedFileNames`
+
+### CSV
+
+```python
+file = "/databricks-datasets/learning-spark-v2/flights/summary-data/csv/*"
+schema = "DEST_COUNTRY_NAME STRING, ORIGIN_COUNTRY_NAME STRING, count INT"
+df = (spark.read.format("csv")
+  .option("header", "true")
+  .schema(schema)
+  .option("mode", "FAILFAST")  # Exit if any errors
+  .option("nullValue", "")     # Replace any null data field with quotes
+  .load(file))
+```
+
+```sql
+CREATE OR REPLACE TEMPORARY VIEW us_delay_flights_tbl
+    USING csv
+    OPTIONS (
+      path "/databricks-datasets/learning-spark-v2/flights/summary-data/csv/*",
+      header "true",
+      inferSchema "true",
+      mode "FAILFAST"
+    )
+```
+
+```python
+spark.sql("SELECT * FROM us_delay_flights_tbl").show(10)
+```
+
+```python
+df.write.format("csv").mode("overwrite").save("/tmp/data/csv/df_csv")
+```
+
+Many options are available for CSV sources: `compression, dateFormat, multiline, inferSchema, sep, escape, header` etc 
+
+### Avro
+
+It offers many benefits, including direct mapping to JSON and speed
+
+```python
+df = (spark.read.format("avro")
+  .load("/databricks-datasets/learning-spark-v2/flights/summary-data/avro/*"))
+df.show(truncate=False)
+```
+
+```sql
+CREATE OR REPLACE TEMPORARY VIEW episode_tbl
+    USING avro
+    OPTIONS (
+      path "/databricks-datasets/learning-spark-v2/flights/summary-data/avro/*"
+    )
+```
+
+```python
+spark.sql("SELECT * FROM episode_tbl").show(truncate=False)
+```
+
+```python
+(df.write
+  .format("avro")
+  .mode("overwrite")
+  .save("/tmp/data/avro/df_avro"))
+```
+
+This generates a folder at the specified location, populated with a bunch of compressed and compact files
+
+<img src="learning_spark.assets/CleanShot%202022-10-10%20at%2017.44.56.png" alt="CleanShot 2022-10-10 at 17.44.56" style="zoom:150%;" />
+
+### ORC
+
+> As an additional optimized columnar file format, Spark 2.x supports a vectorized ORC reader. Two Spark configurations dictate which ORC implementation to use. When `spark.sql.orc.impl` is set to native and `spark.sql.orc.enableVectorizedReader` is set to true, Spark uses the vectorized ORC reader. A vectorized reader reads blocks of rows (often 1,024 per block) instead of one row at a time, streamlining operations and reducing CPU usage for intensive operations like scans, filters, aggregations, and joins.
+
+> For Hive ORC SerDe (serialization and deserialization) tables created with the SQL command `USING HIVE OPTIONS (fileFormat 'ORC')`, the vectorized reader is used when the Spark configuration parameter `spark.sql.hive.convertMetastoreOrc` is set to true.
+
+```python
+file = "/databricks-datasets/learning-spark-v2/flights/summary-data/orc/*"
+df = spark.read.format("orc").option("path", file).load()
+df.show(10, False)
+```
+
+```sql
+CREATE OR REPLACE TEMPORARY VIEW us_delay_flights_tbl
+    USING orc
+    OPTIONS (
+      path "/databricks-datasets/learning-spark-v2/flights/summary-data/orc/*"
+    )
+```
+
+```python
+(df.write.format("orc")
+  .mode("overwrite")
+  .option("compression", "snappy")
+  .save("/tmp/data/orc/flights_orc"))
+```
+
+### Images
+
+```python
+from pyspark.ml import image
+
+image_dir = "/databricks-datasets/learning-spark-v2/cctvVideos/train_images/"
+images_df = spark.read.format("image").load(image_dir)
+images_df.printSchema()
+
+root
+ |-- image: struct (nullable = true)
+ |    |-- origin: string (nullable = true)
+ |    |-- height: integer (nullable = true)
+ |    |-- width: integer (nullable = true)
+ |    |-- nChannels: integer (nullable = true)
+ |    |-- mode: integer (nullable = true)
+ |    |-- data: binary (nullable = true)
+ |-- label: integer (nullable = true)
+
+images_df.select("image.height", "image.width", "image.nChannels", "image.mode", 
+  "label").show(5, truncate=False)
+```
+
+### Binary Files
+
+```python
+path = "/databricks-datasets/learning-spark-v2/cctvVideos/train_images/"
+binary_files_df = (spark.read.format("binaryFile")
+  .option("pathGlobFilter", "*.jpg")
+  # if don't want partitioning data discovery (this will remove the label column too)
+  # .option("recursiveFileLookup", "true") 
+  .load(path))
+binary_files_df.show(5)
+
++--------------------+-------------------+------+--------------------+-----+
+|                path|   modificationTime|length|             content|label|
++--------------------+-------------------+------+--------------------+-----+
+|file:/Users/jules...|2020-02-12 12:04:24| 55037|[FF D8 FF E0 00 1...|    0|
+|file:/Users/jules...|2020-02-12 12:04:24| 54634|[FF D8 FF E0 00 1...|    1|
+|file:/Users/jules...|2020-02-12 12:04:24| 54624|[FF D8 FF E0 00 1...|    0|
+|file:/Users/jules...|2020-02-12 12:04:24| 54505|[FF D8 FF E0 00 1...|    0|
+|file:/Users/jules...|2020-02-12 12:04:24| 54475|[FF D8 FF E0 00 1...|    0|
++--------------------+-------------------+------+--------------------+-----+
+
+```
+
+Currently no support to writing back binary files
+
+## Chapter 5. Spark SQL and DataFrames: Interacting with External Data Sources
+
+### Spark SQL and Apache Hive
+
+#### User-Defined functions (UDF)
+
+```python
+from pyspark.sql.types import LongType
+def cubed(s):
+  return s * s * s
+spark.udf.register("cubed", cubed, LongType())
+spark.range(1, 9).createOrReplaceTempView("udf_test")
+spark.sql("SELECT id, cubed(id) AS id_cubed FROM udf_test").show()
+```
+
+- Note the UDF is not persisted in the metastore
+
+- Evaluation order and null checking in Spark SQL: no guarantee on the order of subexpressions, so either:
+  - make the UDF null-aware and check nulls inside it
+  -  use `IF` or `CASE WHEN` expressions and invoke the UDF in a conditional branch
+
+- python UDFs required data movement between python and the JVM which is slow, so now Panda UDFs (aka vectorized UDFs) are usable: they use Apache Arrow for the transfer (fast) and Pandas for the processing
+
+```python
+import pandas as pd
+from pyspark.sql.functions import col, pandas_udf
+from pyspark.sql.types import LongType
+
+def cubed(a: pd.Series) -> pd.Series:
+    return a * a * a
+  
+cubed_udf = pandas_udf(cubed, returnType=LongType())
+
+df = spark.range(1, 4)
+df.select("id", cubed_udf(col("id"))).show()
++---+---------+
+| id|cubed(id)|
++---+---------+
+|  1|        1|
+|  2|        8|
+|  3|       27|
++---+---------+
+```
+
+>  the job starts with parallelize() to send local data (Arrow binary batches) to executors and calls mapPartitions() to convert the Arrow binary batches to Spark’s internal data format
+
+### Querying with the Spark SQL Shell, Beeline, and Tableau
+
+- Use the SQL shell: `./bin/spark-sql`
+- A `TABLE CREATE` statement will by default create a Hive managed table; `INSERT` statements will work normally.
+- Beeline 
+  - needs the Thrift server to be started first: `./sbin/start-thriftserver.sh` 
+  - needs the Spark driver and worker online: `./sbin/start-all.sh`
+  - then `./bin/beeline` then `!connect jdbc:hive2://localhost:10000`
+- Tableau needs the same setup as Beeline (Thrift server) then a JDBC connection to it
+
+### External Data Sources
+
+- Connection to JDBC data source is possible, providing either DataFrames or Spark SQL temp views
+- adjust the database connector class along the lines of  `./bin/spark-shell --driver-class-path $database.jar --jars $database.jar`
+- many options must be passed to the driver (authentication etc), see: https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html#jdbc-to-other-databases
+- for large tables, partitioning is essential, use parameters on the connection: `numPartitions, lowerBound, upperBound, partitionColumn`
+- `numPartitions`: multiple of the number of workers; don't saturate the source though
+- `lowerBound`and `upperBound` are important for data skew (`partitionColumn` will be divided in `numPartitions` slices evenly between the boundaries), possible that a single worker gets most of the work if the data is skewed; possibly generate a surrogate column, a hash, or something, to spread the data more evenly
+- PostgreSQL, MySQL, Cassandra, MongoDB, others: see JDBC methods in the book; examples too long and boring to copy
+
+### Higher-Order functions in DataFrames and Spark SQL
+
+#### Naive complex data type handling
+
+Complex data types are collections of simpler ones, and it's tempting to explode the rows in SQL and grouping again, like this: 
+
+```sql
+SELECT id, collect_list(value + 1) AS values
+FROM  (SELECT id, EXPLODE(values) AS value
+        FROM table) x
+GROUP BY id
+```
+
+However the `EXPLODE` can produce a large number of rows, and the `GROUP BY` implies an expensive reshuffle; it will usually be much better to use a UDF to prevent it, for instance:
+
+```scala
+def addOne(values: Seq[Int]): Seq[Int] = {
+    values.map(value => value + 1)
+}
+val plusOneInt = spark.udf.register("plusOneInt", addOne(_: Seq[Int]): Seq[Int])
+spark.sql("SELECT id, plusOneInt(values) AS values FROM table").show()
+```
+
+The above method can be expensive because of deserialization / serialization but it won't trigger OOM conditions
+
+Note that instead of these techniques, many built-in functions are available for arrays and maps: https://spark.apache.org/docs/latest/api/sql/index.html (see `array_*` and `map_*`)
+
+#### Using Higher-Order functions
+
+These SQL functions take a lambda expression as argument: `transform`, `filter`, `exists` and `reduce`
+
+`transform(array<T>, function<T, U>): array<U>`
+
+```python
+spark.sql("""
+SELECT celsius, 
+ transform(celsius, t -> ((t * 9) div 5) + 32) as fahrenheit 
+  FROM tC
+""").show()
+```
+
+`filter(array<T>, function<T, Boolean>): array<T>`
+
+```python
+spark.sql("""
+SELECT celsius, 
+ filter(celsius, t -> t > 38) as high 
+  FROM tC
+""").show()
+```
+
+`exists(array<T>, function<T, V, Boolean>): Boolean`
+
+```python
+spark.sql("""
+SELECT celsius, 
+       exists(celsius, t -> t = 38) as threshold
+  FROM tC
+""").show()
+```
+
+`reduce(array<T>, B, function<B, T, B>, function<B, R>)`
+
+```python
+spark.sql("""
+SELECT celsius, 
+       reduce(
+          celsius, 
+          0, 
+          (t, acc) -> t + acc, 
+          acc -> (acc div size(celsius) * 9 div 5) + 32
+        ) as avgFahrenheit 
+  FROM tC
+""").show()
+```
+
+### Common DataFrames and Spark SQL Operations
+
+- Union
+
+  ```python
+  union_df = df1.union(df2)
+  ```
+
+- Join
+
+  ```python
+  foo.join(
+    airports, 
+    airports.IATA == foo.origin
+  ).select("City", "State", "date", "delay", "distance", "destination").show()
+  ```
+
+  same as:
+
+  ```python
+  spark.sql("""
+  SELECT a.City, a.State, f.date, f.delay, f.distance, f.destination 
+    FROM foo f
+    JOIN airports a
+      ON a.IATA = f.origin
+  """).show()
+  ```
+
+- Windowing
+
+  <img src="learning_spark.assets/CleanShot%202022-10-11%20at%2008.04.57.png" alt="CleanShot 2022-10-11 at 08.04.57"  />
+
+  Example: for each origin airport, find the three destinations that experienced the most delays:
+
+  ```sql
+  SELECT * FROM departureDelaysWindow
+  
+  +------+-----------+-----------+
+  |origin|destination|TotalDelays|
+  +------+-----------+-----------+
+  |   JFK|        ORD|       5608|
+  |   SEA|        LAX|       9359|
+  |   JFK|        SFO|      35619|
+  |   SFO|        ORD|      27412|
+  |   JFK|        DEN|       4315|
+  |   SFO|        DEN|      18688|
+  |   SFO|        SEA|      17080|
+  |   SEA|        SFO|      22293|
+  |   JFK|        ATL|      12141|
+  |   SFO|        ATL|       5091|
+  |   SEA|        DEN|      13645|
+  |   SEA|        ATL|       4535|
+  |   SEA|        ORD|      10041|
+  |   JFK|        SEA|       7856|
+  |   JFK|        LAX|      35755|
+  |   SFO|        JFK|      24100|
+  |   SFO|        LAX|      40798|
+  |   SEA|        JFK|       4667|
+  +------+-----------+-----------+
+  ```
+
+  ```python
+  spark.sql("""
+  SELECT origin, destination, TotalDelays, rank 
+    FROM ( 
+       SELECT origin, destination, TotalDelays, 
+         dense_rank() OVER (PARTITION BY origin ORDER BY TotalDelays DESC) as rank 
+         FROM departureDelaysWindow
+    ) t 
+   WHERE rank <= 3
+  """).show()
+  
+  +------+-----------+-----------+----+
+  |origin|destination|TotalDelays|rank|
+  +------+-----------+-----------+----+
+  |   SEA|        SFO|      22293|   1|
+  |   SEA|        DEN|      13645|   2|
+  |   SEA|        ORD|      10041|   3|
+  |   SFO|        LAX|      40798|   1|
+  |   SFO|        ORD|      27412|   2|
+  |   SFO|        JFK|      24100|   3|
+  |   JFK|        LAX|      35755|   1|
+  |   JFK|        SFO|      35619|   2|
+  |   JFK|        ATL|      12141|   3|
+  +------+-----------+-----------+----+
