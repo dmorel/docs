@@ -43,7 +43,7 @@
 - each worker in a pod
 - Cluster manager is K8s master
 
-### Distributed data an partitions
+### Distributed data and partitions
 
 - tries to respect locality
 - each partiton is treated like a DataFrame in memory
@@ -1042,3 +1042,543 @@ SELECT celsius,
   |   JFK|        ATL|      12141|   3|
   +------+-----------+-----------+----+
   ```
+
+- Modifications
+
+  DFs are immutable, so we need to create new ones
+
+  - Adding columns
+
+    ```python
+    from pyspark.sql.functions import expr
+    foo2 = (foo.withColumn(
+              "status", 
+              expr("CASE WHEN delay <= 10 THEN 'On-time' ELSE 'Delayed' END")
+            ))
+    ```
+
+  - Dropping columns
+
+    ```python
+    foo3 = foo2.drop("delay")
+    foo3.show()
+    ```
+
+  - Renaming columns
+
+    ```python
+    foo4 = foo3.withColumnRenamed("status", "flight_status")
+    foo4.show()
+    ```
+
+  - Pivoting
+
+    ```sql
+    SELECT * FROM (
+    SELECT destination, CAST(SUBSTRING(date, 0, 2) AS int) AS month, delay 
+      FROM departureDelays WHERE origin = 'SEA' 
+    ) 
+    PIVOT (
+      CAST(AVG(delay) AS DECIMAL(4, 2)) AS AvgDelay, MAX(delay) AS MaxDelay
+      FOR month IN (1 JAN, 2 FEB)
+    )
+    ORDER BY destination
+    ```
+
+    
+
+## Chapter 6: SparkSQL and Datasets
+
+JVM specific, will cover it later if ever
+
+## Chapter 7: Optimimzing and tuning Spark applications
+
+### Optimizing and tuning for efficiency
+
+#### Configurations
+
+- in the configurations files `conf/spark-defaults.conf.template, conf/log4j.properties.template, and conf/spark-env.sh.template`
+
+- in the app itself of in the command line switches
+
+  ```bash
+  spark-submit --conf spark.sql.shuffle.partitions=5 --conf
+  "spark.executor.memory=2g" --class main.scala.chapter7.SparkConfig_7_1 jars/main-
+  scala-chapter7_2.12-1.0.jar
+  ```
+
+  ```scala
+  spark.conf.set("spark.sql.shuffle.partitions",
+     spark.sparkContext.defaultParallelism)
+  ```
+
+- through the programmatic interface in the Spark REPL for instance
+
+#### Scaling Spark for large workloads
+
+- Dynamic allocation can help, example:
+
+  ```
+  spark.dynamicAllocation.enabled true
+  spark.dynamicAllocation.minExecutors 2
+  spark.dynamicAllocation.schedulerBacklogTimeout 1m
+  spark.dynamicAllocation.maxExecutors 20
+  spark.dynamicAllocation.executorIdleTimeout 2min
+  ```
+
+- Configure executor memory and shuffle
+
+  <img src="learning_spark.assets/CleanShot%202022-10-19%20at%2020.31.27.png" alt="CleanShot 2022-10-19 at 20.31.27" style="zoom:67%;" />
+
+  >Execution memory is used for Spark shuffles, joins, sorts, and aggregations. Since different queries may require different amounts of memory, the fraction (spark.memory.fraction is 0.6 by default) of the available memory to dedicate to this can be tricky to tune but it’s easy to adjust. By contrast, storage memory is primarily used for caching user data structures and partitions derived from DataFrames. During map and shuffle operations, Spark writes to and reads from the local disk’s shuffle files, so there is heavy I/O activity. This can result in a bottleneck, because the default configurations are suboptimal for large-scale Spark jobs. Knowing what configurations to tweak can mitigate this risk during this phase of a Spark job. In Table 7-1, we capture a few recommended configurations to adjust so that the map, spill, and merge processes during these operations are not encumbered by inefficient I/O and to enable these operations to employ buffer memory before writing the final shuffle partitions to disk. Tuning the shuffle service running on each executor can also aid in increasing overall performance for large Spark workloads.
+
+- Maximizing parallelism
+
+  > You can think of partitions as atomic units of parallelism: a single thread running on a single core can work on a single partition.
+
+  make as many partitions as availables cores, at least
+
+  the number of partitions is driven by the volume of data divided by `spark.sql.files.maxPartitionBytes` which is 128MB by default. Possible to increase of decrease (with the risk of small files issue) this number
+
+  partitions also created programmatically like `val ds = spark.read.textFile("../README.md").repartition(16)`
+
+  Shuffle partitions are created at the shuffle stage (`groupby` or `join`), default is 200. param is `spark.sql.shuffle.partitions`
+
+  > The default value for spark.sql.shuffle.partitions is too high for smaller or streaming workloads; you may want to reduce it to a lower value such as the number of cores on the executors or less.
+
+- caching and persistence
+
+  > In Spark they are synonymous. Two API calls, cache() and persist(), offer these capabilities. The latter provides more control over how and where your data is stored—in memory and on disk, serialized and unserialized. Both contribute to better performance for frequently accessed DataFrames or tables.
+
+  `DataFrame.cache()`: will store as many of the partitions read in memory across Spark executors as memory allows (could be not all partitions) ; the partitions that are not cached will have to be recomputed, slowing down your Spark job
+
+  > When you use cache() or persist(), the DataFrame is not fully cached until you invoke an action that goes through every record (e.g., count()). If you use an action like take(1), only one partition will be cached because Catalyst realizes that you do not need to compute all the partitions just to retrieve one record.
+
+  `DataFrame.persist(StorageLevel.LEVEL)` high level of control on how data is cached:
+
+  ![CleanShot 2022-10-19 at 20.52.16](learning_spark.assets/CleanShot%202022-10-19%20at%2020.52.16.png)
+
+> Each StorageLevel (except OFF_HEAP) has an equivalent LEVEL_NAME_2, which means replicate twice on two different Spark executors: MEMORY_ONLY_2, MEMORY_AND_DISK_SER_2, etc.
+
+this gives more resilience and allows scheduling of more data local tasks ; the data is persisted on disk, not in memory. To unpersist your cached data, just call `DataFrame.unpersist()`
+
+**Finally, not only can you cache DataFrames, but you can also cache the tables or views derived from DataFrames. This gives them more readable names in the Spark UI**
+
+> Common use cases for caching are scenarios where you will want to access a large data set repeatedly for queries or transformations. Some examples include: DataFrames commonly used during iterative machine learning training DataFrames accessed commonly for doing frequent transformations during ETL or building data pipelines
+
+#### Spark joins
+
+- **Broadcast hash join** (or map side only join, easiest and fastest join): small table is broadcast to all executors (default is smaller set is less than 10MB), can be forced for bigger sets like `val joinedDF = playersDF.join(broadcast(clubsDF), "key1 === key2")`
+
+  `spark.sql.autoBroadcastJoinThreshold` set to -1 disables them and forces a shuffle sort merge join
+
+- **Shuffle sort merge join** efficient way to merge two **large** data sets over a **common key** that is **sortable**, **unique**, and can be assigned to or stored in the same partition
+
+  enabled by default by `spark.sql.join.preferSortMergeJoin`
+
+- **Optimizing the shuffle sort merge join** eliminate exchanges (shuffle) by creating partitioned buckets on columns we want to perform frequent equi-joins on (*note: same as redshift or hive*)
+
+  >  Use this type of join under the following conditions for maximum benefit: 
+  >
+  > - When each key within two large data sets can be sorted and hashed to the same partition by Spark
+  > - When you want to perform only equi-joins to combine two data sets based on matching sorted keys
+  > - When you want to prevent Exchange and Sort operations to save large shuffles across the network
+
+#### The Spark UI
+
+Drilling down in the UI jobs / tasks / executors / config will help in troubleshooting jobs
+
+## Chapter 8: Structured Streaming
+
+https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html
+
+### Micro-batch streaming process
+
+cannot achieve millisecond-range latencies but much more resilient and simple architecturally
+
+DStreams are obsolete now, structured streaming is aligned with the rest of the DF machinery
+
+### The Programming Model of Structured Streaming
+
+new records => new rows appended to an unbounded table; table keeps all the data from the start
+
+3 output modes:
+
+- Append: only new rows since last trigger written
+- Update: works for sinks that can be updated like an RDBMS
+- Complete: entire updated result written
+
+> Unless complete mode is specified, the result table will not be fully materialized by Structured Streaming. Just enough information (known as “state”) will be maintained to ensure that the changes in the result table can be computed and the updates can be output.
+
+Same interface as for standard DataFrames, only thing that's needed is to define the input DataFrame
+
+### Fundamentals of Structured Streaming Query
+
+1. Define input sources (example)
+
+   ```python
+   spark = SparkSession...
+   lines = (spark
+     .readStream.format("socket")
+     .option("host", "localhost")
+     .option("port", 9999)
+     .load())
+   ```
+
+2. Transform data
+
+   ```python
+   from pyspark.sql.functions import *
+   words = lines.select(explode(split(col("value"), "\\s")).alias("word"))
+   counts = words.groupBy("word").count()
+   ```
+
+   - stateless operations are nothing special
+   - stateful operations (like counts) need to preserve state, see below
+
+3. Define output sink and output mode
+
+   ```python
+   writer = counts.writeStream.format("console").outputMode("complete")
+   ```
+
+   append mode is default
+
+4. Specify processing details
+
+   ```python
+   checkpointDir = "..."
+   writer2 = (writer
+     .trigger(processingTime="1 second")
+     .option("checkpointLocation", checkpointDir))
+   ```
+
+   default is to process when the previous micro batch has completed
+
+   `ProcessingTime` sets the trigger time optionally, other modes like `once`and `continuous `(low latency) are available
+
+   checkpoint location points to an HDFS compatible location; necessary for failure recovery and exactly once guarantees
+
+5. Start the query
+
+   `streamingQuery = writer2.start()`
+
+   returned object of type streamingQuery represents an active query and can be used to manage the query; a background thread continuously reads new data
+
+#### Recovering from Failures with Exactly-Once Guarantees
+
+Needs persistent HDFS dir for storing info (offsets etc)
+
+>  Structured Streaming can ensure end-to-end exactly-once guarantees (that is, the output is as if each input record was processed exactly once) when the following conditions have been satisfied: 
+>
+> - Replayable streaming sources The data range of the last incomplete micro-batch can be reread from the source. 
+> - Deterministic computations All data transformations deterministically produce the same result when given the same input data. 
+> - Idempotent streaming sink The sink can identify reexecuted micro-batches and ignore duplicate writes that may be caused by restarts.
+
+Minor modifications are possible between restarts, like adding filters or changing the trigger interval
+
+#### Monitoring an Active Query
+
+Use the `StreamingQuery` instance, calling `lastProgress` or `status`will return info on the last micro-batch or the complete status of the query
+
+Publish the metrics to Graphite, Ganglia and others using Dropwizard Metrics on JVM using a custom `StreamingQueryListener`
+
+### Streaming Data Sources and Sinks
+
+- Files
+
+  - all files must have the same format and schema
+  - must be atomically readable, no append or modify
+  - earliest files (oldest) will be processed first if too many for the next micro-batch
+  - on writing, the exactly-once pattern may mean that some files are deleted and recreated; other consumers may get confused by this
+
+- Kafka: https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html
+
+  - ![CleanShot 2022-10-19 at 22.51.06](learning_spark.assets/CleanShot%202022-10-19%20at%2022.51.06.png)
+  - possible to subscribe to multiple topics, a pattern of topics, or even a specific partition of a topic
+  - choose whether to read only new data in the subscribed-to topics or process all the available data in those topics.
+  - for writing, complete mode is not recommended as it will repeatedly output the same records
+
+- Custom Streaming sources and sinks
+
+  - `foreachBatch()` example for Cassandra:
+
+    ```python
+    # In Python
+    hostAddr = "<ip address>"
+    keyspaceName = "<keyspace>"
+    tableName = "<tableName>"
+    
+    spark.conf.set("spark.cassandra.connection.host", hostAddr)
+    
+    def writeCountsToCassandra(updatedCountsDF, batchId):
+    # Use Cassandra batch data source to write the updated counts
+        (updatedCountsDF
+          .write
+          .format("org.apache.spark.sql.cassandra")
+          .mode("append")
+          .options(table=tableName, keyspace=keyspaceName)
+          .save())
+          
+    streamingQuery = (counts
+      .writeStream
+      .foreachBatch(writeCountsToCassandra)
+      .outputMode("update")
+      .option("checkpointLocation",checkpointDir)
+      .start())
+    ```
+
+  - for sinks without a connector, specific implementation:
+
+    ```python
+    def process_row(row):
+        # Write row to storage
+        pass
+    
+    query = streamingDF.writeStream.foreach(process_row).start()  
+    
+    # Variation 2: Using the ForeachWriter class
+    class ForeachWriter:
+      def open(self, partitionId, epochId):
+        # Open connection to data store
+        # Return True if write should continue
+        # This method is optional in Python 
+        # If not specified, the write will continue automatically
+        return True
+    
+      def process(self, row):
+        # Write string to data store using opened connection
+        # This method is NOT optional in Python
+        pass
+    
+      def close(self, error):
+        # Close the connection. This method is optional in Python
+        pass
+    
+    resultDF.writeStream.foreach(ForeachWriter()).start()
+    ```
+
+- Custom sources: unsupported for streaming currently
+
+### Data transformations
+
+#### Stateless transformations
+
+> All projection operations (e.g., select(), explode(), map(), flatMap()) and selection operations (e.g., filter(), where()) process each input record individually without needing any information from previous rows. This lack of dependence on prior input data makes them stateless operations.
+
+suppports only append and update modes, as complete would be too big
+
+#### Stateful transformations
+
+> The simplest example of a stateful transformation is DataFrame.groupBy().count(), In every micro-batch, the incremental plan adds the count of new records to the previous count generated by the previous micro-batch.
+
+Needs state to be kept between batches; state is persisted in a distributed manner to allow resume on failure
+
+Also, depending on the operation, memory consumption can be big.
+
+#### Types of stateful operations
+
+**Managed** (identify and cleanup old state): Streaming aggregations, Stream–stream joins, Streaming deduplication
+
+**Unmanaged** (custom state cleanup logic): MapGroupsWithState & FlatMapGroupsWithState
+
+#### Stateful streaming aggregations
+
+##### Aggregations not based on time
+
+- **global** (ex: count()) `runningCount = sensorReadings.groupBy().count()` 
+  ***note*** cannot simply count dataframes because streaming works on previous aggregations, so must use `DataFrame.groupBy()` or `Dataset.groupByKey()`
+
+- **grouped aggregations** (ex `baselineValues = sensorReadings.groupBy("sensorId").mean("value")`) also `sum(), mean(), stddev(), countDistinct(), collect_set(), approx_count_distinct()`, etc. also UDF-defined aggregations are supported
+
+- **Multiple aggregations**  can be bundled, example:
+
+  ```python
+  from pyspark.sql.functions import *
+  multipleAggs = (sensorReadings
+    .groupBy("sensorId")
+    .agg(count("*"), mean("value").alias("baselineValue"), 
+      collect_set("errorCode").alias("allErrorCodes")))
+  ```
+
+##### Aggregations based on time windows
+
+```python
+from pyspark.sql.functions import *
+(sensorReadings
+  .groupBy("sensorId", window("eventTime", "5 minute"))
+  .count())
+```
+
+1. Use the eventTime value to compute the five-minute time window the sensor reading falls into.
+2. Group the reading based on the composite group (`<computed window>`, `SensorId`). 
+3. Update the count of the composite group.
+
+Can use several time windows simultaneously:
+
+```python
+(sensorReadings
+  .groupBy("sensorId", window("eventTime", "10 minute", "5 minute"))
+  .count())
+```
+
+Late events are taken into account because state for earlier ones is kept:
+
+![CleanShot 2022-10-20 at 18.54.58](learning_spark.assets/CleanShot%202022-10-20%20at%2018.54.58.png)
+
+But involves increased resource usage because keeping all info is expensive, so watermarks are used (defines a TTL for previous events); events before the watermark will be discarded (but not a strict guarantee, see detailed explanation in chapter).
+
+```python
+(sensorReadings
+  .withWatermark("eventTime", "10 minutes")
+  .groupBy("sensorId", window("eventTime", "10 minutes", "5 minutes"))
+  .mean("value"))
+```
+
+> must call withWatermark() **before** the groupBy() and **on the same timestamp column** as that used to define windows.
+>
+
+##### Supported output modes in time window aggregations
+
+All modes (including complete) are supported
+
+- update mode is the most useful: only updated aggregates will be written
+- complete mode makes less sense, and risk of OOM
+- append: *can be used only with aggregations on event-time windows and with watermarking enabled.* because it waits for the watermark to be reached; so there's a delay; a bit like complete, but limited to the watermark.
+
+#### Streaming joins
+
+##### Stream–Static Joins
+
+when joining with a static dataframe (side table) like `impressionsStatic = spark.read. ... matched = clicksStream.join(impressionsStatic, "adId")` where adId is an advertisment id in a static table. Here it's a 
+
+Also supported: 
+
+- Left outer join when the left side is a streaming DataFrame 
+
+- Right outer join when the right side is a streaming DataFrame
+
+**Notes**: 1) stateless operations, so no watermarking needed 2) repeated read of the static table, so explicitly cache it for speed 3) changes to the underlying static data may not be seen depending on which storage is used (files will be read once only for instance)
+
+ ##### Stream-stream joins
+
+- Inner joins with optional watermarking
+
+  one of the 2 streams will always be late, they cannot be in perfect sync. So buffering is used. The engine will generate a result for a line as soon as it can execute the join. How to specify the buffer size? it's expressed in the join condition like this:
+
+  ```python
+  # Define watermarks
+  impressionsWithWatermark = (impressions
+    .selectExpr("adId AS impressionAdId", "impressionTime")
+    .withWatermark("impressionTime", "2 hours"))
+  
+  clicksWithWatermark = (clicks
+    .selectExpr("adId AS clickAdId", "clickTime")
+    .withWatermark("clickTime", "3 hours"))
+  
+  # Inner join with time range conditions
+  (impressionsWithWatermark.join(clicksWithWatermark,
+    expr(""" 
+      clickAdId = impressionAdId AND 
+      clickTime BETWEEN impressionTime AND impressionTime + interval 1 hour""")))
+  ```
+
+  buffering will be calculated automatically with the watermarks plus the join condition
+
+  **Note**: if watermarks and join condition are unspecified, join is unbounded (memory could grow slowly if equijoin not satisfied for some values)
+  
+- Outer joins with watermarking
+
+  ```python
+  # Left outer join with time range conditions
+  (impressionsWithWatermark.join(clicksWithWatermark,
+    expr(""" 
+      clickAdId = impressionAdId AND 
+      clickTime BETWEEN impressionTime AND impressionTime + interval 1 hour"""),
+    "leftOuter"))  # only change: set the outer join type
+  ```
+  
+  > joins, the watermark delay and event-time constraints **are not optional** for outer joins. This is because for generating the NULL results, the engine **must** know when an event is not going to match with anything else in the future.
+  >
+  > Consequently, the outer NULL results will be **generated with a delay** as the engine has to wait for a while to ensure that there neither were nor would be any matches.
+  >
+
+#### Arbitrary Stateful Computations
+
+Only available in Java/Scala: `mapGroupsWithState()` and its more flexible counterpart `flatMapGroupsWithState()`
+
+Used to implement custom complex logic, refer to the book chapter; quick example:
+
+```scala
+// In Scala
+def arbitraryStateUpdateFunction(
+    key: K, 
+    newDataForKey: Iterator[V], 
+    previousStateForKey: GroupState[S]
+): U
+
+val inputDataset: Dataset[V] =  // input streaming Dataset
+inputDataset
+  .groupByKey(keyFunction)   // keyFunction() generates key from input
+  .mapGroupsWithState(arbitraryStateUpdateFunction)
+```
+
+Note processing-time timeouts and envent time timeouts must be specified. read the chapter 🙂 
+
+with `flatMapGroupsWithState()`:
+
+```scala
+def getUserAlerts(
+    userId: String, 
+    newActions: Iterator[UserAction],
+    state: GroupState[UserStatus]): Iterator[UserAlert] = {
+
+  val userStatus = state.getOption.getOrElse {
+    new UserStatus(userId, false) 
+  }
+  newActions.foreach { action => 
+    userStatus.updateWith(action)
+  } 
+  state.update(userStatus)
+
+  // Generate any number of alerts
+  return userStatus.generateAlerts().toIterator  
+}
+
+val userAlerts = userActions
+  .groupByKey(userAction => userAction.userId) 
+  .flatMapGroupsWithState(
+    OutputMode.Append, 
+    GroupStateTimeout.NoTimeout)(
+```
+
+### Performance tuning
+
+- stateless queries usually need more cores, and stateful queries usually need more memory
+
+- dimension for 24/7 operations, enough resources, not too much
+
+- tune source rate limiting (backpressure) to remove spikes if possible
+
+- the number of shuffle partitions usually needs to be set much lower than for most batch queries
+
+- Running multiple streaming queries in the same SparkContext or SparkSession can lead to fine-grained resource sharing.
+
+  - risk of bottleneck in task scheduling (spark driver)
+
+  - queries can be put in different scheduler pools
+
+    ```python
+    # Run streaming query1 in scheduler pool 1
+    spark.sparkContext.setLocalProperty("spark.scheduler.pool", "pool1")
+    df.writeStream.queryName("query1").format("parquet").start(path1)
+    
+    # Run streaming query2 in scheduler pool 2
+    spark.sparkContext.setLocalProperty("spark.scheduler.pool", "pool2")
+    df.writeStream.queryName("query2").format("parquet").start(path2)
+    ```
+
+    
+
+## Chapter 9: Building Reliable Data Lakes
+
