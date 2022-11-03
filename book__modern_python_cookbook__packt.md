@@ -1,86 +1,102 @@
-## From Modern Python Cookbook (Packt Publishing)
+# Modern Python Cookbook (Packt Publishing)
 
-### Chapter 1. Numbers, Strings, and Tuples
+## Chapter 1. Numbers, Strings, and Tuples
 
-#### decimal (for currencies)
+### decimal (for currencies)
 
-    >>> from decimal import Decimal
-    >>> tax_rate = Decimal('7.25')/Decimal(100)
-    >>> purchase_amount = Decimal('2.95')
-    >>> tax_rate * purchase_amount
-    Decimal('0.213875')
+```text
+>>> from decimal import Decimal
+>>> tax_rate = Decimal('7.25')/Decimal(100)
+>>> purchase_amount = Decimal('2.95')
+>>> tax_rate * purchase_amount
+Decimal('0.213875')
+```
 
-#### binary
+### binary
 
-    >>> composite_byte = 0b01101100
-    >>> bottom_6_mask =  0b00111111
-    >>> bin(composite_byte >> 6)
-    '0b1'
-    >>> bin(composite_byte & bottom_6_mask)
-    '0b101100'
+```text
+>>> composite_byte = 0b01101100
+>>> bottom_6_mask =  0b00111111
+>>> bin(composite_byte >> 6)
+'0b1'
+>>> bin(composite_byte & bottom_6_mask)
+0b101100'
+```
 
-#### fractions
+### fractions
 
-    >>> from fractions import Fraction
-    >>> sugar_cups = Fraction('2.5')
-    >>> scale_factor = Fraction(5/8)
-    >>> sugar_cups * scale_factor
-    Fraction(25, 16)
-    
-    In [7]: from fractions import Fraction
-    In [8]: Fraction(152/23)
-    Out[8]: Fraction(7440729819133863, 1125899906842624)
-    In [9]: Fraction(152,23)
-    Out[9]: Fraction(152, 23)
-    
-    >>> Fraction(24,16)
-    Fraction(3, 2)
+```text
+>>> from fractions import Fraction
+>>> sugar_cups = Fraction('2.5')
+>>> scale_factor = Fraction(5/8)
+>>> sugar_cups * scale_factor
+Fraction(25, 16)
 
-#### floats, rouding
+In [7]: from fractions import Fraction
+In [8]: Fraction(152/23)
+Out[8]: Fraction(7440729819133863, 1125899906842624)
+In [9]: Fraction(152,23)
+Out[9]: Fraction(152, 23)
 
-    >>> answer= (19/155)*(155/19)
-    >>> round(answer, 3)
-    1.0
+>>> Fraction(24,16)
+Fraction(3, 2)
+```
 
-#### the math module
+### floats, rouding
 
-    >>> (19/155)*(155/19) == 1.0
-    False
-    >>> math.isclose((19/155)*(155/19), 1)
-    True
+```text
+>>> answer= (19/155)*(155/19)
+>>> round(answer, 3)
+1.0
+```
 
-_math.fsum()_ better than _sum()_
-explore other _math.*_ functions
-complex numbers: _cmath_ module
+### the math module
 
-#### integer division
+```text
+>>> (19/155)*(155/19) == 1.0
+False
+>>> math.isclose((19/155)*(155/19), 1)
+True
+```
 
-    >>> total_seconds = 7385
-    >>> hours = total_seconds//3600
-    >>> remaining_seconds = total_seconds % 3600
+- `_math.fsum()_` better than `_sum()_`
+- explore other `_math.*_` functions
+- complex numbers: `_cmath_` module
+
+### integer division
+
+```text
+>>> total_seconds = 7385
+>>> hours = total_seconds//3600
+>>> remaining_seconds = total_seconds % 3600
+```
 
 or
 
-    >>> total_seconds = 7385
-    >>> hours, remaining_seconds = divmod(total_seconds, 3600)
+```text
+>>> total_seconds = 7385
+>>> hours, remaining_seconds = divmod(total_seconds, 3600)
+```
 
 note: using new division operators like // need `>>> from __future__ import
 division` in python 2
 
-#### string operations
+### string operations
 
-    >>> colon_position = title.index(':')
-    >>> discard_text, post_colon_text = title[:colon_position], title[colon_position+1:]
-    >>> pre_colon_text, _, post_colon_text = title.partition(':')
-    >>> post_colon_text = post_colon_text.replace(' ', '_')
-    >>> post_colon_text = post_colon_text.replace(',', '_')
-    >>> from string import whitespace, punctuation
-    >>> for character in whitespace + punctuation:
-    ...     post_colon_text = post_colon_text.replace(character, '_')
-    >>> post_colon_text = post_colon_text.lower()
-    >>> post_colon_text = post_colon_text.strip('_') # on both ends
-    >>> while '__' in post_colon_text:
-    ...    post_colon_text = post_colon_text.replace('__', '_')
+```text
+>>> colon_position = title.index(':')
+>>> discard_text, post_colon_text = title[:colon_position], title[colon_position+1:]
+>>> pre_colon_text, _, post_colon_text = title.partition(':')
+>>> post_colon_text = post_colon_text.replace(' ', '_')
+>>> post_colon_text = post_colon_text.replace(',', '_')
+>>> from string import whitespace, punctuation
+>>> for character in whitespace + punctuation:
+...     post_colon_text = post_colon_text.replace(character, '_')
+>>> post_colon_text = post_colon_text.lower()
+>>> post_colon_text = post_colon_text.strip('_') # on both ends
+>>> while '__' in post_colon_text:
+...    post_colon_text = post_colon_text.replace('__', '_')
+```
 
 We made use of slice notation to decompose a string. A slice has two parts:
 [start:end]. A slice always includes the starting index. String indices always
@@ -88,76 +104,88 @@ start with zero as the first item. It never includes the ending index.
 
 parsing numbers:
 
-    >>> '1298'.isnumeric()
-    True
+```text
+>>> '1298'.isnumeric()
+True
+```
 
 regex parsing
 
-    >>> import re
-    >>> pattern_text = r'(?P<ingredient>\w+):\s+(?P<amount>\d+)\s+(?P<unit>\w+)'
-    >>> pattern = re.compile(pattern_text)
-    >>> match = pattern.match(ingredient)
-    >>> match is None
-    False
-    >>> match.groups()
-    ('Kumquat', '2', 'cups')
-    >>> match.group('ingredient')
-    'Kumquat'
+```text
+>>> import re
+>>> pattern_text = r'(?P<ingredient>\w+):\s+(?P<amount>\d+)\s+(?P<unit>\w+)'
+>>> pattern = re.compile(pattern_text)
+>>> match = pattern.match(ingredient)
+>>> match is None
+False
+>>> match.groups()
+('Kumquat', '2', 'cups')
+>>> match.group('ingredient')
+'Kumquat'
+```
 
 regexes can span several lines
 
-    >>> ingredient_pattern = re.compile(
-    ... r'(?P<ingredient>\w+):\s+' # name of the ingredient up to the ":"
-    ... r'(?P<amount>\d+)\s+'      # amount, all digits up to a space
-    ... r'(?P<unit>\w+)'           # units, alphanumeric characters
-    ... )
+```text
+>>> ingredient_pattern = re.compile(
+... r'(?P<ingredient>\w+):\s+' # name of the ingredient up to the ":"
+... r'(?P<amount>\d+)\s+'      # amount, all digits up to a space
+... r'(?P<unit>\w+)'           # units, alphanumeric characters
+... )
+```
 
 format strings
 
-    >>> '{id:3s}  : {location:19s} :  {max_temp:3d} / {min_temp:3d} / 
-        {precipitation:5.2f}'.format(
-    ...   id=id, location=location, max_temp=max_temp, 
-            min_temp=min_temp, precipitation=precipitation )
-    'IAD  : Dulles Intl Airport :   32 /  13 /  0.40'
-    
-    >>> '{id:3s}  : {location:19s} :  {max_temp:3d} / {min_temp:3d} / 
-    {precipitation:5.2f}'.format_map( data )
-    'IAD  : Dulles Intl Airport :   32 /  13 /  0.40'
-    
-    >>> '{id:3s}  : {location:19s} :  {max_temp:3d} / {min_temp:3d} / 
-    {precipitation:5.2f}'.format_map( vars() )
-    'IAD  : Dulles Intl Airport :   32 /  13 /  0.40'
+```text
+>>> '{id:3s}  : {location:19s} :  {max_temp:3d} / {min_temp:3d} / 
+    {precipitation:5.2f}'.format(
+...   id=id, location=location, max_temp=max_temp, 
+        min_temp=min_temp, precipitation=precipitation )
+'IAD  : Dulles Intl Airport :   32 /  13 /  0.40'
+
+>>> '{id:3s}  : {location:19s} :  {max_temp:3d} / {min_temp:3d} / 
+{precipitation:5.2f}'.format_map( data )
+'IAD  : Dulles Intl Airport :   32 /  13 /  0.40'
+
+>>> '{id:3s}  : {location:19s} :  {max_temp:3d} / {min_temp:3d} / 
+{precipitation:5.2f}'.format_map( vars() )
+'IAD  : Dulles Intl Airport :   32 /  13 /  0.40'
+```
 
 process string as a list
 
-    >>> title_list = list(title)
-    >>> colon_position = title_list.index(':')
-    >>> ...
-    >>> title = ''.join(title_list)
+```text
+>>> title_list = list(title)
+>>> colon_position = title_list.index(':')
+>>> ...
+>>> title = ''.join(title_list)
+```
 
 unicode characters
 
-    \uxxxx     for 4 hex digits
-    \Uxxxxxxxx for 8 hex digits
-    \N{UNICODE_NAME}
-    
-    # display raw strings
-    >>> r"\w+"
-    '\\w+'
+```text
+\uxxxx     for 4 hex digits
+\Uxxxxxxxx for 8 hex digits
+\N{UNICODE_NAME}
+
+# display raw strings
+>>> r"\w+"
+'\\w+'
+```
 
 encoding strings
 
 - to specify an ecnoding for I/O globally: `export PYTHONIOENCODING=UTF-8`
 - to specify an ecnoding per FH:
 
-```
+```text
 with open('some_file.txt', 'w', encoding='utf-8') as output:
     print( 'You drew \U0001F000', file=output )
 ```
 
 - when opening a file in byte mode:
 
-```
+```text
 >>> string_bytes = 'You drew \U0001F000'.encode('utf-8')
 >>> string_bytes
 b'You drew \xf0\x9f\x80\x80'
@@ -165,7 +193,7 @@ b'You drew \xf0\x9f\x80\x80'
 
 - when retrieving a stream of bytes with urllib for instance:
 
-```
+```text
 >>> document = forecast_text.decode("UTF-8")
 >>> document[:80]
 '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.or">'
@@ -175,7 +203,7 @@ The b prefix is gone. We've created a proper string of Unicode characters from t
 
 NOTE: for web scraping, use <https://www.crummy.com/software/BeautifulSoup/>
 
-#### using tuples
+### using tuples
 
 the result of a regex match groups() method is a tuple
 
@@ -183,7 +211,7 @@ create a tuple: `foo = ("bar", "baz", 2.0)`
 
 singleton tuple: `'355,' -> returns (355,), not 355)`
 
-```
+```text
 >>> ingredient, amount, unit = my_data # extract 3 items
 >>> foo, _, bar = my_data # discard 2nd item (convention)
 
@@ -203,9 +231,9 @@ ValueError: tuple.index(x): x not in tuple
 False
 ```
 
-### Chapter 2. Statements and Syntax
+## Chapter 2. Statements and Syntax
 
-#### Long lines
+### Long lines
 
 We can use \ at the end of a line to continue onto the next line.
 
@@ -215,31 +243,33 @@ In addition to using () and \, we can also exploit the way Python automatically 
 
 for long imports:
 
-```
+```text
 >>> from math import (sin, cos, tan,
 ...    sqrt, log, frexp)
 ```
 
-#### Docstrings
+### Docstrings
 
 use ReStructuredText (RST) markup (see details in the book, 2 paragraphs)
 
 RST spec: <http://docutils.sourceforge.net/>
 
-    #!/usr/bin/env python3
-    '''
-    My First Script: Calculate an important value.
-    '''
+```python
+#!/usr/bin/env python3
+'''
+My First Script: Calculate an important value.
+'''
+```
 
 type inference (not built-in, just advisory): `color = 355/113 # type: float`
 
-#### Complex if statements
+### Complex if statements
 
 use assert to verify a complex condition, throws AssertionError if false
 
 use while loop and assertion:
 
-```
+```python
 while password_text != confirming_password_text:
     password_text= getpass()
     confirming_password_text= getpass("Confirm: ")
@@ -260,7 +290,7 @@ else: # applies to the for loop, fires if break fires
         name, value = None, None
 ```
 
-#### Exceptions
+### Exceptions
 
 - Use except Exception: as the most general kind of exception managing
 
@@ -281,7 +311,7 @@ except (IndexError, NameError) as exception:
 `raise ExceptionType(...)` raises a different exception
 `raise ExceptioType(...) from exception` raises a chained exception
 
-#### Managing context with `with`
+### Managing context with `with`
 
 `with` creates a context manager:
 
@@ -298,14 +328,14 @@ releases the resource (file, db connection, lock (see threading + locks in pytho
 
 define our own context managers: see the `contextlib` module
 
-### Chapter 3: Function definitions
+## Chapter 3: Function definitions
 
-#### optional parameters
+### optional parameters
 
 a default value in the function definition is what makes a parameter optional
 
 ```python
-## call dice() for Craps. We'll need to use dice(6) for yams
+# call dice() for Craps. We'll need to use dice(6) for yams
 def dice(n=2):
     return tuple(die() for x in range(n)) # with generator added
 ```
@@ -314,7 +344,7 @@ positional values must be provided first because the order matters. For
 example, dice(2, sides=8). When using all named arguments, order doesn't
 matter.
 
-#### super flexible KW parameters
+### super flexible KW parameters
 
 ```python
 def rtd2(distance, rate, time, **keywords):
@@ -328,7 +358,7 @@ def rtd2(**keywords):
         distance= keywords.get('distance', None) 
 ```
 
-#### forcing KW only arguments
+### forcing KW only arguments
 
 The * character has two meanings in the definition of a function:
 
@@ -339,11 +369,11 @@ The * character has two meanings in the definition of a function:
   positionally and parameters which must be provided by keyword.
 
 ```python
-## doesn't accept positional arguments
+# doesn't accept positional arguments
 def wind_chill(*, start_T, stop_T, step_T, start_V, stop_V, step_V, path): 
 ```
 
-#### explicit typing
+### explicit typing
 
 Create a type class
 
@@ -371,10 +401,10 @@ a = {
   (1, 2, 3): ['Poe', 'E'], 
   (3, 4, 5): ['Near', 'a', 'Raven'], 
 }
-## type hint is: Dict[Tuple[int, int, int], List[str]]
+# type hint is: Dict[Tuple[int, int, int], List[str]]
 ```
 
-#### partial functions
+### partial functions
 
 We can follow the Forcing keyword-only arguments with the * separator recipe. We might change the basic haversine function to look like this:
 
@@ -412,9 +442,9 @@ here's a third way to wrap a function—we can also build a lambda object. This 
 nm_haversine = lambda *args: haversine(*args, R=NM) 
 ```
 
-#### Writing clear documentation strings with RST markup
+### Writing clear documentation strings with RST markup
 
-```
+```python
 def Twc(T: float, V: float) -> float: 
     """Computes the wind chill temperature 
 
@@ -433,7 +463,7 @@ def Twc(T: float, V: float) -> float:
     """
 ```
 
-```
+```python
 def wind_chill_table(): 
         """Uses :func:`Twc` to produce a wind-chill 
         table for temperatures from -30°C to 10°C and 
@@ -441,7 +471,7 @@ def wind_chill_table():
         """
 ```
 
-#### Do not use tail recursion
+### Do not use tail recursion
 
 python has a limited stack, so use recursion sparsely. For tail recursion, prefer using reduction (accumulators). don't do:
 
@@ -490,7 +520,7 @@ def fibo_iter():
         a, b = b, a+b 
 ```
 
-#### Writing reusable scripts with the script library switch
+### Writing reusable scripts with the script library switch
 
 Move actions in `def ... :` statements, then, if it should run as a standalone script _and_ a library, add this at the end:
 
@@ -508,7 +538,7 @@ if __name__ == "__main__":
 >
 > This kind of script can be viewed as a spike solution . Our spike solution should evolve towards a more refined solution as soon as we're sure that it works."
 
-### Chapter 4: built-in data structures
+## Chapter 4: built-in data structures
 
 Create a set: `foo = {"bar", "baz"}`
 
@@ -543,7 +573,7 @@ The collections module contains a number of variations on the built-in collectio
 - heapq module which defines a priority queue implementation.
 - bisect module includes methods for searching a sorted list very quickly
 
-#### Building lists
+### Building lists
 
 `foo.append(...)` mutates the list in place and returns nothing
 
@@ -559,7 +589,7 @@ Find index of lowest value: `foo.index(min(foo))`
 Extend a list: `foo = list1 + list2` or `list1.extend(list2)`
 Insert in a list: `foo.insert(0, "value")` inserts in 1st postion.
 
-#### Slicing and dicing a list
+### Slicing and dicing a list
 
 slice a list in 2 lists, at row 4 (index is 3, so the n: notation specifies the index to cut before, whereas :n specifies the first index to include): `head, tail = log_rows[:4], log_rows[4:]`
 
@@ -571,14 +601,14 @@ full notation for slices is `start:stop:step`, any parameter can be omitted, def
 `zip(list1, list2)` interleaves 2 lists and makes a list of tuples.
 
 ```python
-## flatten the tuples
+# flatten the tuples
 paired_rows = list( zip(tail[0::3], tail[1::3]) ) 
 [a+b for a,b in paired_rows]
 ```
 
 The slicing technique works for lists, tuples, strings, and any other kind of sequence.
 
-#### Deleting from a list
+### Deleting from a list
 
 We can remove elements from a list because it is mutable, unlike a tuple for instance.
 
@@ -590,7 +620,7 @@ remove an element by index: `list1.pop(index)` (mutates the object and returns t
 
 filter with a function or a lambda: `filtered = list(filter(filter_function, list1))` (the output of the filter function is an iterable, hence the need to call `list()` on it)
 
-#### Reversing a list
+### Reversing a list
 
 use the `reverse()` method, which will mutate it in place
 
@@ -598,7 +628,7 @@ OR use a trick: `reversed_list = list1[::-1]` (slice with negative step value)
 
 Careful, a list is addressed by reference, so to make a copy of it, use `list1.copy()`; this is why we use `fields_copy2 = fields[::-1]` which is a shallow copy, saving 1 instruction
 
-#### Using set methods and operators
+### Using set methods and operators
 
 We can build a set using the `set()` function to convert an existing collection to a set, and we can add to it using the `add()` method, and use the `update()` method, the union operator `|` or the set's `union` method.
 
@@ -616,7 +646,7 @@ other operators:
 - `^`  for symmetric difference, often typeset as A Δ B
 - `-`  for subtraction, often typeset as A - B
 
-#### Removing items from a set – remove(), pop(), and difference
+### Removing items from a set – remove(), pop(), and difference
 
 ```python
 to_be_ignored = {'IP: 0.0.0.0', 'IP: 1.2.3.4'}
@@ -633,7 +663,7 @@ for item in to_be_ignored:
 
 `pop()` on a set will remove one element at random. Throws KeyError on empty set
 
-#### Creating dictionaries – inserting and updating
+### Creating dictionaries – inserting and updating
 
 It's essential that dictionary key objects be immutable. We cannot use a list, set, or dict as the key in a dictionary mapping. We can, however, transform a list into an immutable tuple, or make a set into a frozenset so that we can use one of these more complex objects as a key.
 
@@ -645,7 +675,7 @@ Specialized implementations of dictionaries in the collections module:
 
 ```python
 from collections import defaultdict
-## passsing the int function object will initialize at 0
+# passsing the int function object will initialize at 0
 histogram = defaultdict(int)
 for item in source:
     histogram[item] += 1 
@@ -660,7 +690,7 @@ to display by key order: `for key in sorted(histogram): print(key, histogram[key
 - We have the in-memory **dictionary**, **dict**, and the variations on this theme in the **collections** module. The collection only exists while our program is running.
 - We also have persistent storage in the **shelve** and **dbm** modules. The data collection is a persistent file in the file system.
 
-#### Removing from dictionaries – the pop() method and the del statement
+### Removing from dictionaries – the pop() method and the del statement
 
 ```python
 amount = working_bets.pop('come odds') # returns the removed value, throws KeyError
@@ -669,12 +699,12 @@ del working_bets['come odds'] # returns nothing
 
 `pop()` can be given a default value. If the key is not present, it will not raise an exception, but will return the default value instead.
 
-#### Controlling the order of dict keys
+### Controlling the order of dict keys
 
 - Create an `OrderedDict`: This keeps keys in the order they are created
 - Use `sorted()` on the keys: This puts the keys into a sorted order
 
-#### Making shallow and deep copies of objects
+### Making shallow and deep copies of objects
 
 lists, dictionaries and sets are mutable, the rest isn't
 
@@ -695,7 +725,7 @@ True
 
 to make deep copies instead of shallow ones, use `deepcopy` from the `copy` module.
 
-#### Avoiding mutable default values for function parameters
+### Avoiding mutable default values for function parameters
 
 `def gather_stats(n, samples=1000, summary=Counter()):`
 
@@ -719,9 +749,9 @@ gather_stats(2, 12, summary_func=list)  # returns a list
 gather_stats(2, 12)                              # returns a Counter
 ```
 
-### Chapter 5: User Inputs and Outputs
+## Chapter 5: User Inputs and Outputs
 
-#### Using features of the print() function
+### Using features of the print() function
 
 - make use of the `sep=` and `end=` arguments of print() to control displaying of lists and lines
 
@@ -737,7 +767,7 @@ gather_stats(2, 12)                              # returns a Counter
           print("Ordinary log") 
   ```
 
-#### Using input() and getpass() for user input
+### Using input() and getpass() for user input
 
 - input(): This prompts and reads simply
 
@@ -754,7 +784,7 @@ gather_stats(2, 12)                              # returns a Counter
   
     (will trigger a ValueError exception if incorrect input)
 
-#### Debugging with "format".format_map(vars())
+### Debugging with "format".format_map(vars())
 
 - The vars() function builds a dictionary structure from a variety of sources.
 
@@ -782,7 +812,7 @@ gather_stats(2, 12)                              # returns a Counter
   # mean=1414.77, std=901.10, limit2=3216.97
   ```
 
-#### Using argparse to get command-line input
+### Using argparse to get command-line input
 
 ```python
 parser = argparse.ArgumentParser()
@@ -812,7 +842,7 @@ options = parser.parse_args()
 
 - **Show the version number**: It's common to have `--Version` as an argument to display the version number and exit. We implement this with `add_argument("--Version", action="version", version="v 3.14")`. We provide an action of `version` and an additional keyword argument that sets the version to display.
 
-#### Using cmd for creating command-line applications
+### Using cmd for creating command-line applications
 
 - The core feature of the `cmd.Cmd` application is a **read-evaluate-print loop** (**REPL**). This kind of application works well when there are a large number of individual state changes and a large number of commands to make those state changes.
   
@@ -850,7 +880,7 @@ options = parser.parse_args()
 
 - We can tailor the help output by setting `doc_header`, `undoc_header`, `misc_header`, and `ruler` attributes. These will all alter how the help output looks.
 
-#### Using the OS environment settings
+### Using the OS environment settings
 
 ```python
 import os
@@ -871,9 +901,9 @@ def get_options(argv=sys.argv):
     return options
 ```
 
-### Chapter 6: Basics of Classes and Objects
+## Chapter 6: Basics of Classes and Objects
 
-#### Using a class to encapsulate data and processing
+### Using a class to encapsulate data and processing
 
 - **Single Responsibility Principle**: A class should have one clearly defined responsibility.
 
@@ -885,7 +915,7 @@ def get_options(argv=sys.argv):
 
 - **Dependency Inversion Principle**: It's less than ideal for a class to depend directly on other classes. It's better if a class depends on an abstraction, and a concrete implementation class is substituted for the abstract class.
 
-#### Designing classes with lots of processing
+### Designing classes with lots of processing
 
 Most of the time, an object will contain all of the data that defines its internal state. However, this isn't always true. There are cases where a class doesn't really need to hold the data, but instead can hold the processing.
 
@@ -903,9 +933,9 @@ class CounterStatistics:
         # process
 ```
 
-#### Designing classes with little unique processing
+### Designing classes with little unique processing
 
-##### Stateless objects (no setters, only getters)
+#### Stateless objects (no setters, only getters)
 
 ```python
 >>> from collections import namedtuple 
@@ -921,7 +951,7 @@ Card(rank=8, suit='♡')
 8
 ```
 
-##### Stateful objects with a new class (dynamic attributes)
+#### Stateful objects with a new class (dynamic attributes)
 
 ```python
 class Player: 
@@ -930,7 +960,7 @@ p = Player()
 p.stake = 100
 ```
 
-##### Stateful objects using an existing class (same as above)
+#### Stateful objects using an existing class (same as above)
 
 ```python
 from argparse import Namespace
@@ -940,7 +970,7 @@ p = Player()
 p.stake = 100
 ```
 
-#### Optimizing small objects with \_\_slots__
+### Optimizing small objects with \_\_slots__
 
 ```python
 class Hand:
@@ -959,7 +989,7 @@ Specifying \_\_slots__prevents addition of new attributes, highly optimized; it 
 
 See <https://docs.python.org/3/reference/datamodel.html#metaclass-example>
 
-#### Using more sophisticated collections
+### Using more sophisticated collections
 
 - `collections` module
   
@@ -973,7 +1003,7 @@ See <https://docs.python.org/3/reference/datamodel.html#metaclass-example>
 
 - `bisect` module includes methods for searching a sorted list
 
-#### Extending a collection – a list that does statistics
+### Extending a collection – a list that does statistics
 
 ```python
 class StatsList(list):
@@ -997,7 +1027,7 @@ from collections.abc import Mapping
       def __len__():
 ```
 
-#### Using properties for lazy attributes
+### Using properties for lazy attributes
 
 ```python
 class LazyCounterStatistics:
@@ -1013,7 +1043,7 @@ class LazyCounterStatistics:
 
 We used the `@property` decorator. This makes a method function appear to be an attribute. This can only work for method functions that have no argument values.
 
-#### Using settable properties to update eager attributes
+### Using settable properties to update eager attributes
 
 ```python
 class Leg: 
@@ -1096,7 +1126,7 @@ class Leg:
             method()
 ```
 
-### Chapter 7: more advanced class design
+## Chapter 7: more advanced class design
 
 wrap or extend?
 
@@ -1121,7 +1151,7 @@ wrap or extend?
 
 > We generally focus on aggregation because removal of unused objects is entirely automatic. (reference counting)
 
-#### Separating concerns via multiple inheritance
+### Separating concerns via multiple inheritance
 
 (using superclass, mixin class); check `object.__class__.mro()` to see the method resolution order
 
@@ -1202,20 +1232,20 @@ class LoggedCribbageAce(Logged, AceCard, CribbagePoints):
   pass
 ```
 
-#### Leveraging duck typing
+### Leveraging duck typing
 
 > In the case of Python class relationships, if two objects have the same methods, and the same attributes, this has the same effect as having a common superclass. It works even if there's no common superclass definition other than the object class.
-
+>
 > it's sometimes easier to avoid a common superclass and simply check that two classes are both equivalent using the duck test—the two classes have the same methods and attributes, therefore, they are effectively members of some superclass that has no formal realization as Python code.
 
 have a look at `___slots__`and `__dict__` to figure out the object's layout, and possible common superclass
 
 Note inserting a class in a namespace (like the decimal type, part of Number witout a superclass) is possible
 
-#### Managing global and singleton objects
+### Managing global and singleton objects
 
 > One example of this is an implicit random number generating object that's part of the random module. When we evaluate random.random(), we're actually making use of an instance of the random.Random class that's an implicit part of the random module.
-
+>
 > There are two ways to do handle global state information.
 >
 > - One technique uses a module global variable because modules are singleton objects.
@@ -1245,7 +1275,7 @@ def counts(self):
 
 _Beware of abuse of this pattern!_
 
-#### Using more complex structures – maps of lists
+### Using more complex structures – maps of lists
 
 ```python
 from collections import defaultdict
@@ -1255,14 +1285,14 @@ for row in data:
     module_details[row[2]].append(row) # append to default empty list
 ```
 
-#### Creating a class that has sortable / comparable objects
+### Creating a class that has sortable / comparable objects
 
 1. create a class
 2. define its `__lt__`, `__gt__`, `__le__`, `__ge__`, `__eq__`, `__ne__` methods
 
 See **Section 3.3 of the Python Language Reference** for other special methods that allow object customization
 
-#### Defining an ordered collection
+### Defining an ordered collection
 
 Problem with long lists: complexity of searching is O(n), so very slow
 
@@ -1284,13 +1314,13 @@ to create a more efficient multiset:
 
   can extend it to make it behave more like a `MutableSet`, check the docs (many more methods to define)
 
-#### Deleting from a list of mappings
+### Deleting from a list of mappings
 
 recommendation: use shallow copies rather than list manipulation
 
-### Chapter 8. Functional and Reactive Programming Features
+## Chapter 8. Functional and Reactive Programming Features
 
-#### Writing generator functions with the yield statement
+### Writing generator functions with the yield statement
 
 useful in particular when an argument may produce a result that does not fit in memory, so we use an iteration:
 
@@ -1348,7 +1378,7 @@ def filter(f, S):
       yield s
 ```
 
-#### Using stacked generator expressions
+### Using stacked generator expressions
 
 possible to chain generators, and create `z = g(f(x))` functions that use generators inside generators (a bit like recursion, minimal memory footprint, more like a pipeline)
 
@@ -1372,7 +1402,7 @@ def make_namespace(merge_iter):
       yield ns
 ```
 
-#### Applying transformations to a collection
+### Applying transformations to a collection
 
 can do it creating a generator `foo = (start_datetime(row) for row in tail_gen)` or by using `map()`:
 
@@ -1389,7 +1419,7 @@ for row in map(parse_date, data):
   print(row[0], row[3]) 
 ```
 
-#### Picking a subset - three ways to filter
+### Picking a subset - three ways to filter
 
 ```python
 def pass_non_date(row):
@@ -1418,7 +1448,7 @@ filter(pass_non_date, data)
 filter(lambda item: not reject_date(item), data)
 ```
 
-#### Summarizing a collection – how to reduce
+### Summarizing a collection – how to reduce
 
 ```python
 from functools import reduce
@@ -1461,7 +1491,7 @@ mul = lambda a, b: a * b
 from operator import add, mul
 ```
 
-#### Minima and maxima
+### Minima and maxima
 
 Slightly more complex since there's no base value
 
@@ -1476,10 +1506,10 @@ def mymax(sequence):
 ```
 
 > Note that a fold (or reduce() as it's called in Python) can be abused, leading to poor performance. We have to be cautious about simply using a reduce() function without thinking carefully about what the resulting algorithm might look like. In particular, the operator being folded into the collection should be a simple process such as adding or multiplying. Using reduce() changes the complexity of an O(1) operation into O(n).
-
+>
 > Imagine what would happen if the operator being applied during the reduction involved a sort over a collection. A complex operator—with O(n log n) complexity—being used in a reduce() would change the complexity of the overall reduce() to O(n2log n).
 
-#### Combining map and reduce transformations
+### Combining map and reduce transformations
 
 Difficulty is iterators can only produce values once; typical pattern is using map to normalize (possibly using stacked generators), then filter, then reduce
 
@@ -1494,7 +1524,7 @@ from itertools import tee
 data1, data2 = tee(clean_data(row_merge(log_rows)), 2)
 ```
 
-#### Implementing "there exists" processing
+### Implementing "there exists" processing
 
 > How can we write a process using generator functions that stops when the first value matches some predicate? How do we avoid for all and quantify our logic with there exists?
 
@@ -1525,7 +1555,7 @@ def prime(n):
 [2, 3] 
 ```
 
-#### The itertools module
+### The itertools module
 
 Check the following functions:
 
@@ -1541,7 +1571,7 @@ Check the following functions:
 - `takewhile()`
 - `tee()`
 
-#### Creating a partial function
+### Creating a partial function
 
 ```python
 def standarize(mean, stdev, x): 
@@ -1602,7 +1632,7 @@ for row in data_2:
     print(row, z(row.x)) 
 ```
 
-#### Simplifying complex algorithms with immutable data structures
+### Simplifying complex algorithms with immutable data structures
 
 ```python
 from typing import * 
@@ -1627,7 +1657,7 @@ def cleanse(iterable: Iterable[List[str]]) -> Iterator[DataPair]:
         print(ex, repr(text_items)) 
 ```
 
-Can be replaced by:
+Can be replaced by
 
 ```python
 DataPair = namedtuple('DataPair', ['x', 'y']) 
@@ -1652,18 +1682,16 @@ def rank_by_y(iterable: PairIter) -> RankPairIter:
  ```
 
 > Creating new objects can - in many cases - be more expressive of the algorithm than changing the state of objects
-
+>
 > The typing module includes an alternative to the namedtuple() function: NamedTuple(). This allows specification of a data type for the various items within the tuple. It looks like this:
 
 ```python
 DataPair = NamedTuple('DataPair', [ 
         ('x', float), 
-        ('y', float) 
-    ] 
-) 
+        ('y', float)])
 ```
 
-#### Writing recursive generator functions with the yield from statement
+### Writing recursive generator functions with the yield from statement
 
 ```python
 def find_path(value, node, path=[]): 
@@ -1694,9 +1722,9 @@ def factor_iter(x):
     yield x
 ```
 
-### Chapter 9. Input/Output, Physical Format, and Logical Layout
+## Chapter 9. Input/Output, Physical Format, and Logical Layout
 
-#### Using pathlib to work with filenames
+### Using pathlib to work with filenames
 
 ```python
 from pathlib import Path
@@ -1726,5 +1754,11 @@ directory_path = Path(options.file1).parent
 list(directory_path.glob("ch08_r*.py"))
 ```
 
-#### Reading and writing files with context managers
+### Reading and writing files with context managers
 
+```python
+from pathlib import Path
+summary_path = Path('summary.dat')
+with summary_path.open('w') as summary_file:
+    ...
+```
