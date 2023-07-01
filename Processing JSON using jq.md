@@ -1,5 +1,7 @@
 # Processing JSON using jq
 
+**source: https://gist.github.com/olih/f7437fb6962fb3ee9fe95bda8d2c8fa4**
+
 jq is useful to slice, filter, map and transform structured json data.
 
 ## Installing jq

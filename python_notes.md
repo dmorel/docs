@@ -2,13 +2,11 @@
 
 [TOC]
 
-## Bits and pieces
-
-### List of curated resources
+## List of curated resources
 
 <https://github.com/vinta/awesome-python>
 
-### Yield, generators and iterators
+## Yield, generators and iterators
 
 <http://sametmax.com/comment-utiliser-yield-et-les-generateurs-en-python/>
 
@@ -44,7 +42,7 @@ will throw a `StopIteration` exception beyond the last value
 
 Also see: <https://wiki.python.org/moin/Generators>
 
-### list comprehensions
+## list comprehensions
 
 <http://sametmax.com/python-love-les-listes-en-intention-partie/>
 
@@ -64,7 +62,7 @@ new_sequence = [element.upper() for element in sequence]
 [0, 1, 6, 15, 28]
 ```
 
-### Introspection
+## Introspection
 
 From <http://stackoverflow.com/questions/1006169/how-do-i-look-inside-a-python-object>
 
@@ -74,7 +72,7 @@ built-in fucntions "type() and dir() are particularly useful for inspecting the 
 
 Also check <https://docs.python.org/2/library/inspect.html> on 2.7+
 
-### Debug with pdb
+## Debug with pdb
 
 From <http://sametmax.com/debugger-en-python-les-bases-de-pdb/>
 
@@ -84,7 +82,7 @@ From <http://sametmax.com/debugger-en-python-les-bases-de-pdb/>
 - will fail on threads and in some similar conditions
 - much better: **ipdb** (pdb + ipython), same way: `import ipdb; ipdb.set_trace()`
 
-### Making code run under python 2 and python 3
+## Making code run under python 2 and python 3
 
 - <http://python3porting.com/noconv.html>
   
@@ -119,20 +117,28 @@ From <http://sametmax.com/debugger-en-python-les-bases-de-pdb/>
 
 - <https://docs.python.org/2/library/2to3.html> has many options, check it out
 
-### Serve packages for pip
+## Serve packages for pip
 
 From <http://python-guide-pt-br.readthedocs.io/en/latest/shipping/packaging/>
 
 - make a simple tree and run `python -m SimpleHTTPServer <port>` in it, then `pip install --extra-index-url=http://127.0.0.1:<port>/ <packagename>`
 - use pip2pi and (r)sync to destination, then use `pip install --index-url=<destination>` (could be http:// or file:///, or whatever)
 
-### Update all outdated packages
+## Update all outdated packages
 
 <http://stackoverflow.com/a/3452888>
-`pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U`
-or `pip list --outdated --format=freeze ...`
 
-### Sort lists
+```shell
+pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
+```
+
+or 
+
+```shell
+pip list --outdated --format=freeze ...
+```
+
+## Sort lists
 
 The method list.sort() is sorting the list in place, and as all mutating
 methods it returns None. Use the built-in function sorted() to return a new
@@ -145,7 +151,7 @@ result = sorted((trans for trans in my_list if trans.type in types), key=lambda 
 Instead of lambda x: x.code, you could also use the slightly faster
 `operator.attrgetter("code")`
 
-### Flatten list of lists and turn into a set
+## Flatten list of lists and turn into a set
 
 ```python
 all_keys = set(
@@ -154,30 +160,30 @@ all_keys = set(
     ])
 ```
 
-### Iterate over list elements or keys
+## Iterate over list elements or keys
 
 ```python
 for key, value in d.items(): # python3
 ```
 
-### Find out if a dictionary contains a key
+## Find out if a dictionary contains a key
 
 ```python
 if "foo" in mydict: # checks mydict contains a "foo element"
 ```
 
-### Retrieve output of a command
+## Retrieve output of a command
 
 ```python
 dfsadmin = subprocess.check_output(['/usr/bin/hdfs', 'dfsadmin', '-report'])
 capacity = re.search('Present Capacity: ([0-9]+)', dfsadmin).group(1)
 ```
 
-### Scrape Twitter
+## Scrape Twitter
 
 <https://twython.readthedocs.io/en/latest/api.html>
 
-Locations for whihch trends are available:
+Locations for which trends are available:
 <https://dev.twitter.com/rest/reference/get/trends/available> then retrieve
 trend for place: <https://dev.twitter.com/rest/reference/get/trends/place>
 
@@ -186,11 +192,11 @@ Introduction:
 
 Twitter app for scraping: <https://apps.twitter.com/app/13428400>
 
-### Turn JSON to an HTML table
+## Turn JSON to an HTML table
 
 <https://pypi.python.org/pypi/json2html>
 
-### Regex replace with code execution
+## Regex replace with code execution
 
 ```python
 import re
@@ -202,7 +208,7 @@ print re.sub('^(([^|]*\|){5})\s*([^|]+@[^|@\s]+)\s*(.*)', \
         x.group(4)), chaine_test)
 ```
 
-### Repeatable hashing for experiments
+## Repeatable hashing for experiments
 
 ```python
 from __future__ import print_function
@@ -216,7 +222,7 @@ for i in range(1,10000):
     print(variants[variant], end='')
 ```
 
-### Merging two dictionaries
+## Merging two dictionaries
 
 From <https://stackoverflow.com/a/26853961> in python 3.5 simply do:
 
@@ -224,7 +230,7 @@ From <https://stackoverflow.com/a/26853961> in python 3.5 simply do:
 z = {**x, **y}
 ```
 
-### Creating and adding to sets
+## Creating and adding to sets
 
 ```
 In [2]: foo=set([1,2,3])
@@ -233,7 +239,7 @@ In [4]: foo.update([2,3,4])
 Out[5]: {1, 2, 3, 4}
 ```
 
-### Padding strings or numbers with zeros or something else
+## Padding strings or numbers with zeros or something else
 
 From <https://stackoverflow.com/a/339013>
 
@@ -250,7 +256,7 @@ print(t.rjust(10, '0'))
 print("foo".center(42,"-"))
 ```
 
-### Secure passwords
+## Secure passwords
 
 From <https://www.cyberciti.biz/python-tutorials/securely-hash-passwords-in-python/>
 
@@ -260,11 +266,11 @@ hash = pbkdf2_sha256.encrypt("password", rounds=200000, salt_size=16)
 pbkdf2_sha256.verify("password", hash)
 ```
 
-### Retrieve path of the current file
+## Retrieve path of the current file
 
 From: <https://stackoverflow.com/questions/247770/retrieving-python-module-path>
 
-### Creating Pandas DataFrames from Lists and Dictionaries
+## Creating Pandas DataFrames from Lists and Dictionaries
 
 From: <http://pbpython.com/pandas-list-dict.html>
 
@@ -289,11 +295,11 @@ pd.options.display.max_colwidth=1000
 df.to_sparse()
 ```
 
-### Working with bits
+## Working with bits
 
 Use bitstring: <https://pythonhosted.org/bitstring/walkthrough.html>
 
-### Working with binary data
+## Working with binary data
 
 See: <https://www.devdungeon.com/content/working-binary-data-python>
 
@@ -303,7 +309,7 @@ Turn string into bytes:
 mystring.encode()
 ```
 
-### Regexes
+## Regexes
 
 Find all table names in a mysql dump file
 
@@ -311,7 +317,7 @@ Find all table names in a mysql dump file
 table_name = re.findall(r'^\s*CREATE TABLE\s+(?:IF NOT EXISTS\s+)?`?([^\s\`]+)',line,re.I)[0]
 ```
 
-### Avoid serialization errors in JSON
+## Avoid serialization errors in JSON
 
 ```python
 json.dumps(my_dictionary, indent=4, sort_keys=True, default=str)
@@ -319,7 +325,7 @@ json.dumps(my_dictionary, indent=4, sort_keys=True, default=str)
 
 Avoid serialization issues with datetime types, among others, see: <https://stackoverflow.com/a/36142844>
 
-### Pass function as an argument to a function
+## Pass function as an argument to a function
 
 Functions are first-class citizens, handy:
 
@@ -337,7 +343,7 @@ def func(my_func, *args):
 print(func(myfunc1, 'whatever'))
 ```
 
-### Create and load virtual environments with pyenv-virtualenv
+## Create and load virtual environments with pyenv-virtualenv
 
 ```bash
 ## install pyenv
@@ -362,7 +368,9 @@ pyenv local my_custom_venv
 ## now run all installs with pip that are needed, and use the virtualenv's python
 ```
 
-### Run managed processes as daemons
+**Update: not using this anymore, switch to poetry, better**
+
+## Run managed processes as daemons
 
 Several daemon libs available, but heavier-duty tools available, à la `init`:
 

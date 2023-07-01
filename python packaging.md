@@ -1,6 +1,10 @@
-### Python packaging
+# Python packaging
 
-- make a directory structure (example for the _sample_ module, from <http://docs.python-guide.org/en/latest/writing/structure/>
+**Note: all this can easily be done with poetry**
+
+## 1. make a directory structure 
+
+example for the _sample_ module, from <http://docs.python-guide.org/en/latest/writing/structure/>
 
 ```bash
 README.rst
@@ -16,7 +20,7 @@ tests/test_basic.py
 tests/test_advanced.py
 ```
 
-- make a python setup file
+## 2. make a python setup file
 
 ```python
 from setuptools import setup, find_packages
@@ -35,13 +39,19 @@ setup(name='m6',
       zip_safe=False)
 ```
 
-- `python setup.py sdist` : create the source distribution (tarball) in dist/
+## 3. run  `python setup.py sdist`
 
-- `python setup.py bdist_wheel` : also, create a wheel (built package, faster install, possibly architecture dependent)
+create the source distribution (tarball) in dist/
 
-- optionally use twine to upload the distribution: `twine upload dist/*` <https://packaging.python.org/key_projects/#twine>
+## 4. `python setup.py bdist_wheel`
 
-#### Produce a python index from git or something else, the quick and simple way
+also, create a wheel (built package, faster install, possibly architecture dependent)
+
+## 5. optionally use twine to upload the distribution
+
+`twine upload dist/*` <https://packaging.python.org/key_projects/#twine>
+
+## Produce a python index from git or something else, the quick and simple way
 
 - no need to upload to an index server, _pip_ can install from git, for instance
 
