@@ -137,17 +137,17 @@ regexes can span several lines
 format strings
 
 ```text
->>> '{id:3s}  : {location:19s} :  {max_temp:3d} / {min_temp:3d} / 
+>>> '{id:3s}  : {location:19s} :  {max_temp:3d} / {min_temp:3d} /
     {precipitation:5.2f}'.format(
-...   id=id, location=location, max_temp=max_temp, 
+...   id=id, location=location, max_temp=max_temp,
         min_temp=min_temp, precipitation=precipitation )
 'IAD  : Dulles Intl Airport :   32 /  13 /  0.40'
 
->>> '{id:3s}  : {location:19s} :  {max_temp:3d} / {min_temp:3d} / 
+>>> '{id:3s}  : {location:19s} :  {max_temp:3d} / {min_temp:3d} /
 {precipitation:5.2f}'.format_map( data )
 'IAD  : Dulles Intl Airport :   32 /  13 /  0.40'
 
->>> '{id:3s}  : {location:19s} :  {max_temp:3d} / {min_temp:3d} / 
+>>> '{id:3s}  : {location:19s} :  {max_temp:3d} / {min_temp:3d} /
 {precipitation:5.2f}'.format_map( vars() )
 'IAD  : Dulles Intl Airport :   32 /  13 /  0.40'
 ```
@@ -273,7 +273,7 @@ use while loop and assertion:
 while password_text != confirming_password_text:
     password_text= getpass()
     confirming_password_text= getpass("Confirm: ")
-assert password_text == confirming_password_text 
+assert password_text == confirming_password_text
 ```
 
 use for loop + break + cover edge cases
@@ -309,14 +309,14 @@ except (IndexError, NameError) as exception:
 
 `raise` alone re-throws the caught exception
 `raise ExceptionType(...)` raises a different exception
-`raise ExceptioType(...) from exception` raises a chained exception
+`raise ExceptionType(...) from exception` raises a chained exception
 
 ### Managing context with `with`
 
 `with` creates a context manager:
 
 ```python
-target_path = pathlib.Path('code/test.csv') 
+target_path = pathlib.Path('code/test.csv')
   with target_path.open('w', newline='') as target_file:
     do something with target_file
     ...
@@ -352,10 +352,10 @@ def rtd2(distance, rate, time, **keywords):
 ```
 
 ```python
-def rtd2(**keywords): 
-        rate= keywords.get('rate', None) 
-        time= keywords.get('time', None) 
-        distance= keywords.get('distance', None) 
+def rtd2(**keywords):
+        rate= keywords.get('rate', None)
+        time= keywords.get('time', None)
+        distance= keywords.get('distance', None)
 ```
 
 ### forcing KW only arguments
@@ -370,7 +370,7 @@ The * character has two meanings in the definition of a function:
 
 ```python
 # doesn't accept positional arguments
-def wind_chill(*, start_T, stop_T, step_T, start_V, stop_V, step_V, path): 
+def wind_chill(*, start_T, stop_T, step_T, start_V, stop_V, step_V, path):
 ```
 
 ### explicit typing
@@ -378,16 +378,16 @@ def wind_chill(*, start_T, stop_T, step_T, start_V, stop_V, step_V, path):
 Create a type class
 
 ```python
-from decimal import Decimal 
-from typing import * 
-Number = Union[int, float, complex, Decimal] 
+from decimal import Decimal
+from typing import *
+Number = Union[int, float, complex, Decimal]
 ```
 
 annotate the parameters and function return to specify types (Dict comes from typing, not like dict())
 
 ```python
-def temperature(*, 
-    f_temp: Optional[Number]=None, 
+def temperature(*,
+    f_temp: Optional[Number]=None,
     c_temp: Optional[Number]=None) -> Dict[str, Number]:
 ```
 
@@ -398,8 +398,8 @@ how to write type hints for complex data structures? for instance:
 
 ```python
 a = {
-  (1, 2, 3): ['Poe', 'E'], 
-  (3, 4, 5): ['Near', 'a', 'Raven'], 
+  (1, 2, 3): ['Poe', 'E'],
+  (3, 4, 5): ['Near', 'a', 'Raven'],
 }
 # type hint is: Dict[Tuple[int, int, int], List[str]]
 ```
@@ -409,15 +409,15 @@ a = {
 We can follow the Forcing keyword-only arguments with the * separator recipe. We might change the basic haversine function to look like this:
 
 ```python
-def haversine(lat_1: float, lon_1: float, 
-    lat_2: float, lon_2: float, *, R: float) -> float: 
+def haversine(lat_1: float, lon_1: float,
+    lat_2: float, lon_2: float, *, R: float) -> float:
 ```
 
 Create a partial function using the keyword parameter:
 
 ```python
-from functools import partial 
-nm_haversine = partial(haversine, R=NM) 
+from functools import partial
+nm_haversine = partial(haversine, R=NM)
 ```
 
 The partial() function builds a new function from an existing function and a concrete set of argument values. The nm_haversine() function has a specific value for R provided when the partial was built.
@@ -425,49 +425,49 @@ The partial() function builds a new function from an existing function and a con
 **or** it can also be done using the 1st argument instead of the last:
 
 ```python
-def haversine(R: float, lat_1: float, lon_1: float, 
-    lat_2: float, lon_2: float) -> float: 
+def haversine(R: float, lat_1: float, lon_1: float,
+    lat_2: float, lon_2: float) -> float:
 ```
 
 Create a partial function using the positional parameter (NM => R at build time):
 
 ```python
-from functools import partial 
-nm_haversine = partial(haversine, NM) 
+from functools import partial
+nm_haversine = partial(haversine, NM)
 ```
 
 here's a third way to wrap a function—we can also build a lambda object. This will also work:
 
 ```python
-nm_haversine = lambda *args: haversine(*args, R=NM) 
+nm_haversine = lambda *args: haversine(*args, R=NM)
 ```
 
 ### Writing clear documentation strings with RST markup
 
 ```python
-def Twc(T: float, V: float) -> float: 
-    """Computes the wind chill temperature 
+def Twc(T: float, V: float) -> float:
+    """Computes the wind chill temperature
 
-    The wind-chill, :math:`T_{wc}`, is based on 
-    air temperature, T, and wind speed, V. 
+    The wind-chill, :math:`T_{wc}`, is based on
+    air temperature, T, and wind speed, V.
 
-    See https://en.wikipedia.org/wiki/Wind_chill 
+    See https://en.wikipedia.org/wiki/Wind_chill
 
-    math:: 
-    T_{wc}(T_a, V) = 13.12 + 0.6215 T_a - 11.37 V^{0.16} + 0.3965 T_a V^{0.16} 
+    math::
+    T_{wc}(T_a, V) = 13.12 + 0.6215 T_a - 11.37 V^{0.16} + 0.3965 T_a V^{0.16}
 
-    :param T: Temperature in °C 
-    :param V: Wind Speed in kph 
-    :returns: Wind-Chill temperature in °C 
-    :raises ValueError: for wind speeds under over 4.8 kph or T above 10°C 
+    :param T: Temperature in °C
+    :param V: Wind Speed in kph
+    :returns: Wind-Chill temperature in °C
+    :raises ValueError: for wind speeds under over 4.8 kph or T above 10°C
     """
 ```
 
 ```python
-def wind_chill_table(): 
-        """Uses :func:`Twc` to produce a wind-chill 
-        table for temperatures from -30°C to 10°C and 
-        wind speeds from 5kph to 50kph. 
+def wind_chill_table():
+        """Uses :func:`Twc` to produce a wind-chill
+        table for temperatures from -30°C to 10°C and
+        wind speeds from 5kph to 50kph.
         """
 ```
 
@@ -476,48 +476,48 @@ def wind_chill_table():
 python has a limited stack, so use recursion sparsely. For tail recursion, prefer using reduction (accumulators). don't do:
 
 ```python
-def fact(n: int) -> int: 
-    if n == 0: 
-        return 1 
-    return n*fact(n-1) 
+def fact(n: int) -> int:
+    if n == 0:
+        return 1
+    return n*fact(n-1)
 ```
 
 but rather:
 
 ```python
-def prod(int_iter): 
-    p = 1 
-    for x in int_iter: 
-        p *= x 
-    return p 
+def prod(int_iter):
+    p = 1
+    for x in int_iter:
+        p *= x
+    return p
 
-def fact(n): 
-        return prod(range(1, n+1)) 
+def fact(n):
+        return prod(range(1, n+1))
 ```
 
 for more complex cases, use memoization
 
 ```python
-from functools import lru_cache 
+from functools import lru_cache
 
-@lru_cache(128) 
-def fibo(n): 
-    if n <= 1: 
-        return 1 
-    else: 
-        return fibo(n-1)+fibo(n-2) 
+@lru_cache(128)
+def fibo(n):
+    if n <= 1:
+        return 1
+    else:
+        return fibo(n-1)+fibo(n-2)
 ```
 
 fibonacci with generators:
 
 ```python
-def fibo_iter(): 
-    a = 1 
-    b = 1 
-    yield a 
-    while True: 
-        yield b 
-        a, b = b, a+b 
+def fibo_iter():
+    a = 1
+    b = 1
+    yield a
+    while True:
+        yield b
+        a, b = b, a+b
 ```
 
 ### Writing reusable scripts with the script library switch
@@ -525,7 +525,7 @@ def fibo_iter():
 Move actions in `def ... :` statements, then, if it should run as a standalone script _and_ a library, add this at the end:
 
 ```python
-if __name__ == "__main__": 
+if __name__ == "__main__":
     my_function()
 ```
 
@@ -602,7 +602,7 @@ full notation for slices is `start:stop:step`, any parameter can be omitted, def
 
 ```python
 # flatten the tuples
-paired_rows = list( zip(tail[0::3], tail[1::3]) ) 
+paired_rows = list( zip(tail[0::3], tail[1::3]) )
 [a+b for a,b in paired_rows]
 ```
 
@@ -656,9 +656,9 @@ matches.difference(to_be_ignored)     # {'IP: 111.222.111.222'}
 ```
 
 ```python
-for item in to_be_ignored: 
+for item in to_be_ignored:
     if item in valid_matches: # could be replaced by try/catch on KeyError
-        valid_matches.remove(item) 
+        valid_matches.remove(item)
 ```
 
 `pop()` on a set will remove one element at random. Throws KeyError on empty set
@@ -678,7 +678,7 @@ from collections import defaultdict
 # passsing the int function object will initialize at 0
 histogram = defaultdict(int)
 for item in source:
-    histogram[item] += 1 
+    histogram[item] += 1
 ```
 
 `Counter(<source iterable, list or other>)`will create a dictionary with items as key, and number or occurences as value, and will display data by descending number of occurences
@@ -715,12 +715,12 @@ shallow copy of mapings and sets are done with the `copy()` method. Beware, if 
 Checking that 2 references are the same can be done using the `==` or `is` operators or the `id` function
 
 ```python
->>> some_list = [[2, 3, 5], [7, 11, 13]] 
->>> another_list = some_list.copy() 
->>> some_list is another_list 
-False 
->>> some_list[0] is another_list[0] 
-True 
+>>> some_list = [[2, 3, 5], [7, 11, 13]]
+>>> another_list = some_list.copy()
+>>> some_list is another_list
+False
+>>> some_list[0] is another_list[0]
+True
 ```
 
 to make deep copies instead of shallow ones, use `deepcopy` from the `copy` module.
@@ -740,9 +740,9 @@ def gather_stats(n, samples=1000, summary=None):
 _Don't use mutable defaults for functions. A mutable object (set, list, dict) should not be a default value for a function parameter._
 
 ```python
-def gather_stats(n, samples=1000, summary_func=lambda x:Counter(x)): 
-    summary = summary_func( 
-      sum(randint(1,6) for d in range(n)) for _ in range(samples)) 
+def gather_stats(n, samples=1000, summary_func=lambda x:Counter(x)):
+    summary = summary_func(
+      sum(randint(1,6) for d in range(n)) for _ in range(samples))
     return summary
 
 gather_stats(2, 12, summary_func=list)  # returns a list
@@ -758,13 +758,13 @@ gather_stats(2, 12)                              # returns a Counter
 - make use of the `file=` argument to redirect output (`sys.stdout`, `sys.stderr`, etc)
 
 - use context managers
-  
+
   ```python
-  from pathlib import Path 
-      target_path = Path("somefile.dat") 
-      with target_path.open('w', encoding='utf-8') as target_file: 
-          print("Some output", file=target_file) 
-          print("Ordinary log") 
+  from pathlib import Path
+      target_path = Path("somefile.dat")
+      with target_path.open('w', encoding='utf-8') as target_file:
+          print("Some output", file=target_file)
+          print("Ordinary log")
   ```
 
 ### Using input() and getpass() for user input
@@ -776,12 +776,12 @@ gather_stats(2, 12)                              # returns a Counter
 - the readline module, if installed, improves the line editing capability
 
 - imput string parsing with strptime:
-  
+
   ```python
-  raw_date_str = input("date [yyyy-mm-dd]: ") 
+  raw_date_str = input("date [yyyy-mm-dd]: ")
   input_date = datetime.strptime(raw_date_str, '%Y-%m-%d').date()
   ```
-  
+
     (will trigger a ValueError exception if incorrect input)
 
 ### Debugging with "format".format_map(vars())
@@ -791,24 +791,24 @@ gather_stats(2, 12)                              # returns a Counter
 - If no arguments are given, then by default, the vars() function will expand all the local variables. This creates a mapping that can be used with the format_map() method of a template string.
 
 - Using a mapping allows us to inject variables using the variable's name into the format template. It looks as follows:
-  
+
   ```python
   print(
-      "mean={mean_size:.2f}, std={std_size:.2f}" 
-      .format_map(vars()) 
+      "mean={mean_size:.2f}, std={std_size:.2f}"
+      .format_map(vars())
   )
   ```
 
 - The `format_map()` method expects a single argument, which is a mapping. The format string uses `{name}` to refer to keys in the mapping. We can use `{name:format}` to provide a format specification. We can also use `{name!conversion}` to provide a conversion function using the `repr()`, `str()`, or `ascii()` functions.
 
 - An alternative is to use `format(**vars())`. This alternative can give us some additional flexibility. For example, we can use this more flexible format to include additional calculations that aren't simply local variables:
-  
+
   ```python
-  print( 
-        "mean={mean_size:.2f}, std={std_size:.2f}," 
-        " limit2={sig2:.2f}" 
-        .format(sig2=mean_size+2*std_size, **vars()) 
-       ) 
+  print(
+        "mean={mean_size:.2f}, std={std_size:.2f},"
+        " limit2={sig2:.2f}"
+        .format(sig2=mean_size+2*std_size, **vars())
+       )
   # mean=1414.77, std=901.10, limit2=3216.97
   ```
 
@@ -816,7 +816,7 @@ gather_stats(2, 12)                              # returns a Counter
 
 ```python
 parser = argparse.ArgumentParser()
-parser.add_argument('-r', action='store', 
+parser.add_argument('-r', action='store',
                choices=('NM', 'MI', 'KM'), default='NM')  # optional argument, prefix - or --
 parser.add_argument('p1', action='store', type=point_type) # 1st positional argument (required)
 parser.add_argument('p2', action='store', type=point_type) # 2nd positional argument (required)
@@ -845,13 +845,13 @@ options = parser.parse_args()
 ### Using cmd for creating command-line applications
 
 - The core feature of the `cmd.Cmd` application is a **read-evaluate-print loop** (**REPL**). This kind of application works well when there are a large number of individual state changes and a large number of commands to make those state changes.
-  
+
   ```python
   import cmd
   class Roulette(cmd.Cmd):
-      def preloop(self): 
-              self.bets = {} 
-              self.stake = 100 
+      def preloop(self):
+              self.bets = {}
+              self.stake = 100
               self.wheel = wheel()
       def do_bet(self, arg_string): # called on 'bet <whatever>'
         # do something
@@ -870,9 +870,9 @@ options = parser.parse_args()
 - The `postloop()` method can be used to do some processing just after the loop finishes. This would be a good place to write a summary. This also requires a `do_*` method that returns a value—any non-`False` value—to end the command loop.
 
 - The `prompt` attribute is the prompt string to write. For our example, we can do the following:
-  
+
   ```text
-  class Roulette(cmd.Cmd): 
+  class Roulette(cmd.Cmd):
               prompt="Roulette> "
   ```
 
@@ -884,20 +884,20 @@ options = parser.parse_args()
 
 ```python
 import os
-def get_options(argv=sys.argv): 
-    default_units = os.environ.get('UNITS', 'KM') 
-    if default_units not in ('KM', 'NM', 'MI'): 
-        sys.exit("Invalid value for UNITS, not KM, NM, or MI") 
-    default_home_port = os.environ.get('HOME_PORT') 
-    parser = argparse.ArgumentParser() 
-    parser.add_argument('-r', action='store', 
-        choices=('NM', 'MI', 'KM'), default=default_units) 
-    parser.add_argument('p1', action='store', type=point_type) 
-    parser.add_argument('p2', nargs='?', action='store', type=point_type, 
-        default=default_home_port) 
-    options = parser.parse_args(argv[1:]) 
-    if options.p2 is None: 
-        sys.exit("Neither HOME_PORT nor p2 argument provided.") 
+def get_options(argv=sys.argv):
+    default_units = os.environ.get('UNITS', 'KM')
+    if default_units not in ('KM', 'NM', 'MI'):
+        sys.exit("Invalid value for UNITS, not KM, NM, or MI")
+    default_home_port = os.environ.get('HOME_PORT')
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-r', action='store',
+        choices=('NM', 'MI', 'KM'), default=default_units)
+    parser.add_argument('p1', action='store', type=point_type)
+    parser.add_argument('p2', nargs='?', action='store', type=point_type,
+        default=default_home_port)
+    options = parser.parse_args(argv[1:])
+    if options.p2 is None:
+        sys.exit("Neither HOME_PORT nor p2 argument provided.")
     return options
 ```
 
@@ -923,10 +923,10 @@ Some prime examples of this design are statistical processing algorithms, which 
 
 ```python
 class CounterStatistics:
-    def __init__(self, raw_counter:Counter): 
+    def __init__(self, raw_counter:Counter):
         self.raw_counter = raw_counter
-        self.mean = self.compute_mean() 
-        self.stddev = self.compute_stddev() 
+        self.mean = self.compute_mean()
+        self.stddev = self.compute_stddev()
     def compute_mean(self):
         # process...
     def compute_stdded(self):
@@ -938,23 +938,23 @@ class CounterStatistics:
 #### Stateless objects (no setters, only getters)
 
 ```python
->>> from collections import namedtuple 
->>> Card = namedtuple('Card', ('rank', 'suit')) 
->>> eight_hearts = Card(rank=8, suit='\N{White Heart Suit}') 
->>> eight_hearts 
-Card(rank=8, suit='♡') 
->>> eight_hearts.rank 
-8 
->>> eight_hearts.suit 
-'♡' 
->>> eight_hearts[0] 
+>>> from collections import namedtuple
+>>> Card = namedtuple('Card', ('rank', 'suit'))
+>>> eight_hearts = Card(rank=8, suit='\N{White Heart Suit}')
+>>> eight_hearts
+Card(rank=8, suit='♡')
+>>> eight_hearts.rank
+8
+>>> eight_hearts.suit
+'♡'
+>>> eight_hearts[0]
 8
 ```
 
 #### Stateful objects with a new class (dynamic attributes)
 
 ```python
-class Player: 
+class Player:
   pass
 p = Player()
 p.stake = 100
@@ -975,13 +975,13 @@ p.stake = 100
 ```python
 class Hand:
     __slots__ = ('hand', 'bet')
-    def __init__(self, bet, hand=None): 
-        self.hand= hand or [] 
+    def __init__(self, bet, hand=None):
+        self.hand= hand or []
         self.bet= bet
-    def __repr__(self): 
-        return "{class_}({bet}, {hand})".format( 
-            class_= self.__class__.__name__, 
-            **vars(self) 
+    def __repr__(self):
+        return "{class_}({bet}, {hand})".format(
+            class_= self.__class__.__name__,
+            **vars(self)
         )
 ```
 
@@ -992,7 +992,7 @@ See <https://docs.python.org/3/reference/datamodel.html#metaclass-example>
 ### Using more sophisticated collections
 
 - `collections` module
-  
+
   - `deque`: double-ended queue, optimized for append and pop on both ends
   - `defaultdict`: provide a default value for a missing key, like `lookup = defaultdict(lambda:"N/A")`
   - `Counter`: designed to count occurrences of a key, equivalen to `defaultdict(int)`
@@ -1007,16 +1007,16 @@ See <https://docs.python.org/3/reference/datamodel.html#metaclass-example>
 
 ```python
 class StatsList(list):
-    def sum(self): 
+    def sum(self):
         return sum(v for v in self)
-    def mean(self): 
-        return self.sum() / self.count() 
+    def mean(self):
+        return self.sum() / self.count()
 ```
 
 There are abstract superclasses for all of the built-in collections. Rather than start from a concrete class, we can also start our design from an abstract base class:
 
 ```python
-from collections.abc import Mapping 
+from collections.abc import Mapping
     class MyFancyMapping(Mapping):
         # ...
       # implement abstract methods
@@ -1033,12 +1033,12 @@ from collections.abc import Mapping
 class LazyCounterStatistics:
   def __init__(self, raw_counter:Counter):
     self.raw_counter = raw_counter
-  @property 
+  @property
   def sum(self):
     return sum(f*v for v, f in self.raw_counter.items())
   @property
   def count(self):
-    return sum(f for v, f in self.raw_counter.items()) 
+    return sum(f for v, f in self.raw_counter.items())
 ```
 
 We used the `@property` decorator. This makes a method function appear to be an attribute. This can only work for method functions that have no argument values.
@@ -1046,44 +1046,44 @@ We used the `@property` decorator. This makes a method function appear to be an 
 ### Using settable properties to update eager attributes
 
 ```python
-class Leg: 
-    def __init__(self): 
-        self._rate= rate 
-        self._time= time 
+class Leg:
+    def __init__(self):
+        self._rate= rate
+        self._time= time
         self._distance= distance
         # to know when the values should be recalculated
-        self._changes= deque(maxlen=2) 
+        self._changes= deque(maxlen=2)
 
-    @property 
-    def rate(self): 
+    @property
+    def rate(self):
         return self._rate
 
-    @rate.setter 
-    def rate(self, value): 
-        self._rate = value 
+    @rate.setter
+    def rate(self, value):
+        self._rate = value
         self._calculate('rate')
     # repeat for other attributes
 
-    # calc_* will be called by getattr() below automatically when 
+    # calc_* will be called by getattr() below automatically when
     # _calculate is called, which happens on a setter call
-    def calc_distance(self): 
-        self._distance = self._time * self._rate 
+    def calc_distance(self):
+        self._distance = self._time * self._rate
 
-    def calc_time(self): 
-        self._time = self._distance / self._rate 
+    def calc_time(self):
+        self._time = self._distance / self._rate
 
-    def calc_rate(self): 
+    def calc_rate(self):
         self._rate = self._distance / self._time
 
     def _calculate(self):
-        # look at the deque, recalculate all properties if 
+        # look at the deque, recalculate all properties if
         # 2 or more are changed
-        if change not in self._changes: 
-            self._changes.append(change) 
-        compute = {'rate', 'time', 'distance'} - set(self._changes) 
-        if len(compute) == 1: 
-            name = compute.pop() 
-            method = getattr(self, 'calc_'+name) 
+        if change not in self._changes:
+            self._changes.append(change)
+        compute = {'rate', 'time', 'distance'} - set(self._changes)
+        if len(compute) == 1:
+            name = compute.pop()
+            method = getattr(self, 'calc_'+name)
             method()
 ```
 
@@ -1096,33 +1096,33 @@ The `@property` decorator:
 Another version, with better initialization and calculation (will allow subclassing more easily)
 
 ```python
-class Leg: 
+class Leg:
   def __init__(self, rate=None, time=None, distance=None):
     # deque created first
-    self._changes= deque(maxlen=2) 
-    self._rate= rate 
-    if rate: self._calculate('rate') 
-    self._time= time 
-    if time: self._calculate('time') 
-    self._distance= distance 
+    self._changes= deque(maxlen=2)
+    self._rate= rate
+    if rate: self._calculate('rate')
+    self._time= time
+    if time: self._calculate('time')
+    self._distance= distance
     if distance: self._calculate('distance')
 
-    def calc_distance(self): 
-        self._distance = self._time * self._rate 
+    def calc_distance(self):
+        self._distance = self._time * self._rate
 
-    def calc_time(self): 
-        self._time = self._distance / self._rate 
+    def calc_time(self):
+        self._time = self._distance / self._rate
 
-    def calc_rate(self): 
-        self._rate = self._distance / self._time 
+    def calc_rate(self):
+        self._rate = self._distance / self._time
 
-    def _calculate(self, change): 
-        if change not in self._changes: 
-            self._changes.append(change) 
-        compute = {'rate', 'time', 'distance'} - set(self._changes) 
-        if len(compute) == 1: 
-            name = compute.pop() 
-            method = getattr(self, 'calc_'+name) 
+    def _calculate(self, change):
+        if change not in self._changes:
+            self._changes.append(change)
+        compute = {'rate', 'time', 'distance'} - set(self._changes)
+        if len(compute) == 1:
+            name = compute.pop()
+            method = getattr(self, 'calc_'+name)
             method()
 ```
 
@@ -1140,8 +1140,8 @@ wrap or extend?
 - but calling the superclass is always possible by calling `super()`:
 
   ```python
-   def some_method(self): 
-          # do something extra 
+   def some_method(self):
+          # do something extra
           super().some_method()
   ```
 
@@ -1157,78 +1157,78 @@ wrap or extend?
 
 ```python
 # main superclass
-class Card: 
-    __slots__ = ('rank', 'suit') 
-    def __init__(self, rank, suit): 
-        super().__init__() 
-        self.rank = rank 
-        self.suit = suit 
-    def __repr__(self): 
-        return "{rank:2d} {suit}".format( 
-          rank=self.rank, suit=self.suit 
+class Card:
+    __slots__ = ('rank', 'suit')
+    def __init__(self, rank, suit):
+        super().__init__()
+        self.rank = rank
+        self.suit = suit
+    def __repr__(self):
+        return "{rank:2d} {suit}".format(
+          rank=self.rank, suit=self.suit
         )
 
 # main subclasses
-class AceCard(Card): 
-    def __repr__(self): 
-        return " A {suit}".format( 
-            rank=self.rank, suit=self.suit 
-        ) 
+class AceCard(Card):
+    def __repr__(self):
+        return " A {suit}".format(
+            rank=self.rank, suit=self.suit
+        )
 
-class FaceCard(Card): 
-    def __repr__(self): 
-        names = {11: 'J', 12: 'Q', 13: 'K'} 
-        return " {name} {suit}".format( 
-            rank=self.rank, suit=self.suit, 
-            name=names[self.rank] 
+class FaceCard(Card):
+    def __repr__(self):
+        names = {11: 'J', 12: 'Q', 13: 'K'}
+        return " {name} {suit}".format(
+            rank=self.rank, suit=self.suit,
+            name=names[self.rank]
         )
 
 # mixin superclass
 class CribbagePoints:
-    def points(self): 
-        return self.rank 
+    def points(self):
+        return self.rank
 
 # mixin subclass for J Q and K
-class CribbageFacePoints(CribbagePoints): 
-    def points(self): 
-        return 10 
+class CribbageFacePoints(CribbagePoints):
+    def points(self):
+        return 10
 
-# class definitions that combine the main classes 
+# class definitions that combine the main classes
 # and the mixin classes
-class CribbageAce(AceCard, CribbagePoints): 
-    pass 
+class CribbageAce(AceCard, CribbagePoints):
+    pass
 
-class CribbageCard(Card, CribbagePoints): 
-    pass 
+class CribbageCard(Card, CribbagePoints):
+    pass
 
-class CribbageFace(FaceCard, CribbageFacePoints): 
-    pass 
+class CribbageFace(FaceCard, CribbageFacePoints):
+    pass
 
 # factory
-def make_card(rank, suit): 
-    if rank == 1: return CribbageAce(rank, suit) 
-    if 2 <= rank < 11: return CribbageCard(rank, suit) 
-    if 11 <= rank: return CribbageFace(rank, suit) 
+def make_card(rank, suit):
+    if rank == 1: return CribbageAce(rank, suit)
+    if 2 <= rank < 11: return CribbageCard(rank, suit)
+    if 11 <= rank: return CribbageFace(rank, suit)
 
 ```
 
 Mixins are used to add features to objects, for instance logging here; we've used `super().__init__()` to perform the `__init__()` method of any other classes defined in the MRO:
 
 ```python
-class Logged: 
-  def __init__(self, *args, **kw): 
-    self.logger = logging.getLogger(self.__class__.__name__) 
-    super().__init__(*args, **kw) 
-  def points(self): 
-    p = super().points() 
-    self.logger.debug("points {0}".format(p)) 
+class Logged:
+  def __init__(self, *args, **kw):
+    self.logger = logging.getLogger(self.__class__.__name__)
+    super().__init__(*args, **kw)
+  def points(self):
+    p = super().points()
+    self.logger.debug("points {0}".format(p))
     return p
 ```
 
 Using it to build a new class, putting it first in the ancestors guarantees that the logging will be consistently applied:
 
 ```python
-class LoggedCribbageAce(Logged, AceCard, CribbagePoints): 
+class LoggedCribbageAce(Logged, AceCard, CribbagePoints):
   pass
 ```
 
@@ -1261,13 +1261,13 @@ Defining a global variable doesn't need much explanation (put it in the module .
 from collections import Counter
 class EventCounter:
     _counts = Counter() # will be shared among all instances
-    
+
 # it would be possible to simply use the class variable
 # but making accessors / methods is always better practice
 # to not break encapsulation
 def count(self, key, increment=1):
    EventCounter._counts[key] += increment
-def counts(self): 
+def counts(self):
     return EventCounter._counts.most_common()
 ```
 
@@ -1281,7 +1281,7 @@ _Beware of abuse of this pattern!_
 from collections import defaultdict
 # Use the list function to populate the default value for defaultdict
 module_details = defaultdict(list)
-for row in data: 
+for row in data:
     module_details[row[2]].append(row) # append to default empty list
 ```
 
@@ -1308,7 +1308,7 @@ to create a more efficient multiset:
   def index(self, aCard: Card):
       i = bisect.bisect_left(self.cards, aCard)
       if i != len(self.cards) and self.cards[i] == aCard:
-         return i 
+         return i
       raise ValueError
   ```
 
@@ -1325,16 +1325,16 @@ recommendation: use shallow copies rather than list manipulation
 useful in particular when an argument may produce a result that does not fit in memory, so we use an iteration:
 
 ```python
-import datetime 
+import datetime
     def parse_date_iter(source): # argument must be an iterable
-        for item in source: 
-            date = datetime.datetime.strptime( 
-                item[0], 
-                "%Y-%m-%d %H:%M:%S,%f") 
-            new_item = (date,)+item[1:] 
+        for item in source:
+            date = datetime.datetime.strptime(
+                item[0],
+                "%Y-%m-%d %H:%M:%S,%f")
+            new_item = (date,)+item[1:]
             yield new_item
-for item in parse_date_iter(data): # use the generator (=iterate) 
-  pprint(item) 
+for item in parse_date_iter(data): # use the generator (=iterate)
+  pprint(item)
 ```
 
 an iterator acts like a while loop ending with a `StopIteration` exception.
@@ -1344,15 +1344,15 @@ using yield at the return of a function makes it an iterator (returning one valu
 Behind the scenes:
 
 ```python
-for i in some_collection: 
+for i in some_collection:
         process(i)
 # something like this happens:
-the_iterator = iter(some_collection) 
-try: 
-  while True: 
-    i = next(the_iterator) 
-    process(i) 
-  except StopIteration: 
+the_iterator = iter(some_collection)
+try:
+  while True:
+    i = next(the_iterator)
+    process(i)
+  except StopIteration:
     pass
 ```
 
@@ -1369,12 +1369,12 @@ p_12 = (i for i in range(2,200) if i % 10 == 0) # create a generator
 writing higher level functions using the yield statement:
 
 ```python
-def map(m, S): 
-  for s in S: 
-    yield m(s) 
-def filter(f, S): 
+def map(m, S):
   for s in S:
-    if f(s): 
+    yield m(s)
+def filter(f, S):
+  for s in S:
+    if f(s):
       yield s
 ```
 
@@ -1385,19 +1385,19 @@ possible to chain generators, and create `z = g(f(x))` functions that use genera
 **Sidenote**: stop using list indexes in processing, rather create a namespace, example:
 
 ```python
-from types import SimpleNamespace 
+from types import SimpleNamespace
 
 # This will produce an object that allows us to write row.date instead of row[0]
 # An immutable namedtuple might be a better choice than a mutable SimpleNamespace
-def make_namespace(merge_iter): 
+def make_namespace(merge_iter):
     for row in merge_iter:
-      ns = SimpleNamespace( 
-        date = row[0], 
-        start_time = row[1], 
-        start_fuel_height = row[2], 
-        end_time = row[4], 
-        end_fuel_height = row[5], 
-        other_notes = row[7] 
+      ns = SimpleNamespace(
+        date = row[0],
+        start_time = row[1],
+        start_fuel_height = row[2],
+        end_time = row[4],
+        end_fuel_height = row[5],
+        other_notes = row[7]
       )
       yield ns
 ```
@@ -1407,16 +1407,16 @@ def make_namespace(merge_iter):
 can do it creating a generator `foo = (start_datetime(row) for row in tail_gen)` or by using `map()`:
 
 ```python
-def parse_date(item): 
-  date = datetime.datetime.strptime( 
-    item[0], 
-    "%Y-%m-%d %H:%M:%S,%f") 
-  new_item = (date,)+item[1:] 
+def parse_date(item):
+  date = datetime.datetime.strptime(
+    item[0],
+    "%Y-%m-%d %H:%M:%S,%f")
+  new_item = (date,)+item[1:]
   return new_item
 # pass only the function name and the data (iterator or list) to map()
 # the return of map() is an iterator
-for row in map(parse_date, data): 
-  print(row[0], row[3]) 
+for row in map(parse_date, data):
+  print(row[0], row[3])
 ```
 
 ### Picking a subset - three ways to filter
@@ -1427,10 +1427,10 @@ def pass_non_date(row):
 ```
 
 ```python
-# either use for statement 
-for item in collection: 
-    if pass_non_date(item): 
-        yield item 
+# either use for statement
+for item in collection:
+    if pass_non_date(item):
+        yield item
 ```
 
 ```python
@@ -1452,9 +1452,9 @@ filter(lambda item: not reject_date(item), data)
 
 ```python
 from functools import reduce
-def mul(a, b): 
+def mul(a, b):
     return a * b
-def prod(values): 
+def prod(values):
     return reduce(mul, values, 1) # last argument is the base value
 
 prod(range(1, 5+1))
@@ -1463,24 +1463,24 @@ prod(range(1, 5+1))
 
 ```python
 # the factorial function is hence defined as:
-def factorial(n): 
+def factorial(n):
     return prod(range(1, n+1))
 ```
 
 The `reduce` function behaves as if it has this definition:
 
 ```python
-def reduce(function, iterable, base): 
-    result = base 
-    for item in iterable: 
-        result = function(result, item) 
-    return result 
+def reduce(function, iterable, base):
+    result = base
+    for item in iterable:
+        result = function(result, item)
+    return result
 ```
 
 When designing a reduce function we need to provide a binary operator, there are 3 ways to do this:
 
 ```python
-def mul(a, b): 
+def mul(a, b):
     return a * b
 
 # or
@@ -1496,13 +1496,13 @@ from operator import add, mul
 Slightly more complex since there's no base value
 
 ```python
-def mymax(sequence): 
-    try: 
-        base = sequence[0] 
-        max_rule = lambda a, b: a if a > b else b 
-        reduce(max_rule, sequence, base) 
-    except IndexError: 
-        raise ValueError 
+def mymax(sequence):
+    try:
+        base = sequence[0]
+        max_rule = lambda a, b: a if a > b else b
+        reduce(max_rule, sequence, base)
+    except IndexError:
+        raise ValueError
 ```
 
 > Note that a fold (or reduce() as it's called in Python) can be abused, leading to poor performance. We have to be cautious about simply using a reduce() function without thinking carefully about what the resulting algorithm might look like. In particular, the operator being folded into the collection should be a simple process such as adding or multiplying. Using reduce() changes the complexity of an O(1) operation into O(n).
@@ -1520,7 +1520,7 @@ If we want to have several reducers, we can't use a single iterator as it will c
 data = tuple(clean_data(row_merge(log_rows)))
 
 # use tee() to create 2 copies of the iterable output
-from itertools import tee 
+from itertools import tee
 data1, data2 = tee(clean_data(row_merge(log_rows)), 2)
 ```
 
@@ -1529,18 +1529,18 @@ data1, data2 = tee(clean_data(row_merge(log_rows)), 2)
 > How can we write a process using generator functions that stops when the first value matches some predicate? How do we avoid for all and quantify our logic with there exists?
 
 ```python
-def find_first(predicate, iterable): 
-    for item in iterable: 
-        if predicate(item): 
-            yield item 
+def find_first(predicate, iterable):
+    for item in iterable:
+        if predicate(item):
+            yield item
             break
 
-import math 
-def prime(n): 
-    factors = find_first( 
+import math
+def prime(n):
+    factors = find_first(
         lambda i: n % i == 0,
-        range(2, int(math.sqrt(n)+1)) # only need to test until sqrt(n) 
-    ) 
+        range(2, int(math.sqrt(n)+1)) # only need to test until sqrt(n)
+    )
     return len(list(factors)) == 0 # true/false
 ```
 
@@ -1549,10 +1549,10 @@ def prime(n):
 > In the **itertools** module, there is an alternative to this **`find_first()`** function. The **`takewhile()`** function uses a predicate function to keep taking values from the input. When the predicate becomes false, then the function stops processing values
 
 ```text
->>> from itertools import takewhile 
->>> n = 13 
->>> list(takewhile(lambda i: n % i != 0, range(2, 4))) 
-[2, 3] 
+>>> from itertools import takewhile
+>>> n = 13
+>>> list(takewhile(lambda i: n % i != 0, range(2, 4)))
+[2, 3]
 ```
 
 ### The itertools module
@@ -1574,27 +1574,27 @@ Check the following functions:
 ### Creating a partial function
 
 ```python
-def standarize(mean, stdev, x): 
+def standarize(mean, stdev, x):
     return (x - mean) / stdev
 
-from types import SimpleNamespace 
+from types import SimpleNamespace
 
-row_build = lambda rows: (SimpleNamespace(x=float(x), y=float(y)) for x,y in rows) 
+row_build = lambda rows: (SimpleNamespace(x=float(x), y=float(y)) for x,y in rows)
 
-data_1 = list(row_build(text_parse(text_1))) 
+data_1 = list(row_build(text_parse(text_1)))
 data_2 = list(row_build(text_parse(text_2)))
 
 # we can go like this
-import statistics 
-mean_x = statistics.mean(item.x for item in data_1) 
-stdev_x = statistics.stdev(item.x for item in data_1) 
+import statistics
+mean_x = statistics.mean(item.x for item in data_1)
+stdev_x = statistics.stdev(item.x for item in data_1)
 
-for row in data_1: 
-    z_x = standardize(mean_x, stdev_x, row.x) 
-    print(row, z_x) 
+for row in data_1:
+    z_x = standardize(mean_x, stdev_x, row.x)
+    print(row, z_x)
 
-for row in data_2: 
-    z_x = standardize(mean_x, stdev_x, row.x) 
+for row in data_2:
+    z_x = standardize(mean_x, stdev_x, row.x)
     print(row, z_x)
 
 # to declutter we can also use partial(): specify 1 function, and 2 arguments to it
@@ -1602,14 +1602,14 @@ from functools import partial
 z = partial(standardize, mean_x, stdev_x)
 
 # or we can use a lambda the same way:
-z = lambda x: standardize(mean_v1, stdev_v1, x) 
+z = lambda x: standardize(mean_v1, stdev_v1, x)
 
 # then for both:
-for row in data_1: 
-    print(row, z(row.x)) 
+for row in data_1:
+    print(row, z(row.x))
 
-for row in data_2: 
-    print(row, z(row.x)) 
+for row in data_2:
+    print(row, z(row.x))
 
 ```
 
@@ -1622,62 +1622,62 @@ Note the `reduce()` function doesn't lend itself to partials, because it doesn't
 functions can also return a function object as a result. This means that we can create a function like this:
 
 ```python
-def prepare_z(data): 
-    mean_x = statistics.mean(item.x for item in data_1) 
-    stdev_x = statistics.stdev(item.x for item in data_1) 
-    return partial(standardize, mean_x, stdev_x) 
+def prepare_z(data):
+    mean_x = statistics.mean(item.x for item in data_1)
+    stdev_x = statistics.stdev(item.x for item in data_1)
+    return partial(standardize, mean_x, stdev_x)
 
-z = prepare_z(data_1) 
-for row in data_2: 
-    print(row, z(row.x)) 
+z = prepare_z(data_1)
+for row in data_2:
+    print(row, z(row.x))
 ```
 
 ### Simplifying complex algorithms with immutable data structures
 
 ```python
-from typing import * 
- 
-def get(text: str) -> Iterator[List[str]]: 
-    for line in text.splitlines(): 
-        if len(line) == 0: 
-            continue 
-        yield line.split() 
+from typing import *
 
-from collections import namedtuple 
- 
-DataPair = namedtuple('DataPair', ['x', 'y']) 
- 
-def cleanse(iterable: Iterable[List[str]]) -> Iterator[DataPair]: 
-    for text_items in iterable: 
-    try: 
-        x_amount = float(text_items[0]) 
-        y_amount = float(text_items[1]) 
-        yield DataPair(x_amount, y_amount) 
-    except Exception as ex: 
-        print(ex, repr(text_items)) 
+def get(text: str) -> Iterator[List[str]]:
+    for line in text.splitlines():
+        if len(line) == 0:
+            continue
+        yield line.split()
+
+from collections import namedtuple
+
+DataPair = namedtuple('DataPair', ['x', 'y'])
+
+def cleanse(iterable: Iterable[List[str]]) -> Iterator[DataPair]:
+    for text_items in iterable:
+    try:
+        x_amount = float(text_items[0])
+        y_amount = float(text_items[1])
+        yield DataPair(x_amount, y_amount)
+    except Exception as ex:
+        print(ex, repr(text_items))
 ```
 
 Can be replaced by
 
 ```python
-DataPair = namedtuple('DataPair', ['x', 'y']) 
+DataPair = namedtuple('DataPair', ['x', 'y'])
 RankYDataPair = namedtuple('RankYDataPair', ['y_rank', 'pair'])
-PairIter = Iterable[DataPair] 
+PairIter = Iterable[DataPair]
 RankPairIter = Iterator[RankYDataPair] # special case of Iterable
- 
-def rank_by_y(iterable: PairIter) -> RankPairIter: 
-    all_data = sorted(iterable, key=lambda pair:pair.y) 
-    for y_rank, pair in enumerate(all_data, start=1): 
+
+def rank_by_y(iterable: PairIter) -> RankPairIter:
+    all_data = sorted(iterable, key=lambda pair:pair.y)
+    for y_rank, pair in enumerate(all_data, start=1):
         yield RankYDataPair(y_rank, pair)
 ```
 
 ```text
->>> data = rank_by_y(cleanse(get(text_1))) 
->>> pprint(list(data)) 
-[RankYDataPair(y_rank=1, pair=DataPair(x=4.0, y=4.26)), 
- RankYDataPair(y_rank=2, pair=DataPair(x=7.0, y=4.82)), 
- RankYDataPair(y_rank=3, pair=DataPair(x=5.0, y=5.68)), 
- ..., 
+>>> data = rank_by_y(cleanse(get(text_1)))
+>>> pprint(list(data))
+[RankYDataPair(y_rank=1, pair=DataPair(x=4.0, y=4.26)),
+ RankYDataPair(y_rank=2, pair=DataPair(x=7.0, y=4.82)),
+ RankYDataPair(y_rank=3, pair=DataPair(x=5.0, y=5.68)),
+ ...,
  RankYDataPair(y_rank=11, pair=DataPair(x=12.0, y=10.84))]
  ```
 
@@ -1686,24 +1686,24 @@ def rank_by_y(iterable: PairIter) -> RankPairIter:
 > The typing module includes an alternative to the namedtuple() function: NamedTuple(). This allows specification of a data type for the various items within the tuple. It looks like this:
 
 ```python
-DataPair = NamedTuple('DataPair', [ 
-        ('x', float), 
+DataPair = NamedTuple('DataPair', [
+        ('x', float),
         ('y', float)])
 ```
 
 ### Writing recursive generator functions with the yield from statement
 
 ```python
-def find_path(value, node, path=[]): 
-    if isinstance(node, dict): 
-        for key in node.keys(): 
-            yield from find_path(value, node[key], path+[key]) 
-    elif isinstance(node, list): 
-        for index in range(len(node)): 
-            yield from find_path(value, node[index], path+[index]) 
-    else: 
-        if node == value: 
-            yield path 
+def find_path(value, node, path=[]):
+    if isinstance(node, dict):
+        for key in node.keys():
+            yield from find_path(value, node[key], path+[key])
+    elif isinstance(node, list):
+        for index in range(len(node)):
+            yield from find_path(value, node[index], path+[index])
+    else:
+        if node == value:
+            yield path
 ```
 
 The yield from X statement is shorthand for: `for item in X: yield item`
@@ -1711,14 +1711,14 @@ The yield from X statement is shorthand for: `for item in X: yield item`
 example: find all divisors for a number:
 
 ```python
-def factor_iter(x): 
-    limit = int(math.sqrt(x)+1) 
-    for n in range(2, limit): 
-        q, r = divmod(x, n) 
-        if r == 0: 
-            yield n 
-            yield from factor_iter(q) 
-            return 
+def factor_iter(x):
+    limit = int(math.sqrt(x)+1)
+    for n in range(2, limit):
+        q, r = divmod(x, n)
+        if r == 0:
+            yield n
+            yield from factor_iter(q)
+            return
     yield x
 ```
 
@@ -1730,24 +1730,24 @@ def factor_iter(x):
 from pathlib import Path
 input_path = Path(options.input)
 output_path = input_path.with_suffix('.out')
-input_directory = input_path.parent 
+input_directory = input_path.parent
 input_stem = input_path.stem
 output_stem_pass = input_stem + "_pass"
 # note the / operator assembles the path
-output_path = (input_directory / output_stem_pass).with_suffix('.csv') 
+output_path = (input_directory / output_stem_pass).with_suffix('.csv')
 
 output_parent = input_path.parent / "output"
-input_stem = input_path.stem 
+input_stem = input_path.stem
 output_path = (output_parent / input_stem).with_suffix('.src')
 
 # checking mtime
 file1_path.stat().st_mtime
 
 # deleting a file
-try: 
-    input_path.unlink() 
-except FileNotFoundError as ex: 
-    print("File already deleted") 
+try:
+    input_path.unlink()
+except FileNotFoundError as ex:
+    print("File already deleted")
 
 # finding files
 directory_path = Path(options.file1).parent
